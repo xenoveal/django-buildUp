@@ -1,0 +1,14 @@
+{% extends "user/layout.html" %}
+{% load static %}
+
+{% block title %}Verification{% endblock %}
+{% block body %}
+<div class="row login-register">
+    <div class="col-lg-6 inner-login-register">
+        <div class="top">
+            <h4>Verification Success</h4>
+            <a href="{% url 'loginform' %}">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

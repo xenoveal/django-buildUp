@@ -1,0 +1,38 @@
+{% extends "timelines/layout.html" %}
+
+{% block title %}{{ category.name }} Detail{% endblock %}
+{% block body %}
+<h1>{{ category.name }} Details</h1>
+<div>
+    <h3>{{ content.title }}</h3>
+    <span>{{ category.name }} added by: {{ content.username }}</span>
+    <br>
+    <span>{{ content.timestamp }}</span>
+    <p>Description:<br>{{ content.paragraph }}</p>
+    <span>{{ category.name }} time: {{ content.held_on }}</span>
+    <span>Max participants: {{ content.max_participants }}</span>
+    {% if user not in participants %}
+    <form action="{% url 'join' category.id content.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="join">
+    </form>
+    {% else %}
+    <form action="{% url 'left' category.id content.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="left">
+    </form>
+    {% endif %}
+    <hr>
+    <h4>Participants</h4>
+    <ul>
+        {% for participant in participants %}
+        <li>{{ participant.username }}</li>
+        {% empty %}
+        <li>no participants!</li>
+        {% endfor %}
+    </ul>
+    <hr>
+</div>
+
+<a href="{% url 'categorizedpost' content.category.id %}">back</a>
+{% endblock%}

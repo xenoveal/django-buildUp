@@ -1,0 +1,27 @@
+{% extends "timelines/layout.html" %}
+
+{% block title %}{{ category.name }} Detail{% endblock %}
+{% block body %}
+<h1>{{ category.name }} Details</h1>
+<div>
+    <ul>
+    {% for content in contents %}
+        <li>
+            <h3>{{ content.title }}</h3>
+            <a href="{% url 'detail' category.id content.id %}">See More</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% if login %}
+<div>
+    <form action="{% url 'addtocategory' category.id %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="title"> <br>
+        <textarea type="text" name="paragraph" placeholder="description"></textarea>
+        <input type="submit" value="add">
+    </form>
+</div>
+{% endif %}
+{% endblock%}

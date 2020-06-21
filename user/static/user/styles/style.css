@@ -1,0 +1,192 @@
+body {
+  background-color: white;
+  color: black; }
+
+nav .web_nav .row {
+  height: 64px;
+  border-bottom: 2px solid #e7e7e7; }
+  nav .web_nav .row a {
+    color: black; }
+  nav .web_nav .row a:hover {
+    text-decoration: none;
+    color: #838383; }
+  nav .web_nav .row .left, nav .web_nav .row .right {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    nav .web_nav .row .left .logo, nav .web_nav .row .right .logo {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 33px;
+      /* identical to box height */
+      text-transform: capitalize; }
+    nav .web_nav .row .left .logo:hover, nav .web_nav .row .right .logo:hover {
+      color: black; }
+    nav .web_nav .row .left .signin, nav .web_nav .row .right .signin {
+      background: none;
+      border: none;
+      color: black;
+      outline: none; }
+    nav .web_nav .row .left .signin:hover, nav .web_nav .row .right .signin:hover {
+      color: #838383; }
+    nav .web_nav .row .left .signup, nav .web_nav .row .right .signup {
+      width: 140px;
+      height: 40px;
+      background: #273774;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      color: white; }
+    nav .web_nav .row .left .signup:hover, nav .web_nav .row .right .signup:hover {
+      background-color: #5669b3; }
+nav #msg, nav #msg2 {
+  color: red;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px; }
+nav #capsWarning {
+  color: #273774;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px; }
+
+section {
+  height: 700px;
+  display: flex;
+  align-items: center; }
+  section .value-inner {
+    font-family: Roboto;
+    font-style: normal; }
+    section .value-inner .value-title h1 {
+      font-size: 56px;
+      line-height: 66px;
+      width: 399px;
+      height: 132px; }
+    section .value-inner .value-title p {
+      margin-top: 30px;
+      line-height: 28px;
+      font-size: 20px;
+      width: 422px;
+      height: 85px; }
+    section .value-inner .free_trial {
+      width: 233px;
+      height: 60px;
+      font-size: 18px;
+      line-height: 21px;
+      color: white;
+      border: none;
+      outline: none;
+      margin-top: 15px;
+      background: #273774;
+      border-radius: 5px; }
+    section .value-inner .free_trial:hover {
+      background-color: #5669b3; }
+    section .value-inner .learn_more {
+      width: 151px;
+      height: 60px;
+      background-color: white;
+      border: 1px solid #273774;
+      color: #273774;
+      outline: none;
+      margin-top: 15px;
+      margin-left: 30px;
+      border-radius: 5px;
+      font-size: 18px;
+      line-height: 21px; }
+    section .value-inner .learn_more:hover {
+      background-color: #e7e7e7; }
+  section .login-register {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold; }
+    section .login-register .inner-login-register {
+      padding: 30px;
+      color: #273774;
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: column; }
+      section .login-register .inner-login-register h3 {
+        font-size: 24px;
+        line-height: 36px; }
+      section .login-register .inner-login-register .top {
+        width: 90%;
+        padding: 10px; }
+        section .login-register .inner-login-register .top button {
+          width: 209.33px;
+          height: 37px;
+          background: white;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          border-radius: 18px;
+          border: none;
+          margin-top: 20px;
+          outline: none;
+          font-weight: 500;
+          text-align: center;
+          letter-spacing: -0.333333px;
+          color: black; }
+        section .login-register .inner-login-register .top button:hover {
+          background: #e7e7e7; }
+      section .login-register .inner-login-register form {
+        width: 85%;
+        padding: 10px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal; }
+        section .login-register .inner-login-register form .form-group button {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: #273774; }
+        section .login-register .inner-login-register form a {
+          text-decoration: none;
+          color: black;
+          outline: none; }
+        section .login-register .inner-login-register form a:hover {
+          color: #838383; }
+        section .login-register .inner-login-register form .remember-forgot {
+          display: flex;
+          justify-content: space-between;
+          letter-spacing: -0.015em;
+          font-size: 12px;
+          line-height: 24px;
+          color: black; }
+        section .login-register .inner-login-register form .lastrow {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          line-height: 24px; }
+        section .login-register .inner-login-register form #submit-login, section .login-register .inner-login-register form #submit-register {
+          background-color: #273774;
+          width: 130px;
+          height: 40px;
+          outline: none;
+          border: none;
+          color: white; }
+        section .login-register .inner-login-register form #submit-login:hover, section .login-register .inner-login-register form #submit-register:hover {
+          background-color: #5669b3; }
+
+#registerPasshide, #loginPasshide, #registerPass2hide {
+  display: none; }
+
+/*# sourceMappingURL=style.css.map */

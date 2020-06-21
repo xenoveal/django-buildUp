@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head> 
+<body>
+    <div>
+        {% if login %}
+        <h3>Login</h3>
+        <a href="{% url 'user' %}">User Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <h3>Not Login</h3>
+        <a href="{% url 'user' %}">Login</a>
+        <a href="{% url 'registerform' %}">Register</a>
+        {% endif %}
+    </div>
+    {% block body %}{% endblock %}
+
+    <a href="{% url 'index' %}">timelines</a>
+    <script src="{% static 'timelines/js/script.js' %}"></script>
+</body>
+</html>

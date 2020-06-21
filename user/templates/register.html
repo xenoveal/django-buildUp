@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block section %}
+<div class="row login-register">
+    <div class="col-lg-6 inner-login-register">
+        <div class="top">
+            <h4>Sign Up</h4>
+            <a href="{{url_for('register_google')}}">
+                <button>
+                <span class="iconify" data-inline="false" data-icon="flat-color-icons:google" style="font-size: 24.88343620300293px;"></span>
+                Sign up with Google 
+                </button>
+            </a>
+        </div>
+        <form action="{{ url_for('register') }}" method="POST" id="register">         
+            <div class="form-group row">
+                <input type="text" class="form-control col-lg-11 {% if wrong %}is-invalid{% endif %}" id="registerEmail" placeholder="Email" name="registerEmail">
+                <div class="col-lg-1"></div>
+                {% if wrong %}
+                <span id="msg2">Email already exist!</span>
+                {% else %}  
+                <span id="msg2"></span> 
+                {% endif %}
+            </div>
+            <div class="form-group row">
+                <input type="password" class="form-control col-lg-11" id="registerPass" placeholder="Password" name="registerPass">
+                <button type="button" class="col-lg-1" onclick="toggle_show('registerPass')">
+                    <img src="{{ url_for('static',filename='img/showpass.png') }}" alt="show-pass" id="registerPassshow">
+                    <img src="{{ url_for('static',filename='img/hidepass.png') }}" alt="hide-pass" id="registerPasshide">
+                </button>
+            </div>
+            <div class="form-group row">
+                <input type="password" class="form-control col-lg-11" id="registerPass2" placeholder="Repeat Password" name="registerPass2">
+                <button type="button" class="col-lg-1" onclick="toggle_show('registerPass2')">
+                    <img src="{{ url_for('static',filename='img/showpass.png') }}" alt="show-pass" id="registerPass2show">
+                    <img src="{{ url_for('static',filename='img/hidepass.png') }}" alt="hide-pass" id="registerPass2hide">
+                </button>
+                <span id="msg"></span>
+                <span id="capsWarning"></span>
+            </div>
+            <div class="form-group row">
+                <div class="form-check remember-forgot col-lg-11">
+                    <input class="form-check-input" type="checkbox" id="agreePolicy">
+                    <label class="form-check-label" for="agreePolicy">Agree Our Terms</label>
+                    <a href="{{ url_for('forgot_password') }}">Already have account? Sign in</a>
+                </div> 
+                <div class="col-lg-1"></div>
+            </div>
+          
+            <button type="submit" class="btn btn-primary" id="submit-register">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
