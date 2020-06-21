@@ -1,0 +1,110 @@
+body {
+  font-family: Roboto; }
+  body * {
+    list-style: none; }
+
+@media (min-width: 580px) {
+  .top .logo, .top .profile {
+    display: block; } }
+@media (max-width: 580px) {
+  .top .logo, .top .profile {
+    display: none; } }
+.top {
+  width: 100%;
+  height: 90px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(180.42deg, rgba(120, 124, 169, 0.43) -19.36%, #787CA9 63.64%, rgba(120, 124, 169, 0.51) 181.81%);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 10px 10px; }
+  .top .row {
+    display: flex;
+    justify-content: space-evenly; }
+  .top .logo img {
+    width: 77px;
+    height: 77px;
+    margin-top: 10px;
+    margin-left: 6.0728744939271255vw;
+    filter: brightness(0) invert(1); }
+  .top .main-nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px; }
+    .top .main-nav li {
+      margin-left: 6.747638326585695vw; }
+    .top .main-nav .active {
+      margin-left: 0px; }
+  .top .profile {
+    margin-top: 25px;
+    text-align: right; }
+    .top .profile img {
+      margin-right: 6.0728744939271255vw;
+      width: 82px;
+      height: 82px;
+      border: 8px solid #787CA9;
+      border-radius: 100px; }
+
+.left {
+  position: absolute;
+  left: 0px;
+  top: 132px; }
+  .left .user {
+    margin-left: 116px;
+    display: flex;
+    flex-direction: column; }
+    .left .user .description {
+      display: flex;
+      justify-content: left; }
+      .left .user .description h6 {
+        font-size: 24px;
+        line-height: 30px;
+        margin-left: 7px;
+        margin-top: 10px; }
+      .left .user .description p {
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: -0.015em;
+        margin-left: 7px;
+        width: 147px; }
+      .left .user .description hr {
+        height: 2px;
+        width: 147px;
+        margin-left: 7px;
+        margin-top: 7px;
+        margin-bottom: 5px;
+        background-color: #787CA9; }
+      .left .user .description .profile img {
+        width: 55px;
+        height: 55px;
+        border: 5px solid #E0EAF8;
+        border-radius: 100px; }
+    .left .user .menu {
+      margin-left: 7px;
+      line-height: 21px;
+      font-size: 18px; }
+      .left .user .menu li img {
+        margin-right: 25px; }
+      .left .user .menu hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: #C4C4C4;
+        margin-left: 50px;
+        width: 120px;
+        height: 1px; }
+  .left .community {
+    margin-left: 100px;
+    margin-top: 82px; }
+    .left .community h6 {
+      line-height: 15px;
+      font-size: 24px;
+      letter-spacing: -0.015em; }
+    .left .community hr {
+      width: 220px;
+      height: 2px;
+      background-color: #787CA9;
+      margin-top: 13px;
+      margin-bottom: 27px;
+      margin-left: 0px; }
+
+/*# sourceMappingURL=style.css.map */
