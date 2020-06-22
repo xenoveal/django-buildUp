@@ -1,3 +1,60 @@
-
+section {
+  width: 100%;
+  margin-top: 100px; }
+  section .container {
+    display: flex;
+    flex-direction: column; }
+    section .container .posting {
+      display: flex;
+      justify-content: center;
+      text-align: center; }
+      section .container .posting .input {
+        width: 39.338731443994604vw;
+        height: 102px;
+        border-radius: 5px;
+        background: linear-gradient(-90deg, #0D47A1 0%, #90CAF9 71.19%, #BBDEFB 100%); }
+        section .container .posting .input textarea {
+          width: 39.103778677462886vw;
+          height: 99.2px;
+          outline: none;
+          border: none;
+          margin-top: 1.6px;
+          border-radius: 5px;
+          margin-left: 1px;
+          resize: none;
+          padding: 30px; }
+      section .container .posting .round {
+        width: 95px;
+        height: 95px;
+        border-radius: 100px;
+        border-right: 1px solid #0D47A1;
+        transform: rotate(40deg);
+        position: relative;
+        top: -30px;
+        left: -30px; }
+        section .container .posting .round img {
+          width: 75px;
+          height: 75px;
+          margin-top: 10px;
+          border: 5px solid #E0EAF8;
+          border-radius: 100px;
+          transform: rotate(-40deg); }
+      section .container .posting .menu {
+        position: relative;
+        top: -85px;
+        left: 60px;
+        border-bottom: 1px solid #0D47A1;
+        width: 130px;
+        font-size: 18px; }
+      section .container .posting button {
+        background: #0D47A1;
+        color: white;
+        width: 100px;
+        height: 24px;
+        border: none;
+        outline: none;
+        position: relative;
+        top: -110px;
+        left: 230px; }
 
 /*# sourceMappingURL=timeline.css.map */

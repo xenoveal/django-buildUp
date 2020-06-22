@@ -12,7 +12,6 @@ body{
         list-style: none;
     }
     
-    
     a{
         text-decoration: none;
     }
@@ -28,7 +27,7 @@ body{
             display: block;
         }
     }
-    .left{
+    .left, .right{
         display: block;
     }
 }
@@ -39,7 +38,7 @@ body{
             display: none;
         }
     }
-    .left{
+    .left, .right{
         display: none;
     }
 }
@@ -190,6 +189,7 @@ body{
     .foot{
         margin-left: 9.827260458839406vw;
         text-align: center;
+        font-size: 12px;
         hr{
             margin-top: 20px;
             margin-bottom: 10px;
@@ -203,6 +203,7 @@ body{
         }
         a:hover{
             color: $additional;
+            transition: 0.5s;
         }
     }
 }
@@ -246,7 +247,7 @@ body{
         li{
             margin-right: 7.005398110661268vw;
             text-align: right;
-            font-size: 18px;
+            font-size: 16px;
             img{
                 width: 35px;
                 margin: 15px;
@@ -269,7 +270,7 @@ body{
             height: 2px;
             width: 200px;
             margin-top: 7px;
-            margin-bottom: 5px;
+            margin-bottom: 9px;
             background-color: $primary_color;
         }
         img{
@@ -287,7 +288,7 @@ body{
                 hr{
                     height: 0.5px;
                     width: 140px;
-                    margin-top: 7px;
+                    margin-top: 5px;
                     margin-bottom: 5px;
                     background-color: $grey;
                 }
@@ -319,4 +320,25 @@ body{
             transition: 0.3s;
         }
     }
+}
+
+.msg{
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    left: 1271px;
+    bottom: 10px;
+    
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    font-size: 55px;
+    text-align: center;
+    color: $third_color;
+}
+
+.msg:hover{
+    background-color: rgba(255, 255, 255, 1);
+    transition: 1s;
+    color: black;
 }
