@@ -1,6 +1,8 @@
 section {
   width: 100%;
-  margin-top: 100px; }
+  margin-top: 100px;
+  width: 41vw;
+  margin-left: 30vw; }
   section .container {
     display: flex;
     flex-direction: column; }
@@ -56,5 +58,77 @@ section {
         position: relative;
         top: -110px;
         left: 230px; }
+      section .container .posting button:hover {
+        background: #787CA9;
+        transition: 0.2s; }
+    section .container .break {
+      margin-top: -70px;
+      text-align: right;
+      color: #0D47A1; }
+      section .container .break hr {
+        width: 42.8vw;
+        margin-top: 5px;
+        height: 1px;
+        background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%); }
+    section .container .user-post .head {
+      display: flex;
+      margin-top: 10px; }
+      section .container .user-post .head .pict img {
+        width: 75px;
+        height: 75px;
+        border: 5px solid #E0EAF8;
+        border-radius: 100px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+      section .container .user-post .head .desc {
+        margin-left: 10px;
+        font-size: 18px; }
+        section .container .user-post .head .desc p {
+          font-size: 12px; }
+        section .container .user-post .head .desc .time {
+          margin-top: -5px;
+          display: flex; }
+          section .container .user-post .head .desc .time p {
+            margin-left: 5px; }
+    section .container .user-post .inner-wrap {
+      width: 38.73vw;
+      margin-left: 40px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%);
+      padding: 2px;
+      border-radius: 5px;
+      place-items: center;
+      position: relative;
+      z-index: -1;
+      top: -25px; }
+      section .container .user-post .inner-wrap .inner {
+        background: white;
+        border-radius: 4px;
+        padding: 21px;
+        font-size: 24px; }
+        section .container .user-post .inner-wrap .inner p {
+          margin-left: 39px;
+          margin-right: 10px;
+          text-align: justify;
+          font-size: 14px;
+          line-height: 15px; }
+        section .container .user-post .inner-wrap .inner hr {
+          width: 154px;
+          margin-top: 5px;
+          margin-bottom: 11px;
+          height: 1px;
+          margin-left: 2px;
+          background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%); }
+        section .container .user-post .inner-wrap .inner .icon {
+          display: flex;
+          color: #787CA9; }
+          section .container .user-post .inner-wrap .inner .icon div {
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column; }
+            section .container .user-post .inner-wrap .inner .icon div .total {
+              font-size: 13px;
+              color: black; }
+        section .container .user-post .inner-wrap .inner .active {
+          color: red; }
 
 /*# sourceMappingURL=timeline.css.map */
