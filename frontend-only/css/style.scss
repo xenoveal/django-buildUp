@@ -215,18 +215,23 @@ body{
     .search{
         color: $third_color;
         margin-right: 6.005398110661268vw;
-        width: 258px;
+        width: 250px;
         height: 33px;
         border: 1px solid $third_color;
         border-radius: 25px;
         input{
-            font-weight: 10px;
+            font-size: 15px;
             margin-left: 20px;
+            position: relative;
+            top: -4px;
             width: 180px;
+            height:33px;
         }
         button{
             width: 35px;
+            margin-top: 3px;
             font-size: 20px;
+            margin-left: 5px;
         }
         input, button{
             border: 0px;
@@ -242,10 +247,10 @@ body{
         margin-top: 30px;
         .line{
             position: absolute;
-            right: 6.005398110661268vw;
+            right: 7vw;
         }
         li{
-            margin-right: 7.005398110661268vw;
+            margin-right: 8vw;
             text-align: right;
             font-size: 16px;
             img{
@@ -256,6 +261,7 @@ body{
     }
     .connection{
         margin-top: 40px;
+        margin-right: 4vw;
         h5{
             text-align: center;
             font-size: 20px;
@@ -303,7 +309,7 @@ body{
                 color: $grey;
             }
         }
-        .search{
+        .more{
             background-color: $secondary_color;
             color: $third_color;
             border: 1px solid $third_color;
@@ -314,7 +320,7 @@ body{
             margin-left: 165px;
             outline: none;
         }
-        .search:hover{
+        .more:hover{
             border: 1px solid $additional;
             color: $additional;
             transition: 0.3s;

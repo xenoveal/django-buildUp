@@ -1,0 +1,115 @@
+section {
+  width: 100%;
+  margin-top: 140px;
+  width: 41vw;
+  margin-left: 30vw; }
+  section .container {
+    display: flex;
+    flex-direction: column; }
+  section .head h2 {
+    font-size: 40px;
+    margin-right: 40px; }
+  section .head .search-info button, section .head .filter-info button, section .head .sort-info button {
+    background: none;
+    border: none;
+    outline: none;
+    color: #0D47A1;
+    font-size: 16px; }
+  section .head .search-info button:hover, section .head .filter-info button:hover, section .head .sort-info button:hover {
+    color: #787CA9;
+    transition: 0.2s; }
+  section .head .search-info {
+    width: 213px;
+    height: 27px; }
+    section .head .search-info input {
+      font-size: 12px;
+      border: none;
+      border-bottom: 1px solid #0D47A1; }
+  section .head .info-menu {
+    display: flex;
+    position: relative;
+    left: 10px;
+    top: 20px; }
+  section .head hr {
+    width: 42.8vw;
+    margin-top: 5px;
+    margin-left: -35px;
+    height: 1px;
+    background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%); }
+  section .head .register-new {
+    width: 170px;
+    height: 25px;
+    font-size: 12px;
+    color: #0D47A1;
+    border-radius: 5px;
+    background: none;
+    outline: none;
+    border: 1px solid #0D47A1;
+    margin-bottom: 50px; }
+  section .head .register-new:hover {
+    background-color: #E0EAF8; }
+  section .user-post {
+    margin-left: -25px;
+    margin-bottom: 40px; }
+    section .user-post .inner-wrap {
+      width: 38vw;
+      margin-left: 40px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%);
+      padding: 2px;
+      border-radius: 5px;
+      place-items: center;
+      position: relative;
+      top: -25px; }
+      section .user-post .inner-wrap .inner {
+        background: white;
+        border-radius: 4px;
+        padding: 21px;
+        font-size: 24px;
+        display: flex; }
+        section .user-post .inner-wrap .inner .pict img {
+          width: 155px;
+          height: 155px; }
+        section .user-post .inner-wrap .inner .desc {
+          margin-left: 39px;
+          margin-right: 10px;
+          text-align: justify;
+          font-size: 12px;
+          line-height: 15px;
+          width: 300px; }
+          section .user-post .inner-wrap .inner .desc .bookmark-info {
+            position: relative;
+            text-align: right;
+            font-size: 20px;
+            bottom: 8px;
+            left: 26px; }
+            section .user-post .inner-wrap .inner .desc .bookmark-info button {
+              width: 30px;
+              height: 30px;
+              background: none;
+              outline: none;
+              border: none;
+              color: #787CA9; }
+            section .user-post .inner-wrap .inner .desc .bookmark-info button:hover {
+              color: #0D47A1;
+              transition: 0.2s; }
+            section .user-post .inner-wrap .inner .desc .bookmark-info .active {
+              color: #0D47A1; }
+            section .user-post .inner-wrap .inner .desc .bookmark-info .active:hover {
+              color: #787CA9;
+              transition: 0.2s; }
+          section .user-post .inner-wrap .inner .desc h4 {
+            font-size: 20px; }
+          section .user-post .inner-wrap .inner .desc .see-details {
+            background: none;
+            border-radius: 100px;
+            outline: none;
+            border: 1px solid #0D47A1;
+            width: 113px;
+            height: 19px;
+            color: #0D47A1; }
+          section .user-post .inner-wrap .inner .desc .see-details:hover {
+            background-color: #E0EAF8;
+            transition: 0.5s; }
+
+/*# sourceMappingURL=information.css.map */
