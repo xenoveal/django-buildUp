@@ -3,11 +3,12 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Information</title>
+     <title>Collaboration</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <link rel="stylesheet" href="css/information.css">
+     <link rel="stylesheet" href="css/collaboration.css">
      <link rel="stylesheet" href="css/style.css">
 
+     <script src="js/collaboration.js"></script>
      <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -23,8 +24,8 @@
                        <li class="logo col-lg-4 col-md-3 col-sm-2"><img src="img/logo_bg_transparent.png" alt="logo"></li>
                        <ul class="main-nav col-lg-4 col-md-6 col-sm-8">
                            <li><span class="iconify" data-icon="entypo:home" data-inline="false"></span></li>
-                           <li class="active"><span class="iconify" data-icon="fa-solid:level-up-alt" data-inline="false"></span></li>
-                           <li><span class="iconify" data-icon="ic:round-people-alt" data-inline="false"></span></li>
+                           <li><span class="iconify" data-icon="fa-solid:level-up-alt" data-inline="false"></span></li>
+                           <li class="active"><span class="iconify" data-icon="ic:round-people-alt" data-inline="false"></span></li>
                        </ul>
                        <li class="profile col-lg-4 col-md-3 col-sm-2"><img src="img/images.jpeg" alt="profile-photo"></li>
                    </div>
@@ -141,11 +142,11 @@
         <div class="container">
             <div class="head">
                 <div class="row">
-                    <h2>COMPETITION</h2>
+                    <h2>COLLABORATION</h2>
                     <div class="info-menu">
                         <div class="search-info">
                             <form action="">
-                                <input type="text" placeholder="Search an information">
+                                <input type="text" placeholder="Search an collaboration">
                                 <button type="submit"><span class="iconify" data-icon="bx:bx-search-alt-2" data-inline="false"></span></button>
                             </form>
                         </div>
@@ -162,50 +163,50 @@
                     </div>
                 </div>
                 <hr>
-                <a href=""><button class="register-new">Register an Information</button></a>
+                <button class="register-new" onclick="show()" id="new">Make New Collaboration</button>
+                <button class="register-new hide" onclick="hide()" id="hide">Hide</button>
+
+                <div class="posting" id="new-colabs-form">
+                    <form action="">
+                        <div class="round">
+                            <img src="img/images.jpeg" alt="profile-photo">
+        
+                        </div>
+                        <div class="menu">
+                            <div class="name">
+                                <input type="text" placeholder="Title">
+                            </div>
+                            <div class="team-members">
+                                <label>Team Members</label>
+                                <select name="" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="location">
+
+                            </div>
+                            <div class="category">
+
+                            </div>
+                        </div>
+
+                        <div class="input">
+                            <textarea name="paragraph_text" placeholder="how was your day? type something here.."></textarea>
+                        </div>
+                        <button class="submit">Post</button>
+                    </form>
+                </div>
             </div>
 
-            <div class="user-post">
-                <div class="inner-wrap">
-                    <div class="inner">
-                        <div class="pict">
-                            <img src="img/image2.jpg" alt="profile picture">
-                        </div>
-                        <div class="desc">
-                            <div class="bookmark-info">
-                                <button>
-                                    <span class="iconify" data-icon="ic:twotone-bookmark" data-inline="false"></span>
-                                </button>
-                            </div>
-                            <h4>Code of Brawl Competition</h4>
-                            <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
-                            <a href=""><button class="see-details">Details</button></a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div> <!-- USER POST -->
-
-            <div class="user-post">
-                <div class="inner-wrap">
-                    <div class="inner">
-                        <div class="pict">
-                            <img src="img/image2.jpg" alt="profile picture">
-                        </div>
-                        <div class="desc">
-                            <div class="bookmark-info">
-                                <button class="active">
-                                    <span class="iconify" data-icon="ic:twotone-bookmark" data-inline="false"></span>
-                                </button>
-                            </div>
-                            <h4>Code of Brawl Competition</h4>
-                            <p>sometextsometextsome textsometextsomet extsom etexts omete xsometextsometextsome textsometextsomet extsom etexts omete x sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
-                            <a href=""><button class="see-details">Details</button></a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div> <!-- USER POST -->
         </div>
      </section>
 
