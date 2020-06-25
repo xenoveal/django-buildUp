@@ -1,0 +1,93 @@
+$primary_color: #787CA9;
+$secondary_color: white;
+$third_color: #0D47A1;
+$additional: #30D1FF;
+$minor: #E0EAF8;
+$grey: #C4C4C4;
+
+
+section{
+    width: 100%;
+    margin-top: 100px;
+    width: 41vw;
+    margin-left: 30vw;
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        padding: 0px;
+    }
+    .info-wrap{
+        border-radius: 5px;
+        background: linear-gradient(90deg, $primary_color 0%, $additional 50%, #11171D 100%);
+        padding: 2px;
+    }
+    .info-detail{
+        background-color: $secondary_color;
+        border-radius: 5px;
+        margin-left: 0.5px;
+        padding: 50px;
+        .return{
+            border: 1px solid $third_color;
+            color: $third_color;
+            background: none;
+            outline: none;
+            border-radius: 100px;
+            width: 113px;
+            height: 22px;
+            font-size: 13px;
+            position: relative;
+            top: -20px;
+            left: -20px;
+        }
+        .return:hover{
+            background-color: $minor;
+        }
+        .post-image{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            img{
+                width: 318px;
+                height: 274px;
+                object-fit: cover;
+            }
+            .active{
+                color: $third_color;
+            }
+            button{
+                font-size: 30px;
+                margin-top: 10px;
+                margin-right: -10px;
+                margin-left: -10px;
+                line-height: 0px;
+                border: none;
+                background: $secondary_color;
+                color: $primary_color;
+                outline: none;
+            }
+        }
+        .description, .term{
+            font-size: 14px;
+            h5{
+                font-size: 18px;
+            }
+        }
+    }
+
+    .head{
+        margin-left: 30px;
+        h2{
+            font-size: 24px;
+            margin-right: 40px;
+        }
+        hr{
+            width: 42.8vw;
+            margin-top: 5px;
+            margin-left: -35px;
+            margin-bottom: 30px;
+            height: 1px;
+            background: linear-gradient(90deg, $primary_color 0%, $additional 50%, #11171D 100%);
+        }
+    }
+}
