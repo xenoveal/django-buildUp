@@ -166,7 +166,7 @@
                 <button class="register-new" onclick="show()" id="new">Make New Collaboration</button>
                 <button class="register-new hide" onclick="hide()" id="hide">Hide</button>
 
-                <div class="posting" id="new-colabs-form">
+                <div class="posting hide" id="new-colabs-form">
                     <form action="">
                         <div class="round">
                             <img src="img/images.jpeg" alt="profile-photo">
@@ -174,39 +174,220 @@
                         </div>
                         <div class="menu">
                             <div class="name">
-                                <input type="text" placeholder="Title">
+                                <input type="text" placeholder="Title" name="title">
                             </div>
-                            <div class="team-members">
-                                <label>Team Members</label>
-                                <select name="" id="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
-                            <div class="location">
-
-                            </div>
-                            <div class="category">
-
+                            <div class="selection-details">
+                                <div class="select-inner">
+                                    <select name="" id="">
+                                        <option value=""  selected disabled>Team members</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <div class="select-inner">
+                                    <select name="" id="">
+                                        <option value=""  selected disabled>Category</option>
+                                        <option value="1">Competition</option>
+                                        <option value="2">a</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <div class="select-inner">
+                                    <select name="" id="">
+                                        <option value=""  selected disabled>Location</option>
+                                        <option value="1">Jakarta</option>
+                                        <option value="2">a</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
                         <div class="input">
                             <textarea name="paragraph_text" placeholder="how was your day? type something here.."></textarea>
                         </div>
-                        <button class="submit">Post</button>
+                        <div class="post-now">
+                            <button class="submit">Post</button>
+                            <input type="checkbox">
+                            <label>Share to timeline</label>
+                        </div>
                     </form>
                 </div>
             </div>
 
+
+            <!-- USER POST -->
+            <div class="user-post">
+                <div class="head">
+                    <div class="pict">
+                        <img src="img/image2.jpg" alt="profile picture">
+                    </div>
+                    <div class="desc">
+                        <h5>Arknights Event: Code of Brawl</h5>
+                        <div class="detail">
+                            <div class="time">
+                                <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                                <p>30 mins</p>
+                            </div>
+                            <div class="by">
+                                <p>Posted by: Exusiai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-wrap">
+                    <div class="inner">
+                        <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                        <hr>
+                        <div class="icon">
+                            <div class="icon-inner">
+                                <div>
+                                    <span class="iconify" data-icon="bytesize:mail" data-inline="false"></span>
+                                </div>
+                                <div>
+                                    <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
+                                </div>
+                                <div>
+                                    <span class="iconify active" data-icon="ic:twotone-bookmark" data-inline="false"></span>
+                                </div>
+                            </div>
+                            <div class="icon-inner">
+                                <div>
+                                    <button class="req-colabs">Request Collaboration</button>
+                                </div>
+                                <div>
+                                    <span class="iconify" data-icon="ic:outline-people-alt" data-inline="false"></span>
+                                    <span class="total">2/3</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- USER POST -->
+
+            <!-- USER POST -->
+            <div class="user-post">
+                <div class="head">
+                    <div class="pict">
+                        <img src="img/image2.jpg" alt="profile picture">
+                    </div>
+                    <div class="desc">
+                        <h5>Arknights Event: Code of Brawl</h5>
+                        <div class="detail">
+                            <div class="time">
+                                <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                                <p>30 mins</p>
+                            </div>
+                            <div class="by">
+                                <p>Posted by: Exusiai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-wrap">
+                    <div class="inner">
+                        <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                        <hr>
+                        <div class="icon">
+                            <div class="icon-inner">
+                                <div>
+                                    <span class="iconify" data-icon="bytesize:mail" data-inline="false"></span>
+                                </div>
+                                <div>
+                                    <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
+                                </div>
+                                <div>
+                                    <span class="iconify" data-icon="ic:twotone-bookmark" data-inline="false"></span>
+                                </div>
+                            </div>
+                            <div class="icon-inner">
+                                <div>
+                                    <button class="req-colabs">Request Collaboration</button>
+                                </div>
+                                <div>
+                                    <span class="iconify" data-icon="ic:outline-people-alt" data-inline="false"></span>
+                                    <span class="total">2/3</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- USER POST -->
+            
+            <!-- USER POST -->
+            <div class="user-post">
+                <div class="head">
+                    <div class="pict">
+                        <img src="img/image2.jpg" alt="profile picture">
+                    </div>
+                    <div class="desc">
+                        <h5>Arknights Event: Code of Brawl</h5>
+                        <div class="detail">
+                            <div class="time">
+                                <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                                <p>30 mins</p>
+                            </div>
+                            <div class="by">
+                                <p>Posted by: Exusiai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-wrap">
+                    <div class="inner">
+                        <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                        <hr>
+                        <div class="icon">
+                            <div class="icon-inner">
+                                <div>
+                                    <span class="iconify" data-icon="bytesize:mail" data-inline="false"></span>
+                                </div>
+                                <div>
+                                    <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
+                                </div>
+                                <div>
+                                    <span class="iconify active" data-icon="ic:twotone-bookmark" data-inline="false"></span>
+                                </div>
+                            </div>
+                            <div class="icon-inner">
+                                <div>
+                                    <button class="req-colabs">Request Collaboration</button>
+                                </div>
+                                <div>
+                                    <span class="iconify" data-icon="ic:outline-people-alt" data-inline="false"></span>
+                                    <span class="total">2/3</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- USER POST -->
+            
         </div>
      </section>
 
