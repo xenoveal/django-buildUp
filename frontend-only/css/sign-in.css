@@ -2,6 +2,21 @@ body{
     width: 100%;
     font-family: Roboto;
 }
+
+
+/* Sign in Box */
+
+main .container{
+    box-sizing: border-box;
+    width: 40%;
+    height: 50%;
+    border: 1.5px solid black;
+    display: inline-block;
+    margin-left: 29vw;
+}
+
+/* Footer */
+
 footer .container .footer{
     position: absolute;
     width: 100%;
@@ -68,7 +83,6 @@ footer .footer hr{
 
 footer .container .footer .left2{
     display: flex;
-<<<<<<< HEAD
     margin-left: 7vw;
     margin-top: 1.5vw;
     margin-bottom: 2.8vw;
