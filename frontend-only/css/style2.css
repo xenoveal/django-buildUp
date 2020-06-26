@@ -1,0 +1,91 @@
+body {
+  width: 100%;
+  font-family: Roboto; }
+  body a {
+    text-decoration: none;
+    color: #0D47A1; }
+  body a:hover {
+    text-decoration: none;
+    color: #787CA9;
+    transition: 0.2s; }
+
+/* Footer */
+footer .container .footer {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0px;
+  top: 100%;
+  background: #787CA9;
+  padding-right: 15px;
+  padding-left: 15px; }
+
+footer .container .footer .row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; }
+
+footer .container .footer .left {
+  display: flex;
+  margin-left: 7vw;
+  margin-top: 30px; }
+
+footer .container .footer .left h4 {
+  font-size: 18px;
+  color: white;
+  font-weight: 600; }
+
+footer .container .footer .lead {
+  font-size: 14px;
+  color: white;
+  font-weight: 350;
+  height: 13px; }
+
+footer .container .footer .left .company {
+  margin-left: 7vw; }
+
+footer .container .footer .left .list {
+  margin-left: 20px; }
+
+footer .container .footer .logo {
+  margin-right: 7vw;
+  margin-top: 40px;
+  font-size: 30px;
+  color: white;
+  font-weight: 600; }
+
+footer .container .footer .logo img {
+  width: 100px;
+  height: 100px;
+  filter: brightness(0) invert(1); }
+
+footer .footer hr {
+  background: white;
+  width: 100%; }
+
+footer .container .footer .left2 {
+  display: flex;
+  margin-left: 7vw;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+footer .container .footer .right2 {
+  margin-right: 7vw;
+  margin-top: 10px; }
+
+footer .container a {
+  text-decoration: none;
+  color: white;
+  margin-left: 10px; }
+
+footer .container a:hover {
+  text-decoration: none;
+  color: transparent; }
+
+footer .container a:active {
+  text-decoration: none; }
+
+footer .container a:visited {
+  text-decoration: none; }
+
+/*# sourceMappingURL=style2.css.map */

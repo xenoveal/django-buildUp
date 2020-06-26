@@ -1,116 +1,60 @@
-body{
+main .container {
+  width: 40vw;
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-bottom: 70px;
+  border: 1.5px solid black;
+  margin-top: 100px;
+  display: inline-block;
+  margin-left: 29vw; }
+  main .container h3 {
+    font-size: 24px;
+    margin-top: -40px; }
+  main .container form input {
     width: 100%;
-    font-family: Roboto;
-}
-
-
-/* Sign in Box */
-
-main .container{
-    box-sizing: border-box;
-    width: 40%;
-    height: 50%;
-    border: 1.5px solid black;
-    display: inline-block;
-    margin-left: 29vw;
-}
-
-/* Footer */
-
-footer .container .footer{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    left: 0px;
-    bottom: 0px;
-    background: #787CA9;
-    padding-right:15px;
-    padding-left:15px;
-}
-
-footer .container .footer .row{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-footer .container .footer .left{
-    display: flex;
-    margin-left: 7vw;
-    margin-top: 3vw;
-}
-
-footer .container .footer .left h4{
-    font-size: 25px;
-    color: white;
-    font-weight: 600;
-}
-
-footer .container .footer .lead{
-    font-size: 17px;
-    color: white;
-    font-weight: 350;
-    height: 13px;
-}
-
-footer .container .footer .left .company{
-    margin-left: 7vw;
-}
-
-footer .container .footer .left .list{
     margin-top: 20px;
-    margin-left: 20px;
-}
-
-footer .container .footer .logo{
-    margin-right: 7vw;
-    margin-top: 3.5vw;
-    font-size: 30px;
-    color: white;
-    font-weight: 600;
-}
-
-footer .container .footer .logo img{
-    width: 100px;
-    height: 100px;
-    filter: brightness(0) invert(1); }
-
-footer .footer hr{
-    background: white;
+    border: 1px solid #0D47A1;
+    padding-left: 20px;
+    height: 40px;
+    font-size: 14px; }
+  main .container .logo {
+    text-align: center;
+    position: relative;
+    top: -60px; }
+    main .container .logo img {
+      background-color: white;
+      width: 120px;
+      height: 120px; }
+  main .container .sign-in, main .container .google-login {
     width: 100%;
-
-}
-
-footer .container .footer .left2{
+    height: 40px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    outline: none;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 20px;
+    font-size: 16px; }
+  main .container .sign-in {
+    background: #0D47A1;
+    color: white; }
+  main .container .sign-in:hover {
+    transition: 0.5s;
+    background: #787CA9; }
+  main .container .google-login {
     display: flex;
-    margin-left: 7vw;
-    margin-top: 1.5vw;
-    margin-bottom: 2.8vw;
-}
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #0D47A1;
+    margin-bottom: 30px; }
+    main .container .google-login span {
+      margin: 10px; }
+  main .container .google-login:hover {
+    transition: 0.5s;
+    background-color: #E0EAF8; }
+  main .container .forgot, main .container .register {
+    margin: 5px;
+    text-align: center; }
 
-footer .container .footer .right2{
-    margin-right: 7vw;
-    margin-top: 1.5vw;
-    margin-bottom: 2.8vw;
-}
-
-footer .container a{
-    text-decoration: none;
-    color: white;
-    margin-left: 10px;
-}
-
-footer .container a:hover{
-    text-decoration: none;
-    color: transparent;
-}
-
-footer .container a:active{
-    text-decoration: none;
-}
-
-footer .container a:visited{
-    text-decoration: none;
-}
-
-/* asd */
+/*# sourceMappingURL=sign-in.css.map */

@@ -119,6 +119,8 @@ body {
         margin-left: 50px;
         width: 120px;
         height: 1px; }
+      .left .user .menu .active {
+        color: #0D47A1; }
   .left .community {
     margin-left: 9.827260458839406vw;
     margin-top: 20px; }
