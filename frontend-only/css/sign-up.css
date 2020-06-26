@@ -5,7 +5,6 @@ main .container {
   padding-bottom: 70px;
   border: 1.5px solid black;
   margin-top: 100px;
-  display: inline-block;
   margin-left: 29vw; }
   main .container h3 {
     font-size: 24px;
@@ -61,8 +60,5 @@ main .container {
   main .container .google-login:hover {
     transition: 0.5s;
     background-color: #E0EAF8; }
-  main .container .forgot, main .container .register {
-    margin: 5px;
-    text-align: center; }
 
-/*# sourceMappingURL=sign-in.css.map */
+/*# sourceMappingURL=sign-up.css.map */
