@@ -5,15 +5,26 @@ $additional: #30D1FF;
 $minor: #E0EAF8;
 $grey: #C4C4C4;
  
+@media(max-width: 1000px){
+    main .container{
+        width:90%;
+        margin-left: 10%;
+    }
+}
+
+@media(min-width: 1000px){
+    main .container{
+        width: 40vw;
+        margin-left: 29vw;
+    }
+}
+
 main .container{
-    width: 40vw;
     padding-right: 80px;
     padding-left: 80px;
     padding-bottom: 70px;
     border: 1.5px solid black;
     margin-top: 100px;
-    display: inline-block;
-    margin-left: 29vw;
     h3{
         font-size: 24px;
         margin-top: -40px;
@@ -49,7 +60,7 @@ main .container{
             height: 120px;
         }
     }
-    .sign-in, .google-login{
+    .sign, .google-login{
         width: 100%;
         height: 40px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -60,11 +71,11 @@ main .container{
         margin-top: 20px;
         font-size: 16px;
     }
-    .sign-in{
+    .sign{
         background: $third_color;
         color: $secondary_color;
     }
-    .sign-in:hover{
+    .sign:hover{
         transition: 0.5s;
         background: $primary_color;
     }
@@ -83,7 +94,7 @@ main .container{
         transition: 0.5s;
         background-color: $minor;
     }
-    .forgot, .register{
+    .forgot, .register, .timer{
         margin: 5px;
         text-align: center;
     }

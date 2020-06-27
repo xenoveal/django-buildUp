@@ -1,12 +1,17 @@
+@media (max-width: 1000px) {
+  main .container {
+    width: 90%;
+    margin-left: 10%; } }
+@media (min-width: 1000px) {
+  main .container {
+    width: 40vw;
+    margin-left: 29vw; } }
 main .container {
-  width: 40vw;
   padding-right: 80px;
   padding-left: 80px;
   padding-bottom: 70px;
   border: 1.5px solid black;
-  margin-top: 100px;
-  display: inline-block;
-  margin-left: 29vw; }
+  margin-top: 100px; }
   main .container h3 {
     font-size: 24px;
     margin-top: -40px; }
@@ -33,7 +38,7 @@ main .container {
       background-color: white;
       width: 120px;
       height: 120px; }
-  main .container .sign-in, main .container .google-login {
+  main .container .sign, main .container .google-login {
     width: 100%;
     height: 40px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -43,10 +48,10 @@ main .container {
     font-weight: 500;
     margin-top: 20px;
     font-size: 16px; }
-  main .container .sign-in {
+  main .container .sign {
     background: #0D47A1;
     color: white; }
-  main .container .sign-in:hover {
+  main .container .sign:hover {
     transition: 0.5s;
     background: #787CA9; }
   main .container .google-login {
@@ -61,8 +66,8 @@ main .container {
   main .container .google-login:hover {
     transition: 0.5s;
     background-color: #E0EAF8; }
-  main .container .forgot, main .container .register {
+  main .container .forgot, main .container .register, main .container .timer {
     margin: 5px;
     text-align: center; }
 
-/*# sourceMappingURL=sign-in.css.map */
+/*# sourceMappingURL=user-style.css.map */

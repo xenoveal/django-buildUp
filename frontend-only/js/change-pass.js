@@ -1,16 +1,3 @@
-$('#registerEmail').on('input', function(){
-	var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-	var is_email=re.test($('#registerEmail').val());
-	$('#registerEmail').removeClass('is-invalid');
-	if(($('#registerEmail').val().length > 7) && (is_email)){
-		$('#registerEmail').removeClass('is-invalid').addClass('is-valid')
-		$('#msg').html('');
-	}else{
-		$('#registerEmail').removeClass('is-valid').addClass('is-invalid');
-		$('#msg').html('Give a valid email!');
-	}
-});
-
 $('#registerPass').on('input', function(){
 	if(!(($('#registerPass').val().length > 7) && (/\d/.test($('#registerPass').val())))){
 		$('#registerPass').removeClass('is-valid').addClass('is-invalid');
@@ -32,8 +19,8 @@ $('#registerPass2').on('input', function(){
 	}
 });
 
-$("#sign-up").click(function(event){
-	var form_data=["#registerEmail", "#registerPass", "#registerPass2"];
+$("#change").click(function(event){
+	var form_data=["#registerPass", "#registerPass2"];
 	var error_free=true;
 	for (var index in form_data){
 		var element=$(form_data[index]);
