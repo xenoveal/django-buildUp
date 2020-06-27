@@ -1,6 +1,14 @@
-{% extends "user/layout.html" %}
+{% extends "user/layout-new.html" %}
 
 {% block title %}BuildUp!{% endblock %}
 {% block body %}
 <h1>LANDING PAGE</h1>
+
+{% if login %}
+<a href="{% url 'user' %}">Hello, {{ user.first_name }}</a>
+<a href="{% url 'logout' %}"><button class="signup">Logout</button></a>
+{% else %}
+<a href="{% url 'registerform' %}"><button class="signin">Join Now</button></a>
+<a href="{% url 'loginform' %}"><button class="signup">Sign In</button></a>
+{% endif %}
 {% endblock%}

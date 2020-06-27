@@ -23,7 +23,7 @@ def user(requests):
 
 def registerform(requests):
     if not requests.user.is_authenticated:
-        return render(requests, "user/register.html", {"message": None})
+        return render(requests, "user/sign-up.html", {"message": None})
     return HttpResponseRedirect(reverse("index"))
 
 def register(requests):
@@ -39,9 +39,9 @@ def register(requests):
             extend = UserExtend(user=user)
             extend.save()
         except:
-            return render(requests, "user/register.html", {"message": "Username already exist"})
+            return render(requests, "user/sign-up.html", {"message": "Email already exist"})
         return HttpResponseRedirect("verify/1/"+email)
-    return render(requests, "user/register.html", {"message": "Password not match"})
+    return render(requests, "user/sign-up.html", {"message": "Password not match"})
 
 def verify(requests, method, username):
     if not requests.user.is_authenticated:
@@ -59,17 +59,21 @@ def verify(requests, method, username):
                 subject=f"Verify Your Account {username.split('@')[0]}",
                 message=plain_message,
                 html_message=msg,
-                from_email='From <verification@buildup-id.xyz>',
+                from_email='BuildUp! <verification@buildup-id.xyz>',
                 recipient_list=[username],
                 fail_silently=False,
             )
             token.save()
         except:
-            return HttpResponseServerError("<h1>Failed to Send, please resend the verification code</h1>")             
+            return HttpResponseServerError("<h1>Failed to Send, please resend the verification code</h1>")
+        context = {
+            "username": username,
+            "method": 2
+        }          
         if(method==1):
-            return render(requests, "user/verification.html", {"message": "Sign Up Successful"})
+            return render(requests, "user/verify-signup.html", context)
         elif(method==2):
-            return render(requests, "user/verification.html", {"message": "Your Account is not Verified"})
+            return render(requests, "user/verify-resend.html", context)
     return HttpResponseRedirect(reverse("index"))
 
 def verified(requests, token):
@@ -77,19 +81,23 @@ def verified(requests, token):
         db_token = Token.objects.get(token=token)
     except:
         raise Http404("Token doesn't Exist")
+    verify_user = User.objects.get(have_token=db_token)
     if(confirm_token(token)):
-        verify_user = User.objects.get(have_token=db_token)
         user =  UserExtend(user=verify_user)
         user.verified = True
         user.save()
         Token.objects.filter(user = verify_user).delete()
         return render(requests, "user/verify-success.html")
     else:
-        return HttpResponse("Token Expired!")
+        context = {
+            "username": verify_user.username,
+            "method": 2
+        }
+        return render(requests, "user/verify-expired.html", context)
 
 def loginform(requests):
     if not requests.user.is_authenticated:
-        return render(requests, "user/login.html", {"message": None})
+        return render(requests, "user/sign-in.html", {"message": None})
     return HttpResponseRedirect(reverse("index"))
 
 def login_me(requests):
@@ -103,8 +111,65 @@ def login_me(requests):
         else:
             return HttpResponseRedirect("verify/2/"+username)
     else:
-        return render(requests, "user/login.html", {"message": "Invalid Credentials"})
+        return render(requests, "user/sign-in.html", {"message": "Invalid Credentials"})
 
 def logout_view(requests):
     logout(requests)
-    return render(requests, "user/login.html", {"message": "Logged out."})
+    return render(requests, "user/sign-in.html", {"message": "Logged out."})
+
+def forgot_view(requests):
+    if requests.method=='GET':
+        if not requests.user.is_authenticated:
+            return render(requests, "user/forgot-password.html")
+        return HttpResponseRedirect(reverse("index"))
+    elif requests.method=='POST':
+        username = requests.POST["usernameForgot"]
+        return HttpResponseRedirect("forgot/"+username)
+
+def forgotsend(requests, username):
+    if not requests.user.is_authenticated:
+        t = generate_confirmation_token(username)
+        link = hosting_url+'/forgot/change/'+t
+        context = {
+            "username": username.split('@')[0],
+            "link": link
+            }        
+        msg = render_to_string("user/mail.html", context)
+        plain_message = strip_tags(msg)
+        try:
+            token = Token(token=t, user=User.objects.get(username=username))
+            send_mail(
+                subject=f"Reset BuildUp! Password {username.split('@')[0]}",
+                message=plain_message,
+                html_message=msg,
+                from_email='BuildUp! <verification@buildup-id.xyz>',
+                recipient_list=[username],
+                fail_silently=False,
+            )
+            token.save()
+        except:
+            return HttpResponseServerError("<h1>Failed to Send, please resend the reset password url </h1>")
+        context = {
+            "username": username,
+        }          
+        return render(requests, "user/forgot-sendmail.html", context)
+    return HttpResponseRedirect(reverse("index"))
+
+def forgotchange(requests, token):
+    if(requests.method=="GET"):
+        return render(requests, "user/forgot-change.html", {"token": token})
+    elif(requests.method=="POST"):
+        password = requests.POST["registerPass"]
+        password2 = requests.POST["registerPass2"]
+        if(password==password2):
+            try:
+                db_token = Token.objects.get(token=token)
+            except:
+                raise Http404("Token doesn't Exist")
+            verify_user = User.objects.get(have_token=db_token)
+            verify_user.set_password(password)
+            verify_user.save()
+            Token.objects.filter(user = verify_user).delete()
+            return render(requests, "user/forgot-success.html")
+        context = {"message": "Password not match", "token": token}
+        return render(requests, "user/forgot-change.html", context)
