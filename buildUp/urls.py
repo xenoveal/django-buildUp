@@ -20,5 +20,5 @@ urlpatterns = [
     path('', include('user.urls')),
     path('feed/', include('timelines.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+
 ]

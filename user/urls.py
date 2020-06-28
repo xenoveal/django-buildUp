@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -14,4 +14,7 @@ urlpatterns = [
     path('forgot', views.forgot_view, name= "forgot-password"),
     path('forgot/<str:username>', views.forgotsend, name= "forgotsend"),
     path('forgot/change/<str:token>', views.forgotchange, name= "forgotchange"),
+    path('auth/google', views.google_endpoint, name='auth-google'),
+    path('google-login', include('social_django.urls', namespace='social')),
+    path('google-signup', views.google_register, name='google-signup'),
 ]

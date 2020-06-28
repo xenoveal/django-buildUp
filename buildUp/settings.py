@@ -39,12 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -135,20 +130,13 @@ EMAIL_HOST_PASSWORD = '5ZECe4rDcUkF'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-
 AUTHENTICATION_BACKENDS = (
- 'django.contrib.auth.backends.ModelBackend',
- 'allauth.account.auth_backends.AuthenticationBackend',
- )
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '630158134949-pd5grh25vtme67brml89a69n5a5qo382.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'IAwl2pMU7OUQl3CZ_Vt25qxC'
+
+LOGIN_REDIRECT_URL = '/auth/google'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'

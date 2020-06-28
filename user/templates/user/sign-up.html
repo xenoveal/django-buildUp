@@ -1,6 +1,5 @@
 {% extends "user/layout-new.html" %}
 {% load static %}
-{% load socialaccount %}
 
 {% block title %}Sign In{% endblock %}
 
@@ -23,7 +22,7 @@
                 <button type="submit" class="sign" id="sign-up">Sign Up</button>
             </form>
             <div style="text-align: center;">or</div>
-            <a href="">
+            <a href="{% url 'social:begin' 'google-oauth2' %}">
                 <button class="google-login">
                 <span class="iconify" data-inline="false" data-icon="flat-color-icons:google" style="font-size: 24.88343620300293px;"></span>
                 <span>Continue with Google</span>

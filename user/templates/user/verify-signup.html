@@ -11,10 +11,14 @@
         <div class="signin timer">
             <h3>Sign Up Successful! <br>Please check your e-mail to verify your account</h3>
             <br>
-            <p>Didn't get notification?<br><a href="{% url 'verify' method=method username=username %}">Resend verification</a></p>
-            <div id="timer">00:20</div>
+            <p>Didn't get notification?</p>
+            <a href="{% url 'verify' method=method username=username %}" onclick="sendverify(event)"><button class="verif-resend">Resend verification</button></a>
+            <div id="timer">02:00</div>
         </div>
     </div>
 </main>
+{% endblock %}
 
+{% block js %}
+<script src="{% static 'user/js/verify.js' %}"></script>
 {% endblock %}

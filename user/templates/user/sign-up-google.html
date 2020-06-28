@@ -1,0 +1,27 @@
+{% extends "user/layout-new.html" %}
+{% load static %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block body %}
+<main>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'user/img/logo_bg_transparent.png' %}" alt="logo">
+        </div>
+        <div class="signin">
+            <h3>Sign Up</h3>
+            <form action="{% url 'google-signup' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" readonly value="{{ email }}" class="is-valid" id="registerEmail" name="email">
+                <span id="msg" class="msg"></span>
+                <input type="password" placeholder="Password" id="registerPass" name="passwordregister">
+                <input type="password" placeholder="Repeat Password" id="registerPass2" name="repeatpassword">
+                <span id="msg2" class="msg">{% if message %}{{ message }}{% endif %}</span>
+                <span id="capsWarning" class="msgBlue"></span>
+                <button type="submit" class="sign" id="sign-up">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -14,24 +14,56 @@ from time import sleep
 hosting_url = 'http://127.0.0.1:8000'
 
 # Create your views here.
-def user(requests):
-    context = {
-        "user": requests.user,
-        "login": requests.user.is_authenticated,
-    }
-    return render(requests, "user/index.html", context)
 
-def registerform(requests):
-    if not requests.user.is_authenticated:
-        return render(requests, "user/sign-up.html", {"message": None})
+def google_endpoint(request):
+    email = request.user.email
+    user = User.objects.filter(email=email).first()
+    try:
+        registered = UserExtend.objects.get(user=user)
+        verified = registered.verified
+        if(verified):
+            return HttpResponseRedirect(reverse("index"))
+        else:
+            logout(request)
+            return HttpResponseRedirect("/verify/2/"+email)
+    except: #not registered
+        logout(request)
+        return render(request, "user/sign-up-google.html", {'email': email})
+
+def google_register(request):
+    if(request.method=="POST"):
+        email = request.POST["email"]
+        password = request.POST["passwordregister"]
+        password2 = request.POST["repeatpassword"]
+        if(password == password2):
+            user = User.objects.filter(email=email).first()
+            user.username = email
+            user.set_password(password)
+            user.save()
+            register_user = UserExtend(user=user)
+            register_user.save()
+            return HttpResponseRedirect("verify/1/"+email)
+        else:
+            return render(request, "user/sign-up-google.html", {"message": "Password not match", "email": email})
+
+def user(request):
+    context = {
+        "user": request.user,
+        "login": request.user.is_authenticated,
+    }
+    return render(request, "user/index.html", context)
+
+def registerform(request):
+    if not request.user.is_authenticated:
+        return render(request, "user/sign-up.html", {"message": None})
     return HttpResponseRedirect(reverse("index"))
 
-def register(requests):
-    email = requests.POST["email"].lower()
+def register(request):
+    email = request.POST["email"].lower()
     first_name = email.split('@')[0]
     first_name = first_name[0].upper() + first_name[1:]
-    password = requests.POST["passwordregister"]
-    password2 = requests.POST["repeatpassword"]
+    password = request.POST["passwordregister"]
+    password2 = request.POST["repeatpassword"]
     if(password==password2):
         try:
             user = User.objects.create_user(username=email, email=email, password=password, first_name=first_name)
@@ -39,12 +71,12 @@ def register(requests):
             extend = UserExtend(user=user)
             extend.save()
         except:
-            return render(requests, "user/sign-up.html", {"message": "Email already exist"})
+            return render(request, "user/sign-up.html", {"message": "Email already exist"})
         return HttpResponseRedirect("verify/1/"+email)
-    return render(requests, "user/sign-up.html", {"message": "Password not match"})
+    return render(request, "user/sign-up.html", {"message": "Password not match"})
 
-def verify(requests, method, username):
-    if not requests.user.is_authenticated:
+def verify(request, method, username):
+    if not request.user.is_authenticated:
         t = generate_confirmation_token(username)
         link = hosting_url+'/verified/'+t
         context = {
@@ -71,12 +103,12 @@ def verify(requests, method, username):
             "method": 2
         }          
         if(method==1):
-            return render(requests, "user/verify-signup.html", context)
+            return render(request, "user/verify-signup.html", context)
         elif(method==2):
-            return render(requests, "user/verify-resend.html", context)
+            return render(request, "user/verify-resend.html", context)
     return HttpResponseRedirect(reverse("index"))
 
-def verified(requests, token):
+def verified(request, token):
     try:
         db_token = Token.objects.get(token=token)
     except:
@@ -87,47 +119,47 @@ def verified(requests, token):
         user.verified = True
         user.save()
         Token.objects.filter(user = verify_user).delete()
-        return render(requests, "user/verify-success.html")
+        return render(request, "user/verify-success.html")
     else:
         context = {
             "username": verify_user.username,
             "method": 2
         }
-        return render(requests, "user/verify-expired.html", context)
+        return render(request, "user/verify-expired.html", context)
 
-def loginform(requests):
-    if not requests.user.is_authenticated:
-        return render(requests, "user/sign-in.html", {"message": None})
+def loginform(request):
+    if not request.user.is_authenticated:
+        return render(request, "user/sign-in.html", {"message": None})
     return HttpResponseRedirect(reverse("index"))
 
-def login_me(requests):
-    username = requests.POST["username"]
-    password = requests.POST["password"]
-    user = authenticate(requests, username=username, password=password)
+def login_me(request):
+    username = request.POST["username"]
+    password = request.POST["password"]
+    user = authenticate(request, username=username, password=password)
     if user is not None:
         if(UserExtend.objects.get(user=user).verified):
-            login(requests, user)
+            login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
             return HttpResponseRedirect("verify/2/"+username)
     else:
-        return render(requests, "user/sign-in.html", {"message": "Invalid Credentials"})
+        return render(request, "user/sign-in.html", {"message": "Invalid Credentials"})
 
-def logout_view(requests):
-    logout(requests)
-    return render(requests, "user/sign-in.html", {"message": "Logged out."})
+def logout_view(request):
+    logout(request)
+    return render(request, "user/sign-in.html", {"message": "Logged out."})
 
-def forgot_view(requests):
-    if requests.method=='GET':
-        if not requests.user.is_authenticated:
-            return render(requests, "user/forgot-password.html")
+def forgot_view(request):
+    if request.method=='GET':
+        if not request.user.is_authenticated:
+            return render(request, "user/forgot-password.html")
         return HttpResponseRedirect(reverse("index"))
-    elif requests.method=='POST':
-        username = requests.POST["usernameForgot"]
+    elif request.method=='POST':
+        username = request.POST["usernameForgot"]
         return HttpResponseRedirect("forgot/"+username)
 
-def forgotsend(requests, username):
-    if not requests.user.is_authenticated:
+def forgotsend(request, username):
+    if not request.user.is_authenticated:
         t = generate_confirmation_token(username)
         link = hosting_url+'/forgot/change/'+t
         context = {
@@ -152,15 +184,15 @@ def forgotsend(requests, username):
         context = {
             "username": username,
         }          
-        return render(requests, "user/forgot-sendmail.html", context)
+        return render(request, "user/forgot-sendmail.html", context)
     return HttpResponseRedirect(reverse("index"))
 
-def forgotchange(requests, token):
-    if(requests.method=="GET"):
-        return render(requests, "user/forgot-change.html", {"token": token})
-    elif(requests.method=="POST"):
-        password = requests.POST["registerPass"]
-        password2 = requests.POST["registerPass2"]
+def forgotchange(request, token):
+    if(request.method=="GET"):
+        return render(request, "user/forgot-change.html", {"token": token})
+    elif(request.method=="POST"):
+        password = request.POST["registerPass"]
+        password2 = request.POST["registerPass2"]
         if(password==password2):
             try:
                 db_token = Token.objects.get(token=token)
@@ -170,6 +202,6 @@ def forgotchange(requests, token):
             verify_user.set_password(password)
             verify_user.save()
             Token.objects.filter(user = verify_user).delete()
-            return render(requests, "user/forgot-success.html")
+            return render(request, "user/forgot-success.html")
         context = {"message": "Password not match", "token": token}
-        return render(requests, "user/forgot-change.html", context)
+        return render(request, "user/forgot-change.html", context)
