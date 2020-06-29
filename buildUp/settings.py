@@ -24,6 +24,7 @@ SECRET_KEY = 'x21&tf4&5o%rs)9i6p$ci8=jp(u=#hunudxuma80jn+r2ml653'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SESSION_COOKIE_SAMESITE = None
 
 ALLOWED_HOSTS = []
 
@@ -82,6 +83,18 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+#
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'buildupi_buildup',
+#        'USER': 'buildupi',
+#        'PASSWORD': ':a74T6bl9jKSZ)',
+#        'HOST': 'localhost',
+#        'PORT': '5432'
+#    }
+#}
 
 
 # Password validation

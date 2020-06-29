@@ -7,7 +7,7 @@ $('#loginEmail').on('input', function(){
 		$('#msg').html('');
 	}else{
 		$('#loginEmail').removeClass('is-valid').addClass('is-invalid');
-		$('#msg').html('Give a valid email!');
+		$('#msg').html('Enter a valid email address!');
 	}
 });
 

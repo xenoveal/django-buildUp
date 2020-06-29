@@ -3,7 +3,7 @@ body {
   font-family: Roboto; }
   body a {
     text-decoration: none;
-    color: #0D47A1; }
+    color: #1D2C64; }
   body a:hover {
     text-decoration: none;
     color: #787CA9;
@@ -16,7 +16,7 @@ footer .container .footer {
   height: auto;
   left: 0px;
   top: 100%;
-  background: #787CA9;
+  background: #1D2C64;
   padding-right: 15px;
   padding-left: 15px; }
 

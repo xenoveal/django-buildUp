@@ -1,6 +1,6 @@
 $primary_color: #787CA9;
 $secondary_color: white;
-$third_color: #0D47A1;
+$third_color: #1D2C64;
 $additional: #30D1FF;
 $minor: #E0EAF8;
 $grey: #C4C4C4;
@@ -9,7 +9,7 @@ $grey: #C4C4C4;
     main .container{
         width:90%;
 
-        padding-right: 40px;
+        padding-right: 40px; 
         padding-left: 40px;
         padding-bottom: 30px;
         .logo{
@@ -43,13 +43,16 @@ main .container{
         margin-top: -40px;
     }
     form{
-        .is-valid, input{
+        input{
             width: 100%;
             margin-top: 20px;
             border: 1px solid $third_color;
             padding-left: 20px;
             height: 40px;
             font-size: 14px;
+        }
+        .is-valid{
+            border: 1px solid rgb(0, 179, 0);
         }
         .is-invalid{
             border: 1px solid red;
@@ -83,6 +86,7 @@ main .container{
         font-weight : 500;
         margin-top: 20px;
         font-size: 16px;
+        cursor: pointer;
     }
     .sign{
         background: $third_color;
