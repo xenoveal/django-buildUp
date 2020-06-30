@@ -20,8 +20,20 @@
             <div class="signin">
                 <h3>Change Password</h3>
                 <form action="">
-                    <input type="password" placeholder="New Password" id="registerPass" name="registerPass">
-                    <input type="password" placeholder="Repeat New Password" id="registerPass2" name="registerPass2">
+                    <div class="pass">
+                        <input type="password" placeholder="New Password" id="aPass" name="registerPass">
+                        <button type="button" class="toggle-pass" onclick="toggle_show('aPass')">
+                            <span class="iconify" data-icon="bx:bx-show" data-inline="false" id="aPassshow"></span>
+                            <span class="iconify" data-icon="bx:bx-hide" data-inline="false" id="aPasshide"></span>
+                        </button>
+                    </div>
+                    <div class="pass">
+                        <input type="password" placeholder="Repeat New Password" id="aPass2" name="registerPass2">
+                        <button type="button" class="toggle-pass" onclick="toggle_show('aPass2')">
+                            <span class="iconify" data-icon="bx:bx-show" data-inline="false" id="aPass2show"></span>
+                            <span class="iconify" data-icon="bx:bx-hide" data-inline="false" id="aPass2hide"></span>
+                        </button>
+                    </div>
                     <span id="msg2" class="msg"></span>
                     <span id="capsWarning" class="msgBlue"></span>
                     <button type="submit" class="sign" id="change">Submit</button>
@@ -33,7 +45,7 @@
         <div class="container">
             <div class="footer">
                 <div class="row">
-                    <div class="left">
+                    <div class="left col-lg-7 col-sm-12">
                         <div class="community">
                             <h4>Community</h4>
                             <div class="list">
@@ -49,15 +61,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right">
+                    <div class="right col-lg-4 col-sm-12">
                         <div class="logo"><img src="./img/logo_bg_transparent.png" alt="logo"> BuildUp!</div>
                     </div>
                 </div><hr>
                 <div class="row">
-                    <div class="left2">
+                    <div class="left2 col-lg-5 col-sm-12">
                         <p class="lead">&copy BuildUp!, Inc. 2020</p>
                     </div>
-                    <div class="right2">
+                    <div class="right2 col-lg-5 col-sm-12">
                         <p class="lead">Follow us:
                         <a href="#"><i class="fa fa-facebook-f"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
@@ -74,6 +86,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/change-pass.js"></script>
+    <script src="js/user-js.js"></script>
 </body>
 
 

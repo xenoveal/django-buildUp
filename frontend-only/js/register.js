@@ -11,29 +11,29 @@ $('#registerEmail').on('input', function(){
 	}
 });
 
-$('#registerPass').on('input', function(){
-	if(!(($('#registerPass').val().length > 7) && (/\d/.test($('#registerPass').val())))){
-		$('#registerPass').removeClass('is-valid').addClass('is-invalid');
+$('#aPass').on('input', function(){
+	if(!(($('#aPass').val().length > 7) && (/\d/.test($('#aPass').val())))){
+		$('#aPass').removeClass('is-valid').addClass('is-invalid');
 		$('#msg2').html('Password minimum 8 characters with numeric values');
 	}
 	else{
 		$('#msg2').html('');
-		$('#registerPass').removeClass('is-invalid').addClass('is-valid')
+		$('#aPass').removeClass('is-invalid').addClass('is-valid')
 	}
 });
 
-$('#registerPass2').on('input', function(){
-	if($('#registerPass').val() != $('#registerPass2').val()){
-		$('#registerPass2').removeClass('is-valid').addClass('is-invalid');
+$('#aPass2').on('input', function(){
+	if($('#aPass').val() != $('#aPass2').val()){
+		$('#aPass2').removeClass('is-valid').addClass('is-invalid');
 		$('#msg2').html('Password didn\'t Match!');
 	}else{
 		$('#msg2').html('');
-		$('#registerPass2').removeClass('is-invalid').addClass('is-valid');
+		$('#aPass2').removeClass('is-invalid').addClass('is-valid');
 	}
 });
 
 $("#sign-up").click(function(event){
-	var form_data=["#registerEmail", "#registerPass", "#registerPass2"];
+	var form_data=["#registerEmail", "#aPass", "#aPass2"];
 	var error_free=true;
 	for (var index in form_data){
 		var element=$(form_data[index]);
@@ -48,7 +48,7 @@ $("#sign-up").click(function(event){
 	}
 });
 
-$('#registerPass, #registerPass2').keypress(function(e) { 
+$('#aPass, #aPass2').keypress(function(e) { 
 	var s = String.fromCharCode( e.which );
 
 	if((s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey) ||
@@ -58,22 +58,3 @@ $('#registerPass, #registerPass2').keypress(function(e) {
 		$('#capsWarning').html('');
 	}
 });
-
-function toggle_show(theid){
-	var originalBtn = $('#'+theid);
-	var newBtn = originalBtn.clone();
-	var showlogo = $('#'+theid+'show');
-	var hidelogo = $('#'+theid+'hide');
-	if($('#'+theid).attr('type')==="password"){
-		newBtn.attr("type", "text");
-		hidelogo.css("display", "block")
-		showlogo.css("display", "none")
-	}else{
-		newBtn.attr("type", "password")
-		showlogo.css("display", "block")
-		hidelogo.css("display", "none")
-	}
-	newBtn.insertBefore(originalBtn);
-	originalBtn.remove();
-	newBtn.attr("id", theid);
-}

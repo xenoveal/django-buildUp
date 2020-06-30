@@ -51,6 +51,26 @@ main .container{
             height: 40px;
             font-size: 14px;
         }
+        .pass{
+            position: relative;
+        }
+        #aPasshide, #aPass2hide{
+            display: none;
+        }
+        #aPasshide, #aPass2hide, #aPassshow, #aPass2show{
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            background: url('https://api.iconify.design/bx:bx-show.svg') no-repeat center center / contain;
+        }
+        .toggle-pass{
+            outline: none;
+            border:  none;
+            background: none;
+            position: absolute;
+            bottom:10px;
+            right: 10px;
+        }
         .is-valid{
             border: 1px solid rgb(0, 179, 0);
         }

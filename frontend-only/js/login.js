@@ -11,12 +11,7 @@ $('#loginEmail').on('input', function(){
 	}
 });
 
-$('#loginPass').on('input', function(){
-	$('#loginPass').removeClass('is-invalid')
-	$('#msg').html('');
-});
-
-$('#loginPass').keypress(function(e) { 
+$('#aPass').keypress(function(e) { 
 	var s = String.fromCharCode( e.which );
 
 	if((s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey) ||
@@ -28,7 +23,7 @@ $('#loginPass').keypress(function(e) {
 });
 
 $("#sign-in").click(function(event){
-	var form_data=["#loginEmail", "#loginPass"]
+	var form_data=["#loginEmail", "#aPass"]
 	var error_free=true;
 	for (var index in form_data){
 		var element=$(form_data[index]);

@@ -23,8 +23,20 @@
                 <form action="" method="POST">
                     <input type="text" readonly value="xxx@gmail.com" class="is-valid" id="registerEmail" name="email">
                     <span id="msg" class="msg"></span>
-                    <input type="password" placeholder="Password" id="registerPass" name="passwordregister">
-                    <input type="password" placeholder="Repeat Password" id="registerPass2" name="repeatpassword">
+                    <div class="pass">
+                        <input type="password" placeholder="Password" id="aPass" name="passwordregister">
+                        <button type="button" class="toggle-pass" onclick="toggle_show('aPass')">
+                            <span class="iconify" data-icon="bx:bx-show" data-inline="false" id="aPassshow"></span>
+                            <span class="iconify" data-icon="bx:bx-hide" data-inline="false" id="aPasshide"></span>
+                        </button>
+                    </div>
+                    <div class="pass">
+                        <input type="password" placeholder="Password" id="aPass2" name="repeatpassword">
+                        <button type="button" class="toggle-pass" onclick="toggle_show('aPass2')">
+                            <span class="iconify" data-icon="bx:bx-show" data-inline="false" id="aPass2show"></span>
+                            <span class="iconify" data-icon="bx:bx-hide" data-inline="false" id="aPass2hide"></span>
+                        </button>
+                    </div>
                     <span id="msg2" class="msg"></span>
                     <span id="capsWarning" class="msgBlue"></span>
                     <button type="submit" class="sign" id="sign-up">Sign Up</button>
@@ -36,7 +48,7 @@
         <div class="container">
             <div class="footer">
                 <div class="row">
-                    <div class="left">
+                    <div class="left col-lg-7 col-sm-12">
                         <div class="community">
                             <h4>Community</h4>
                             <div class="list">
@@ -52,15 +64,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right">
+                    <div class="right col-lg-4 col-sm-12">
                         <div class="logo"><img src="./img/logo_bg_transparent.png" alt="logo"> BuildUp!</div>
                     </div>
                 </div><hr>
                 <div class="row">
-                    <div class="left2">
+                    <div class="left2 col-lg-5 col-sm-12">
                         <p class="lead">&copy BuildUp!, Inc. 2020</p>
                     </div>
-                    <div class="right2">
+                    <div class="right2 col-lg-5 col-sm-12">
                         <p class="lead">Follow us:
                         <a href="#"><i class="fa fa-facebook-f"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
@@ -76,7 +88,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/user-js.js"></script>
 </body>
 
 

@@ -30,6 +30,22 @@ main .container form input {
   padding-left: 20px;
   height: 40px;
   font-size: 14px; }
+main .container form .pass {
+  position: relative; }
+main .container form #aPasshide, main .container form #aPass2hide {
+  display: none; }
+main .container form #aPasshide, main .container form #aPass2hide, main .container form #aPassshow, main .container form #aPass2show {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url("https://api.iconify.design/bx:bx-show.svg") no-repeat center center/contain; }
+main .container form .toggle-pass {
+  outline: none;
+  border: none;
+  background: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px; }
 main .container form .is-valid {
   border: 1px solid #00b300; }
 main .container form .is-invalid {
