@@ -24,12 +24,16 @@ body{
         .left{
             flex-direction: column;
             text-align: center;
+            .company{
+                margin-top: 20px;
+            }
         }
         .right{
             text-align: center;
         }
         .lead{
             text-align: center;
+            font-size: 16px;
         }
         .left2{
             justify-content: center;
@@ -55,6 +59,9 @@ body{
         }
         .left2{
             text-align: left;
+        }
+        .lead{
+            font-size: 14px;
         }
         .right2{
             margin-right: 7vw;
@@ -96,7 +103,6 @@ footer .container .footer .left h4{
 }
 
 footer .container .footer .lead{
-    font-size: 14px;
     color: $secondary_color;
     font-weight: 350;
     height: 13px;

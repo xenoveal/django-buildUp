@@ -13,10 +13,13 @@ body {
   footer .container .footer .left {
     flex-direction: column;
     text-align: center; }
+    footer .container .footer .left .company {
+      margin-top: 20px; }
   footer .container .footer .right {
     text-align: center; }
   footer .container .footer .lead {
-    text-align: center; }
+    text-align: center;
+    font-size: 16px; }
   footer .container .footer .left2 {
     justify-content: center; } }
 @media (min-width: 1000px) {
@@ -32,6 +35,8 @@ body {
     text-align: right; }
   footer .container .footer .left2 {
     text-align: left; }
+  footer .container .footer .lead {
+    font-size: 14px; }
   footer .container .footer .right2 {
     margin-right: 7vw; }
   footer .container .footer .left2 {
@@ -62,7 +67,6 @@ footer .container .footer .left h4 {
   font-weight: 600; }
 
 footer .container .footer .lead {
-  font-size: 14px;
   color: white;
   font-weight: 350;
   height: 13px; }
