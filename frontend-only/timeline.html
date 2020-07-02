@@ -23,12 +23,18 @@
                        <li class="logo col-lg-4 col-md-3 col-sm-2"><img src="img/logo_bg_transparent.png" alt="logo"></li>
                        <ul class="main-nav col-lg-4 col-md-6 col-sm-8">
                            <li class="active">
-                               <span class="iconify" data-icon="entypo:home" data-inline="false"></span>
+                            <span class="iconify" data-inline="false" data-icon="ant-design:home-filled"></span>
                             </li>
-                           <li><span class="iconify" data-icon="fa-solid:level-up-alt" data-inline="false"></span></li>
+                           <li><span style="margin-bottom: 5px; font-size: 35px;" class="iconify" data-icon="fa-solid:level-up-alt" data-inline="false"></span></li>
                            <li><span class="iconify" data-icon="ic:round-people-alt" data-inline="false"></span></li>
                        </ul>
                        <li class="profile col-lg-4 col-md-3 col-sm-2"><img src="img/images.jpeg" alt="profile-photo"></li>
+                   </div>
+                   <div class="profile-expand hide">
+                       <ul>
+                           <li><a href="">Profile</a></li>
+                           <li><a href="">Logout</a></li>
+                       </ul>
                    </div>
                </nav>
                <nav class="left">
@@ -36,7 +42,9 @@
                        <ul class="description">
                            <li class="profile"><img src="img/images.jpeg" alt="profile-photo"></li>
                            <li>
-                               <h6>Arknights</h6>
+                               <a href="">
+                                   <h6>Arknights</h6>
+                               </a>
                                <hr>
                                <p>Artificial Intelligence Enthusiasm</p>
                            </li>
@@ -53,18 +61,20 @@
                            <li><img src="img/More.png" alt="more">More</li>
                        </ul>
                    </div>
-                   <div class="community">
-                       <h6>Top Community</h6>
-                       <hr>
-                       <ul>
-                            <li>Chess</li>
-                            <li>Sport</li>
-                            <li>Sneakers</li>
-                            <li>Game</li>
-                            <li>Music</li>
-                       </ul>
-                       <button>Search More</button>
-                   </div>
+                   <!--
+                       <div class="community">
+                           <h6>Top Community</h6>
+                           <hr>
+                           <ul>
+                                <li>Chess</li>
+                                <li>Sport</li>
+                                <li>Sneakers</li>
+                                <li>Game</li>
+                                <li>Music</li>
+                           </ul>
+                           <button>Search More</button>
+                       </div>
+                   -->
                    <div class="foot">
                        <hr>
                        <a href="">Privacy&ensp;&ensp;</a>
@@ -82,7 +92,6 @@
                        </form>
                    </div>
                    <div class="information">
-                       <img class="line" src="img/Line 5.png" alt="line">
                        <li>Competition<img src="img/Competition.png" alt="competition"></li>
                        <li>Scholarship<img src="img/Beasiswa.png" alt="scholarship"></li>
                        <li>Seminar<img src="img/seminar.png" alt="seminar"></li>
@@ -136,7 +145,7 @@
                        <button class="more">Search More</button>
                    </div>
                </nav>
-               <div class="msg"><span class="iconify" data-icon="bpmn:intermediate-event-catch-message" data-inline="false"></span></div>
+               <div class="msg"><span class="iconify" data-icon="ant-design:message-outlined" data-inline="false"></span></div>
           </div>
      </header>
      <section>
@@ -148,13 +157,12 @@
                     </div>
                     <div class="round">
                         <img src="img/images.jpeg" alt="profile-photo">
-    
                     </div>
                     <div class="menu">
-                        <span class="iconify" data-icon="ant-design:camera-filled" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:file-twotone" data-inline="false"></span>
+                        <span class="iconify click" data-icon="ant-design:camera-filled" data-inline="false"></span>
+                        <span class="iconify click" data-icon="ant-design:file-twotone" data-inline="false"></span>
                         <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
-                        <span class="iconify" data-icon="ic:round-arrow-drop-down" data-inline="false"></span>
+                        <span class="iconify click" style="margin-left: -6px;" data-icon="ic:round-arrow-drop-down" data-inline="false"></span>
                     </div>
                     <button class="submit">Post</button>
                 </form>
@@ -170,10 +178,21 @@
                         <img src="img/image2.jpg" alt="profile picture">
                     </div>
                     <div class="desc">
-                        <h5>Exusiai</h5>
+                        <h5><a href="">Exusiai</a></h5>
                         <div class="time">
                             <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
                             <p>30 mins</p>
+                        </div>
+                    </div>
+                    <div class="more">
+                        <span onclick="comment('12312');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                        <div class="more-expand hide" id="12312">
+                            <ul>
+                                <li>Hide Post</li>
+                                <li>Hide All Posts from this User</li>
+                                <li>Turn on Notifications from User</li>
+                                <li>Report</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -183,11 +202,11 @@
                         <hr>
                         <div class="icon">
                             <div>
-                                <span class="iconify active" data-icon="flat-color-icons:like" data-inline="false"></span>
+                                <span onclick="like('1235')" id="1235" style="font-size: 26px; margin-top: -1px;" class="iconify" data-icon="ant-design:heart-twotone" data-inline="false"></span>
                                 <span class="total">126</span>
                             </div>
                             <div>
-                                <span class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
+                                <span onclick="comment('1275')" class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
                                 <span class="total">720</span>
                             </div>
                             <div>
@@ -195,8 +214,94 @@
                                 <span class="total">671</span>
                             </div>
                             <div>
-                                <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                                <span onclick="pin('1234')" id="1234" style="font-size: 29px; margin-top: -1px;" class="iconify active2" data-icon="ic:twotone-bookmark" data-inline="false"></span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="inner hide" id="1275">
+                        <hr style="height: 1px; color: #1D2C64; width: 100%;">
+                        <!-- USER COMMENT-->
+                        <div class="user-post-small">
+                            <div class="head">
+                                <div class="pict">
+                                    <img src="img/image2.jpg" alt="profile picture">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="">Exusiai</a></h5>
+                                    <div class="time">
+                                        <p>30 mins</p>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <span onclick="comment('123142');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                    <div class="more-expand hide" id="123142">
+                                        <ul>
+                                            <li>Hide Post</li>
+                                            <li>Hide All Posts from this User</li>
+                                            <li>Turn on Notifications from User</li>
+                                            <li>Report</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inner-wrap">
+                                <div class="inner">
+                                    <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                    <hr>
+                                    <div class="icon">
+                                        <div>
+                                            <span onclick="like('6666')" id="6666" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
+                                            <span class="total">126</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- USER COMMENT -->
+                        <!-- USER COMMENT-->
+                        <div class="user-post-small">
+                            <div class="head">
+                                <div class="pict">
+                                    <img src="img/image2.jpg" alt="profile picture">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="">Exusiai</a></h5>
+                                    <div class="time">
+                                        <p>30 mins</p>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <span onclick="comment('123132');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                    <div class="more-expand hide" id="123132">
+                                        <ul>
+                                            <li>Hide Post</li>
+                                            <li>Hide All Posts from this User</li>
+                                            <li>Turn on Notifications from User</li>
+                                            <li>Report</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inner-wrap">
+                                <div class="inner">
+                                    <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                    <hr>
+                                    <div class="icon">
+                                        <div>
+                                            <span onclick="like('5555')" id="5555" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
+                                            <span class="total">126</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- USER COMMENT -->
+                        <div class="user-comment">
+                            <form action="">
+                                <textarea name="paragraph_text" placeholder="give your comment.."></textarea>
+                                <div class="round">
+                                    <img src="img/images.jpeg" alt="profile-photo">
+                                </div>
+                                <button class="submit"><span class="iconify" data-icon="bx:bx-send" data-inline="false"></span></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -209,10 +314,21 @@
                         <img src="img/image2.jpg" alt="profile picture">
                     </div>
                     <div class="desc">
-                        <h5>Exusiai</h5>
+                        <h5><a href="">Exusiai</a></h5>
                         <div class="time">
                             <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
                             <p>30 mins</p>
+                        </div>
+                    </div>
+                    <div class="more">
+                        <span onclick="comment('123122');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                        <div class="more-expand hide" id="123122">
+                            <ul>
+                                <li>Hide Post</li>
+                                <li>Hide All Posts from this User</li>
+                                <li>Turn on Notifications from User</li>
+                                <li>Report</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -222,11 +338,11 @@
                         <hr>
                         <div class="icon">
                             <div>
-                                <span class="iconify active" data-icon="flat-color-icons:like" data-inline="false"></span>
+                                <span onclick="like('2234')" id="2234" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
                                 <span class="total">126</span>
                             </div>
                             <div>
-                                <span class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
+                                <span onclick="comment('1111')" class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
                                 <span class="total">720</span>
                             </div>
                             <div>
@@ -234,14 +350,66 @@
                                 <span class="total">671</span>
                             </div>
                             <div>
-                                <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                                <span onclick="pin('2235')" id="2235" style="font-size: 29px; margin-top: -1px;" class="iconify" data-icon="ic:twotone-bookmark" data-inline="false"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="inner hide" id="1111">
+                        <hr style="height: 1px; color: #1D2C64; width: 100%;">
+
+                        <!-- USER COMMENT-->
+                        <div class="user-post-small">
+                            <div class="head">
+                                <div class="pict">
+                                    <img src="img/image2.jpg" alt="profile picture">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="">Exusiai</a></h5>
+                                    <div class="time">
+                                        <p>30 mins</p>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <span onclick="comment('123121');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                    <div class="more-expand hide" id="123121">
+                                        <ul>
+                                            <li>Hide Post</li>
+                                            <li>Hide All Posts from this User</li>
+                                            <li>Turn on Notifications from User</li>
+                                            <li>Report</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inner-wrap">
+                                <div class="inner">
+                                    <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                    <hr>
+                                    <div class="icon">
+                                        <div>
+                                            <span onclick="like('3212')" id="3212" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
+                                            <span class="total">126</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- USER COMMENT -->
+                        <div class="user-comment">
+                            <form action="">
+                                <textarea name="paragraph_text" placeholder="give your comment.."></textarea>
+                                <div class="round">
+                                    <img src="img/images.jpeg" alt="profile-photo">
+                                </div>
+                                <button class="submit"><span class="iconify" data-icon="bx:bx-send" data-inline="false"></span></button>
+                            </form>
+                        </div>
+                        
                     </div>
                 </div>
             </div> <!-- USER POST -->
         </div>
      </section>
 
+     <script src="js/timeline.js"></script>
 </body>
 </html>
