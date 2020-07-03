@@ -1,0 +1,62 @@
+{% extends "timelines/layout.html" %}
+
+{% block title %}Timeline{% endblock %}
+{% block body %}
+<h1>Timeline Home</h1>
+<hr>
+<h2>Category available</h2>
+<ul>
+    {% for category in categories %}
+    <li><a href="{% url 'categorizedpost' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+<hr>
+{% for post in posts %}
+<div class="posts">
+    <h3>{{ post.username }}</h3>
+    <span>
+        <p>{{ post.paragraph }}</p>
+        {% if post.username == user %}
+        <form action="{% url 'editpost' post.id %}" method="POST">
+            {% csrf_token %}
+            <input type="text" value="{{ post.username }}" name="username" hidden>
+            <textarea type="text" name="paragraph"></textarea>
+            <input type="submit" value="edit">
+        </form>
+        <form action="{% url 'deletepost' post.id %}" method="POST">
+            {% csrf_token %}
+            <input type="text" value="{{ post.username }}" name="username" hidden>
+            <input type="submit" value="delete">
+        </form>
+        <br>
+        {% endif %}
+    </span>
+    <span>Liked: {{ post.count_liked }}</span>
+    <span>Timestamp: {{ post.timestamp }}</span>
+    {% if login %}
+        {% if post not in liked %}
+        <form action="{% url 'like' post.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="like">
+        </form>
+        {% else %}
+        <form action="{% url 'unlike' post.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="unlike">
+        </form>
+        {% endif %}
+    {% endif %}
+</div>
+<br>
+{% endfor %}
+<hr>
+{% if login %}
+<div>
+    <form action="{% url 'post' %}" method="POST">
+        {% csrf_token %}
+        <textarea type="text" name="paragraph"></textarea>
+        <input type="submit" value="post">
+    </form>
+</div>
+{% endif %}
+{% endblock%}

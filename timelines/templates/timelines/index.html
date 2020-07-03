@@ -1,62 +1,150 @@
 {% extends "timelines/layout.html" %}
+{% load static %}
 
-{% block title %}Competition{% endblock %}
+{% block title %}Timeline{% endblock %}
 {% block body %}
-<h1>Timeline Home</h1>
-<hr>
-<h2>Category available</h2>
-<ul>
-    {% for category in categories %}
-    <li><a href="{% url 'categorizedpost' category.id %}">{{ category.name }}</a></li>
-    {% endfor %}
-</ul>
-<hr>
-{% for post in posts %}
-<div class="posts">
-    <h3>{{ post.username }}</h3>
-    <span>
-        <p>{{ post.paragraph }}</p>
-        {% if post.username == user %}
-        <form action="{% url 'editpost' post.id %}" method="POST">
-            {% csrf_token %}
-            <input type="text" value="{{ post.username }}" name="username" hidden>
-            <textarea type="text" name="paragraph"></textarea>
-            <input type="submit" value="edit">
-        </form>
-        <form action="{% url 'deletepost' post.id %}" method="POST">
-            {% csrf_token %}
-            <input type="text" value="{{ post.username }}" name="username" hidden>
-            <input type="submit" value="delete">
-        </form>
-        <br>
-        {% endif %}
-    </span>
-    <span>Liked: {{ post.count_liked }}</span>
-    <span>Timestamp: {{ post.timestamp }}</span>
-    {% if login %}
-        {% if post not in liked %}
-        <form action="{% url 'like' post.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="like">
-        </form>
-        {% else %}
-        <form action="{% url 'unlike' post.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="unlike">
-        </form>
-        {% endif %}
-    {% endif %}
-</div>
-<br>
-{% endfor %}
-<hr>
-{% if login %}
-<div>
-    <form action="{% url 'post' %}" method="POST">
-        {% csrf_token %}
-        <textarea type="text" name="paragraph"></textarea>
-        <input type="submit" value="post">
-    </form>
-</div>
-{% endif %}
+<section>
+    <div class="container">
+        <div class="posting">
+            <form action="{% url 'post' %}" method="POST">
+                {% csrf_token %}
+                <div class="input">
+                    <textarea name="paragraph" placeholder="how was your day? type something here.."></textarea>
+                </div>
+                <div class="round">
+                    <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile-photo">
+                </div>
+                <div class="menu">
+                    <span class="iconify click" data-icon="ant-design:camera-filled" data-inline="false"></span>
+                    <span class="iconify click" data-icon="ant-design:file-twotone" data-inline="false"></span>
+                    <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                    <span class="iconify click" style="margin-left: -6px;" data-icon="ic:round-arrow-drop-down" data-inline="false"></span>
+                </div>
+                <button class="submit">Post</button>
+            </form>
+        </div>
+        <div class="break">
+            <div id="filter">
+                <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
+            </div>
+            <hr>
+            <div id="filter-expand" class="hide">
+                <ul>
+                    <li><span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by popularity</li>
+                    <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by recent post</li>
+                </ul>
+            </div>
+        </div>
+        {% for post in posts %}
+        <!-- USER POST -->
+        <div class="user-post">
+            <div class="head">
+                <div class="pict">
+                    <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
+                </div>
+                <div class="desc">
+                    <h5><a href="">{{ post.username }}</a></h5>
+                    <div class="time">
+                        <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                        <p>30 mins</p>
+                    </div>
+                </div>
+                <div class="more">
+                    <span onclick="comment('12312');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                    <div class="more-expand hide" id="12312">
+                        <ul>
+                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
+                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-wrap">
+                <div class="inner">
+                    <p>{{ post.paragraph }}</p>
+                    <hr>
+                    <div class="icon">
+                        <div>
+                            <div onclick="like({{ post.id }})" id="{{ post.id }}" style="margin-left: 0px;">
+                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                            </div>
+                            <span class="total">{{ post.count_liked }}</span>
+                        </div>
+                        <div>
+                            <span onclick="comment('1275')" class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
+                            <span class="total">720</span>
+                        </div>
+                        <div>
+                            <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
+                            <span class="total">671</span>
+                        </div>
+                        <div onclick="pin('1234')" id="1234">
+                            <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner hide" id="1275">
+                    <hr style="height: 1px; color: #1D2C64; width: 100%;">
+                    <!-- USER COMMENT-->
+                    <div class="user-post-small">
+                        <div class="head">
+                            <div class="pict">
+                                <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
+                            </div>
+                            <div class="desc">
+                                <h5><a href="">Exusiai</a></h5>
+                                <div class="time">
+                                    <p>30 mins</p>
+                                </div>
+                            </div>
+                            <div class="more">
+                                <span onclick="comment('123142');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                <div class="more-expand hide" id="123142">
+                                    <ul>
+                                        <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                        <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                        <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                        <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                        <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner-wrap">
+                            <div class="inner">
+                                <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                <hr>
+                                <div class="icon">
+                                    <div>
+                                        <span class="total">126</span>
+                                        <div onclick="like('6666')" id="6666" style="margin-left: 0px;">
+                                            <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- USER COMMENT -->
+                    <div class="user-comment">
+                        <form action="">
+                            <textarea name="paragraph_text" placeholder="give your comment.."></textarea>
+                            <div class="round">
+                                <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile-photo">
+                            </div>
+                            <button class="submit"><span class="iconify" data-icon="bx:bx-send" data-inline="false"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- USER POST -->
+        {% endfor %}
+    </div>
+</section>
 {% endblock%}
+
+{% block script %}
+<script src="{% static 'timelines/js/timeline.js' %}"></script>
+{% endblock %}

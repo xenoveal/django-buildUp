@@ -1,0 +1,248 @@
+section .container .posting, section .container .user-comment {
+  display: flex;
+  justify-content: center;
+  text-align: center; }
+  section .container .posting .input, section .container .user-comment .input {
+    width: 39.338731443994604vw;
+    height: 102px;
+    border: 2px solid #1D2C64; }
+    section .container .posting .input textarea, section .container .user-comment .input textarea {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: none;
+      resize: none;
+      padding: 30px; }
+  section .container .posting .round, section .container .user-comment .round {
+    width: 95px;
+    height: 95px;
+    border-radius: 100px;
+    border-right: 1px solid #1D2C64;
+    transform: rotate(40deg);
+    position: relative;
+    top: -30px;
+    left: -30px; }
+    section .container .posting .round img, section .container .user-comment .round img {
+      width: 75px;
+      height: 75px;
+      margin-top: 10px;
+      border: 2px solid white;
+      border-radius: 100px;
+      transform: rotate(-40deg);
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25); }
+
+section .container .user-post, section .container .user-post-small {
+  margin-left: -25px; }
+  section .container .user-post .head, section .container .user-post-small .head {
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1; }
+    section .container .user-post .head .pict img, section .container .user-post-small .head .pict img {
+      width: 75px;
+      height: 75px;
+      border: 2px solid white;
+      border-radius: 100px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+    section .container .user-post .head .desc, section .container .user-post-small .head .desc {
+      margin-left: 10px;
+      font-size: 18px; }
+      section .container .user-post .head .desc h5, section .container .user-post-small .head .desc h5 {
+        cursor: pointer; }
+      section .container .user-post .head .desc p, section .container .user-post-small .head .desc p {
+        font-size: 12px; }
+      section .container .user-post .head .desc .time, section .container .user-post-small .head .desc .time {
+        margin-top: -5px;
+        display: flex; }
+        section .container .user-post .head .desc .time p, section .container .user-post-small .head .desc .time p {
+          margin-left: 5px; }
+    section .container .user-post .head .more, section .container .user-post-small .head .more {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 25px; }
+      section .container .user-post .head .more .more-expand, section .container .user-post-small .head .more .more-expand {
+        background-color: white;
+        border: 1px solid #1D2C64;
+        position: absolute;
+        right: 6px;
+        top: 30px;
+        width: 200px;
+        line-height: 20px;
+        font-size: 12px; }
+        section .container .user-post .head .more .more-expand .iconify, section .container .user-post-small .head .more .more-expand .iconify {
+          font-size: 16px;
+          position: relative;
+          left: -12px;
+          top: 3px; }
+        section .container .user-post .head .more .more-expand ul, section .container .user-post-small .head .more .more-expand ul {
+          margin-top: 15px; }
+          section .container .user-post .head .more .more-expand ul li:hover, section .container .user-post-small .head .more .more-expand ul li:hover {
+            opacity: 0.8;
+            transition: 0.5s; }
+  section .container .user-post .inner-wrap, section .container .user-post-small .inner-wrap {
+    width: 38vw;
+    margin-left: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 2px solid #1D2C64;
+    padding: 2px;
+    place-items: center;
+    position: relative;
+    top: -25px; }
+    section .container .user-post .inner-wrap .inner, section .container .user-post-small .inner-wrap .inner {
+      background: white;
+      padding: 21px;
+      font-size: 24px; }
+      section .container .user-post .inner-wrap .inner p, section .container .user-post-small .inner-wrap .inner p {
+        margin-left: 39px;
+        margin-right: 10px;
+        text-align: justify;
+        font-size: 14px;
+        line-height: 15px; }
+      section .container .user-post .inner-wrap .inner hr, section .container .user-post-small .inner-wrap .inner hr {
+        width: 154px;
+        margin-top: 5px;
+        margin-bottom: 11px;
+        height: 1px;
+        margin-left: 2px;
+        background: #1D2C64;
+        opacity: 0.5; }
+      section .container .user-post .inner-wrap .inner .icon, section .container .user-post-small .inner-wrap .inner .icon {
+        display: flex;
+        color: #787CA9; }
+        section .container .user-post .inner-wrap .inner .icon .iconify, section .container .user-post-small .inner-wrap .inner .icon .iconify {
+          cursor: pointer; }
+        section .container .user-post .inner-wrap .inner .icon div, section .container .user-post-small .inner-wrap .inner .icon div {
+          margin-left: 15px;
+          display: flex;
+          flex-direction: column; }
+          section .container .user-post .inner-wrap .inner .icon div .total, section .container .user-post-small .inner-wrap .inner .icon div .total {
+            font-size: 13px;
+            color: black; }
+        section .container .user-post .inner-wrap .inner .icon div:hover, section .container .user-post-small .inner-wrap .inner .icon div:hover {
+          opacity: 0.6;
+          transition: 0.3s; }
+      section .container .user-post .inner-wrap .inner .active, section .container .user-post-small .inner-wrap .inner .active {
+        color: red; }
+      section .container .user-post .inner-wrap .inner .active2, section .container .user-post-small .inner-wrap .inner .active2 {
+        color: #1D2C64; }
+
+section {
+  width: 100%;
+  margin-top: 100px;
+  width: 41vw;
+  margin-left: 30vw; }
+  section .container {
+    display: flex;
+    flex-direction: column; }
+    section .container .posting .menu {
+      position: relative;
+      top: -85px;
+      left: 60px;
+      border-bottom: 1px solid #1D2C64;
+      width: 130px;
+      font-size: 18px; }
+      section .container .posting .menu .click {
+        cursor: pointer; }
+      section .container .posting .menu .click:hover {
+        opacity: 0.6;
+        transition: 0.3s; }
+    section .container .posting button {
+      background: #1D2C64;
+      color: white;
+      cursor: pointer;
+      width: 100px;
+      height: 24px;
+      border: none;
+      outline: none;
+      position: relative;
+      top: -110px;
+      left: 230px; }
+    section .container .posting button:hover {
+      background: #787CA9;
+      transition: 0.2s; }
+    section .container .break {
+      margin-top: -70px;
+      text-align: right;
+      color: #1D2C64;
+      position: relative;
+      z-index: 3; }
+      section .container .break .iconify {
+        cursor: pointer; }
+      section .container .break .iconify:hover {
+        opacity: 0.6;
+        transition: 0.2s; }
+      section .container .break hr {
+        width: 42.8vw;
+        margin-top: 5px;
+        margin-left: -35px;
+        opacity: 50%;
+        height: 1px;
+        background: #1D2C64; }
+      section .container .break #filter-expand {
+        background-color: white;
+        width: 180px;
+        height: 80px;
+        position: absolute;
+        right: 0;
+        top: 25px;
+        padding: 10px;
+        border: 1px solid #1D2C64;
+        text-align: left;
+        font-size: 14px; }
+        section .container .break #filter-expand ul {
+          margin-left: -30px; }
+        section .container .break #filter-expand li {
+          cursor: pointer;
+          margin-top: 5px; }
+    section .container .user-post-small {
+      margin-left: 3px; }
+      section .container .user-post-small .head .pict {
+        margin-left: 12px; }
+        section .container .user-post-small .head .pict img {
+          width: 60px;
+          height: 60px; }
+      section .container .user-post-small .head .desc {
+        margin-bottom: 10px; }
+        section .container .user-post-small .head .desc p {
+          font-size: 11px; }
+        section .container .user-post-small .head .desc h5 {
+          font-size: 16px; }
+      section .container .user-post-small .head .more {
+        font-size: 18px;
+        right: 30px; }
+      section .container .user-post-small .inner-wrap {
+        width: 30vw; }
+        section .container .user-post-small .inner-wrap .inner .icon div {
+          flex-direction: row;
+          margin-left: 10px; }
+          section .container .user-post-small .inner-wrap .inner .icon div .total {
+            margin-right: 5px; }
+    section .container .user-comment {
+      font-size: 12px; }
+      section .container .user-comment .round {
+        border: 0; }
+        section .container .user-comment .round img {
+          width: 60px;
+          height: 60px; }
+      section .container .user-comment textarea {
+        height: 30px;
+        width: 30vw;
+        border: 2px solid #1D2C64;
+        resize: none;
+        padding-left: 50px;
+        padding-top: 3px;
+        position: relative;
+        left: 10px;
+        top: 30px; }
+      section .container .user-comment button {
+        position: absolute;
+        outline: none;
+        background: none;
+        border: none;
+        bottom: 93px;
+        right: 50px; }
+
+/*# sourceMappingURL=timeline.css.map */
