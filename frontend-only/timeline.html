@@ -31,10 +31,21 @@
                        <li class="profile col-lg-4 col-md-3 col-sm-2"><img src="img/images.jpeg" alt="profile-photo"></li>
                    </div>
                    <div class="profile-expand hide">
-                       <ul>
-                           <li><a href="">Profile</a></li>
-                           <li><a href="">Logout</a></li>
-                       </ul>
+                       <div class="user">
+                            <ul class="description">
+                                <li><img src="img/images.jpeg" alt="profile-photo"></li>
+                                <li class="profile">
+                                    <h6>Arknights</h6>
+                                    <p>Artificial Intelligence Enthusiasm</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="setting">
+                            <ul>
+                                <li><a href="">View Profile</a></li>
+                                <li><a href="">Sign Out</a></li>
+                            </ul>
+                        </div>
                    </div>
                </nav>
                <nav class="left">
@@ -92,10 +103,10 @@
                        </form>
                    </div>
                    <div class="information">
-                       <li>Competition<img src="img/Competition.png" alt="competition"></li>
-                       <li>Scholarship<img src="img/Beasiswa.png" alt="scholarship"></li>
-                       <li>Seminar<img src="img/seminar.png" alt="seminar"></li>
-                       <li>Event<img src="img/Collaboration.png" alt="event"></li>
+                       <li>Competition<span style="font-size: 30px;" class="iconify logo" data-icon="fa-solid:trophy" data-inline="false"></span></li>
+                       <li>Scholarship<span style="font-size: 38px;" class="iconify logo" data-icon="ic:baseline-school" data-inline="false"></span></li>
+                       <li>Seminar<img src="img/seminar.png" alt=""></li>
+                       <li>Event<span style="margin-left: 16px;" class="iconify logo" data-icon="whh:ticket" data-inline="false"></span></li>
                    </div>
                    <div class="connection">
                        <h5>Extend Connection</h6>
@@ -127,8 +138,6 @@
                                 <span class="iconify" data-icon="eva:person-add-fill" data-inline="false"></span>
                             </div>
                        </div>
-
-
                        <div class="person">
                            <div>
                                <img src="img/images.jpeg" alt="profile">
@@ -168,8 +177,16 @@
                 </form>
             </div>
             <div class="break">
-                <span class="iconify" data-icon="fa-solid:filter" data-inline="false"></span>
+                <div id="filter">
+                    <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
+                </div>
                 <hr>
+                <div id="filter-expand" class="hide">
+                    <ul>
+                        <li><span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by popularity</li>
+                        <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by recent post</li>
+                    </ul>
+                </div>
             </div>
             <!-- USER POST -->
             <div class="user-post">
@@ -188,10 +205,11 @@
                         <span onclick="comment('12312');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
                         <div class="more-expand hide" id="12312">
                             <ul>
-                                <li>Hide Post</li>
-                                <li>Hide All Posts from this User</li>
-                                <li>Turn on Notifications from User</li>
-                                <li>Report</li>
+                                <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
+                                <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
                             </ul>
                         </div>
                     </div>
@@ -202,7 +220,9 @@
                         <hr>
                         <div class="icon">
                             <div>
-                                <span onclick="like('1235')" id="1235" style="font-size: 26px; margin-top: -1px;" class="iconify" data-icon="ant-design:heart-twotone" data-inline="false"></span>
+                                <div onclick="like('1235')" id="1235" style="margin-left: 0px;">
+                                    <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                </div>
                                 <span class="total">126</span>
                             </div>
                             <div>
@@ -213,8 +233,8 @@
                                 <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
                                 <span class="total">671</span>
                             </div>
-                            <div>
-                                <span onclick="pin('1234')" id="1234" style="font-size: 29px; margin-top: -1px;" class="iconify active2" data-icon="ic:twotone-bookmark" data-inline="false"></span>
+                            <div onclick="pin('1234')" id="1234">
+                                <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
                             </div>
                         </div>
                     </div>
@@ -236,10 +256,11 @@
                                     <span onclick="comment('123142');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
                                     <div class="more-expand hide" id="123142">
                                         <ul>
-                                            <li>Hide Post</li>
-                                            <li>Hide All Posts from this User</li>
-                                            <li>Turn on Notifications from User</li>
-                                            <li>Report</li>
+                                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -250,8 +271,10 @@
                                     <hr>
                                     <div class="icon">
                                         <div>
-                                            <span onclick="like('6666')" id="6666" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
                                             <span class="total">126</span>
+                                            <div onclick="like('6666')" id="6666" style="margin-left: 0px;">
+                                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -273,10 +296,11 @@
                                     <span onclick="comment('123132');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
                                     <div class="more-expand hide" id="123132">
                                         <ul>
-                                            <li>Hide Post</li>
-                                            <li>Hide All Posts from this User</li>
-                                            <li>Turn on Notifications from User</li>
-                                            <li>Report</li>
+                                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -287,8 +311,10 @@
                                     <hr>
                                     <div class="icon">
                                         <div>
-                                            <span onclick="like('5555')" id="5555" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
                                             <span class="total">126</span>
+                                            <div onclick="like('5555')" id="5555" style="margin-left: 0px;">
+                                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -324,10 +350,11 @@
                         <span onclick="comment('123122');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
                         <div class="more-expand hide" id="123122">
                             <ul>
-                                <li>Hide Post</li>
-                                <li>Hide All Posts from this User</li>
-                                <li>Turn on Notifications from User</li>
-                                <li>Report</li>
+                                <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
+                                <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
                             </ul>
                         </div>
                     </div>
@@ -338,7 +365,9 @@
                         <hr>
                         <div class="icon">
                             <div>
-                                <span onclick="like('2234')" id="2234" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
+                                <div onclick="like('2234')" id="2234" style="margin-left: 0px;">
+                                    <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                </div>
                                 <span class="total">126</span>
                             </div>
                             <div>
@@ -349,8 +378,8 @@
                                 <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
                                 <span class="total">671</span>
                             </div>
-                            <div>
-                                <span onclick="pin('2235')" id="2235" style="font-size: 29px; margin-top: -1px;" class="iconify" data-icon="ic:twotone-bookmark" data-inline="false"></span>
+                            <div onclick="pin('2235')" id="2235">
+                                <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
                             </div>
                         </div>
                     </div>
@@ -373,10 +402,11 @@
                                     <span onclick="comment('123121');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
                                     <div class="more-expand hide" id="123121">
                                         <ul>
-                                            <li>Hide Post</li>
-                                            <li>Hide All Posts from this User</li>
-                                            <li>Turn on Notifications from User</li>
-                                            <li>Report</li>
+                                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -387,8 +417,10 @@
                                     <hr>
                                     <div class="icon">
                                         <div>
-                                            <span onclick="like('3212')" id="3212" style="font-size: 26px; margin-top: -1px;" class="iconify active" data-icon="ant-design:heart-twotone" data-inline="false"></span>
                                             <span class="total">126</span>
+                                            <div onclick="like('3212')" id="3212" style="margin-left: 0px;">
+                                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

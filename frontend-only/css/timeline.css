@@ -64,16 +64,21 @@ section .container .user-post, section .container .user-post-small {
       font-weight: 400;
       font-size: 25px; }
       section .container .user-post .head .more .more-expand, section .container .user-post-small .head .more .more-expand {
-        background-color: #1D2C64;
+        background-color: white;
+        border: 1px solid #1D2C64;
         position: absolute;
         right: 6px;
         top: 30px;
-        width: 250px;
+        width: 200px;
         line-height: 20px;
-        color: white;
         font-size: 12px; }
+        section .container .user-post .head .more .more-expand .iconify, section .container .user-post-small .head .more .more-expand .iconify {
+          font-size: 16px;
+          position: relative;
+          left: -12px;
+          top: 3px; }
         section .container .user-post .head .more .more-expand ul, section .container .user-post-small .head .more .more-expand ul {
-          margin-top: 10px; }
+          margin-top: 15px; }
           section .container .user-post .head .more .more-expand ul li:hover, section .container .user-post-small .head .more .more-expand ul li:hover {
             opacity: 0.8;
             transition: 0.5s; }
@@ -161,7 +166,9 @@ section {
     section .container .break {
       margin-top: -70px;
       text-align: right;
-      color: #1D2C64; }
+      color: #1D2C64;
+      position: relative;
+      z-index: 3; }
       section .container .break .iconify {
         cursor: pointer; }
       section .container .break .iconify:hover {
@@ -174,6 +181,22 @@ section {
         opacity: 50%;
         height: 1px;
         background: #1D2C64; }
+      section .container .break #filter-expand {
+        background-color: white;
+        width: 180px;
+        height: 80px;
+        position: absolute;
+        right: 0;
+        top: 25px;
+        padding: 10px;
+        border: 1px solid #1D2C64;
+        text-align: left;
+        font-size: 14px; }
+        section .container .break #filter-expand ul {
+          margin-left: -30px; }
+        section .container .break #filter-expand li {
+          cursor: pointer;
+          margin-top: 5px; }
     section .container .user-post-small {
       margin-left: 3px; }
       section .container .user-post-small .head .pict {
@@ -192,6 +215,11 @@ section {
         right: 30px; }
       section .container .user-post-small .inner-wrap {
         width: 30vw; }
+        section .container .user-post-small .inner-wrap .inner .icon div {
+          flex-direction: row;
+          margin-left: 10px; }
+          section .container .user-post-small .inner-wrap .inner .icon div .total {
+            margin-right: 5px; }
     section .container .user-comment {
       font-size: 12px; }
       section .container .user-comment .round {

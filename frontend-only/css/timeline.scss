@@ -84,16 +84,22 @@ $grey: #C4C4C4;
             font-weight: 400;
             font-size: 25px;
             .more-expand{
-                background-color: $third_color;
+                background-color: $secondary_color;
+                border: 1px solid $third_color;
                 position: absolute;
                 right: 6px;
                 top: 30px;
-                width: 250px;
+                width: 200px;
                 line-height: 20px;
-                color: white;
                 font-size: 12px;
+                .iconify{
+                    font-size: 16px;
+                    position: relative;
+                    left: -12px;
+                    top: 3px;
+                }
                 ul{
-                    margin-top: 10px;
+                    margin-top: 15px;
                     li:hover{
                         opacity: 0.8;
                         transition: 0.5s;
@@ -207,6 +213,8 @@ section{
             margin-top: -70px;
             text-align: right;
             color: $third_color;
+            position: relative;
+            z-index: 3;
             .iconify{
                 cursor: pointer;
             }
@@ -221,6 +229,25 @@ section{
                 opacity: 50%;
                 height: 1px;
                 background: $third_color;
+            }
+            #filter-expand{
+                background-color: $secondary_color;
+                width: 180px;
+                height: 80px;
+                position: absolute;
+                right: 0;
+                top: 25px;
+                padding: 10px;
+                border: 1px solid $third_color;
+                text-align: left;
+                font-size: 14px;
+                ul{
+                    margin-left: -30px;
+                }
+                li{
+                    cursor: pointer;
+                    margin-top: 5px;
+                }
             }
         }
         .user-post{
@@ -254,6 +281,16 @@ section{
             }
             .inner-wrap{
                 width: 30vw;
+
+                .inner .icon{
+                    div{
+                        flex-direction: row;
+                        margin-left: 10px;
+                        .total{
+                            margin-right: 5px;
+                        }
+                    }
+                }
             }
         }
         .user-comment{
