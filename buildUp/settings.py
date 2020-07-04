@@ -26,6 +26,8 @@ SECRET_KEY = 'x21&tf4&5o%rs)9i6p$ci8=jp(u=#hunudxuma80jn+r2ml653'
 DEBUG = True
 SESSION_COOKIE_SAMESITE = None
 
+LOGIN_URL = '/login'
+
 ALLOWED_HOSTS = []
 
 

@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block title %}Timeline{% endblock %}
+                            
 {% block body %}
 <section>
     <div class="container">
@@ -36,6 +37,36 @@
             </div>
         </div>
         {% for post in posts %}
+
+        <!-- Modal EDIT -->
+        <div class="modal fade" id="editModal{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit your post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{% url 'editpost' post.id %}" method="POST">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            <input type="text" value="{{ post.username }}" name="username" hidden>
+                            <textarea type="text" name="paragraph"></textarea>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" style="cursor:pointer; border: none; background: none; outline: none;">
+                                <span class="iconify" data-icon="bx:bx-edit" data-inline="false"></span>Edit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL EDIT END -->
+
         <!-- USER POST -->
         <div class="user-post">
             <div class="head">
@@ -43,21 +74,41 @@
                     <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
                 </div>
                 <div class="desc">
-                    <h5><a href="">{{ post.username }}</a></h5>
+                    <h5><a href="">{{ post.username.first_name }} {{ post.username.last_name }}</a></h5>
                     <div class="time">
                         <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
-                        <p>30 mins</p>
+                        <p>{{ post.diff }}</p>
                     </div>
                 </div>
                 <div class="more">
-                    <span onclick="comment('12312');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
-                    <div class="more-expand hide" id="12312">
+                    <span onclick="comment('more{{ post.id }}');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                    <div class="more-expand hide" id="more{{ post.id }}">
                         <ul>
+                            {% if post.username != user %}
                             <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
                             <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
                             <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
                             <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
                             <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
+                            {% else %}
+                            <li>
+                                <!-- Button trigger modal -->
+                                <button type="button" style="cursor:pointer; border: none; background: none; outline: none;" data-toggle="modal" data-target="#editModal{{ post.id }}">
+                                    <span class="iconify" data-icon="bx:bx-edit" data-inline="false"></span>Edit
+                                </button>
+                            </li>
+                            <li>
+                                <form action="{% url 'deletepost' post.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="text" value="{{ post.username }}" name="username" hidden>
+                                    <button type="submit" style="cursor:pointer; border: none; background: none; outline: none;">
+                                        <span class="iconify" data-icon="ic:baseline-delete-outline" data-inline="false"></span>Delete
+                                    </button>
+                                </form>
+                            
+                            </li>
+                           
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -68,26 +119,62 @@
                     <hr>
                     <div class="icon">
                         <div>
-                            <div onclick="like({{ post.id }})" id="{{ post.id }}" style="margin-left: 0px;">
-                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
-                            </div>
-                            <span class="total">{{ post.count_liked }}</span>
+                            {% if post not in liked %}
+                            <form action="{% url 'like' post.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                    <div onclick="like('like{{ post.id }}')" id="like{{ post.id }}" style=" margin-left: 0;">
+                                        <span class="iconify" data-icon="clarity:heart-line" data-inline="false" style="position:relative; top:-3px;"></span>
+                                        <span class="total" style="position: relative; top: -2px;">{{ post.count_liked }}</span>
+                                    </div>
+                                </button>
+                            </form>
+                            {% else %}
+                            <form action="{% url 'unlike' post.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                    <div class="active" onclick="like('like{{ post.id }}')" id="like{{ post.id }}" style="margin-left: 0;">
+                                        <span class="iconify" data-icon="clarity:heart-solid" data-inline="false" style="position:relative; top:-3px;"></span>
+                                        <span class="total" style="position: relative; top: -2px;">{{ post.count_liked }}</span>
+                                    </div>
+                                </button>
+                            </form>
+                            {% endif %}
                         </div>
                         <div>
-                            <span onclick="comment('1275')" class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
-                            <span class="total">720</span>
+                            <span onclick="comment('comment{{ post.id }}')" class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
+                            <span class="total">{{ post.count_comment }}</span>
                         </div>
                         <div>
                             <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
                             <span class="total">671</span>
                         </div>
-                        <div onclick="pin('1234')" id="1234">
-                            <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                        <div>
+                            {% if post not in bookmarked %}
+                            <form action="{% url 'bookmark' post.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                    <div onclick="pin('bookmark{{ post.id }}')" id="bookmark{{ post.id }}" style="margin-left: 0px;">
+                                        <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                                    </div>
+                                </button>
+                            </form>
+                            {% else %}
+                            <form action="{% url 'unbookmark' post.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                    <div class="active2" onclick="pin('bookmark{{ post.id }}')" id="bookmark{{ post.id }}" style="margin-left: 0px;">
+                                        <span class="iconify" data-icon="bi:bookmark-fill" data-inline="false"></span>
+                                    </div>
+                                </button>
+                            </form>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                <div class="inner hide" id="1275">
+                <div class="inner hide" id="comment{{ post.id }}">
                     <hr style="height: 1px; color: #1D2C64; width: 100%;">
+                    {% for comment in post.get_comment %}
                     <!-- USER COMMENT-->
                     <div class="user-post-small">
                         <div class="head">
@@ -95,14 +182,14 @@
                                 <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
                             </div>
                             <div class="desc">
-                                <h5><a href="">Exusiai</a></h5>
+                                <h5><a href="">{{ comment.username.first_name }} {{ comment.username.last_name }}</a></h5>
                                 <div class="time">
                                     <p>30 mins</p>
                                 </div>
                             </div>
                             <div class="more">
-                                <span onclick="comment('123142');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
-                                <div class="more-expand hide" id="123142">
+                                <span onclick="comment('commentmore{{ comment.id }}');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                <div class="more-expand hide" id="commentmore{{ comment.id }}">
                                     <ul>
                                         <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
                                         <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
@@ -115,12 +202,12 @@
                         </div>
                         <div class="inner-wrap">
                             <div class="inner">
-                                <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                <p>{{ comment.paragraph }}</p>
                                 <hr>
                                 <div class="icon">
                                     <div>
-                                        <span class="total">126</span>
-                                        <div onclick="like('6666')" id="6666" style="margin-left: 0px;">
+                                        <span class="total">{{ comment.count_liked }}</span>
+                                        <div onclick="like('likecomment{{ comment.id }}')" id="likecomment{{ comment.id }}" style="margin-left: 0px;">
                                             <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
                                         </div>
                                     </div>
@@ -128,9 +215,11 @@
                             </div>
                         </div>
                     </div> <!-- USER COMMENT -->
+                    {% endfor %}
                     <div class="user-comment">
-                        <form action="">
-                            <textarea name="paragraph_text" placeholder="give your comment.."></textarea>
+                        <form action="{% url 'comment' post.id %}" method="POST">
+                            {% csrf_token %}
+                            <textarea name="paragraph" placeholder="give your comment.."></textarea>
                             <div class="round">
                                 <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile-photo">
                             </div>
