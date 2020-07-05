@@ -31,8 +31,30 @@
             <hr>
             <div id="filter-expand" class="hide">
                 <ul>
-                    <li><span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by popularity</li>
-                    <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by recent post</li>
+                    <!--
+                        <li>
+                            {% if popular_desc %}
+                            <a href="{% url 'index' %}">
+                                <span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by popularity
+                            </a>
+                            {% else %}
+                            <a href="{% url 'index' %}">
+                                <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by popularity
+                            </a>
+                            {% endif %}
+                        </li>
+                    -->
+                    <li>
+                        {% if desc %}
+                        <a href="{% url 'index' 'asc' %}">
+                            <span class="iconify" data-icon="bx:bx-sort-up" data-inline="false"></span>&ensp;Sort by oldest post
+                        </a>
+                        {% else %}
+                        <a href="{% url 'index' %}">
+                            <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by recent post
+                        </a>
+                        {% endif %}
+                    </li>
                 </ul>
             </div>
         </div>
@@ -174,7 +196,36 @@
                 </div>
                 <div class="inner hide" id="comment{{ post.id }}">
                     <hr style="height: 1px; color: #1D2C64; width: 100%;">
-                    {% for comment in post.get_comment %}
+                    {% for comment in post.comments %}
+
+                    <!-- Modal COMMENT EDIT -->
+                    <div class="modal fade" id="editCommentModal{{ comment.id }}" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Edit your comment</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="{% url 'editcomment' comment.id %}" method="POST">
+                                    <div class="modal-body">
+                                        {% csrf_token %}
+                                        <input type="text" value="{{ comment.username }}" name="username" hidden>
+                                        <textarea type="text" name="paragraph"></textarea>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" style="cursor:pointer; border: none; background: none; outline: none;">
+                                            <span class="iconify" data-icon="bx:bx-edit" data-inline="false"></span>Edit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MODAL COMMENT EDIT END -->
                     <!-- USER COMMENT-->
                     <div class="user-post-small">
                         <div class="head">
@@ -184,18 +235,39 @@
                             <div class="desc">
                                 <h5><a href="">{{ comment.username.first_name }} {{ comment.username.last_name }}</a></h5>
                                 <div class="time">
-                                    <p>30 mins</p>
+                                    <p>{{ comment.diff }}</p>
                                 </div>
                             </div>
                             <div class="more">
                                 <span onclick="comment('commentmore{{ comment.id }}');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
                                 <div class="more-expand hide" id="commentmore{{ comment.id }}">
                                     <ul>
+                                        {% if comment.username != user %}
                                         <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
                                         <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
                                         <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
                                         <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
                                         <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                                        {% else %}
+                                        <li>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" style="cursor:pointer; border: none; background: none; outline: none;" data-toggle="modal" data-target="#editCommentModal{{ comment.id }}">
+                                                <span class="iconify" data-icon="bx:bx-edit" data-inline="false"></span>Edit
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <form action="{% url 'deletecomment' comment.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="text" value="{{ comment.username }}" name="username" hidden>
+                                                <button type="submit" style="cursor:pointer; border: none; background: none; outline: none;">
+                                                    <span class="iconify" data-icon="ic:baseline-delete-outline" data-inline="false"></span>Delete
+                                                </button>
+                                            </form>
+                                        
+                                        </li>
+                                    
+                                        {% endif %}
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -206,10 +278,27 @@
                                 <hr>
                                 <div class="icon">
                                     <div>
-                                        <span class="total">{{ comment.count_liked }}</span>
-                                        <div onclick="like('likecomment{{ comment.id }}')" id="likecomment{{ comment.id }}" style="margin-left: 0px;">
-                                            <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
-                                        </div>
+                                        {% if comment not in comment_liked %}
+                                        <form action="{% url 'like_comment' comment.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                                <div onclick="like('likecomment{{ comment.id }}')" id="like('likecomment{{ comment.id }}')" style=" margin-left: 0;">
+                                                    <span class="total">{{ comment.count_liked }}</span>
+                                                    <span class="iconify" data-icon="clarity:heart-line" data-inline="false" style="position:relative; top:-3px;"></span>
+                                                </div>
+                                            </button>
+                                        </form>
+                                        {% else %}
+                                        <form action="{% url 'unlike_comment' comment.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                                <div class="active" onclick="like('like{{ post.id }}')" id="like{{ post.id }}" style="margin-left: 0;">
+                                                    <span class="total">{{ comment.count_liked }}</span>
+                                                    <span class="iconify" data-icon="clarity:heart-solid" data-inline="false" style="position:relative; top:-3px;"></span>
+                                                </div>
+                                            </button>
+                                        </form>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

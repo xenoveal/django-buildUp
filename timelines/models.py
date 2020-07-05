@@ -30,6 +30,9 @@ class commentPrivatePost(models.Model):
 
     def count_liked(self):
         return f"{self.commentLike.count()}"
+        
+    def __str__(self):
+        return f"\"{self.paragraph}\" ({self.username} on {self.timestamp})"
 
 class Category(models.Model):
     name = models.CharField(max_length=20)

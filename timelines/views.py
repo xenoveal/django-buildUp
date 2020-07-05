@@ -3,46 +3,38 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpRespons
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import *
-import datetime
+from .others import get_time, select_time_to_show
 
 # Create your views here.
 @login_required
-def index(requests):
-    try:
-        liked = requests.user.liked.all()
-    except:
-        liked = None
-    try:
-        bookmarked = requests.user.bookmarked.all()
-    except:
-        bookmarked = None
+def index(requests, sort_type="desc"):
+    liked = requests.user.liked.all()
+    comment_liked = requests.user.liked_comment.all()
+    bookmarked = requests.user.bookmarked.all()
     context = {
         'categories': Category.objects.all(),
         'posts': PrivatePost.objects.all(),
         'login': requests.user.is_authenticated,
         'user': requests.user,
         'liked': liked,
-        'bookmarked': bookmarked
+        'comment_liked': comment_liked,
+        'bookmarked': bookmarked,
+        'desc': True,
     }
-    now = datetime.datetime.now(datetime.timezone.utc)
-    context["posts"] = context["posts"].order_by('-timestamp')
+    if(sort_type == "desc"):
+        context["posts"] = context["posts"].order_by('-timestamp')
+    else:
+        context["posts"] = context["posts"].order_by('timestamp')
+        context["desc"] = False
     for i in context["posts"]:
-        time = now - i.timestamp
-        sec = time.total_seconds()
-        day = divmod(sec, 24*60*60)[0]
-        hour = divmod(sec, 60*60)[0] - day*24
-        mins = divmod(sec, 60)[0] - hour*60
-        sec = sec - mins*60
-        if(day<1):
-            if(hour<1):
-                if(mins<1):
-                    i.diff = str(int(sec))+' seconds ago'
-                else:
-                    i.diff = str(int(mins))+' mins ago'
-            else:
-                i.diff = str(int(hour))+' hour ago'
-        else:
-            i.diff = str(int(day))+' day ago'
+        dt = i.timestamp
+        day, hour, mins, sec = get_time(dt)
+        i.diff = select_time_to_show(day, hour, mins, sec)
+        i.comments = i.get_comment()
+        for j in i.comments:
+            dt = j.timestamp
+            day, hour, mins, sec = get_time(dt)
+            j.diff = select_time_to_show(day, hour, mins, sec)
     return render(requests, "timelines/index.html", context)
 
 def categorypost(requests, category_id):
@@ -104,6 +96,14 @@ def post(requests):
     privatepost.save()
     return HttpResponseRedirect(reverse("index"))
 
+def edit(requests, post_id):
+    pp = PrivatePost.objects.get(pk=post_id)
+    if(requests.POST["username"] == requests.user.username):
+        if(requests.POST["paragraph"] != ""):
+            pp.paragraph = requests.POST["paragraph"]
+            pp.save()
+    return HttpResponseRedirect(reverse("index"))
+
 def delete(requests, post_id):
     pp = PrivatePost.objects.get(pk=post_id)
     if(requests.POST["username"] == requests.user.username):
@@ -134,14 +134,6 @@ def unbookmark(requests, post_id):
     pp.bookmarked.remove(user) 
     return HttpResponseRedirect(reverse("index"))
 
-def edit(requests, post_id):
-    pp = PrivatePost.objects.get(pk=post_id)
-    if(requests.POST["username"] == requests.user.username):
-        if(requests.POST["paragraph"] != ""):
-            pp.paragraph = requests.POST["paragraph"]
-            pp.save()
-    return HttpResponseRedirect(reverse("index"))
-
 def comment(requests, post_id):
     paragraph = requests.POST["paragraph"]
     privatepost = PrivatePost.objects.get(pk=post_id)
@@ -149,6 +141,20 @@ def comment(requests, post_id):
     comment.save()
     return HttpResponseRedirect(reverse("index"))
     
+def editcomment(requests, comment_id):
+    cpp = commentPrivatePost.objects.get(pk=comment_id)
+    if(requests.POST["username"] == requests.user.username):
+        if(requests.POST["paragraph"] != ""):
+            cpp.paragraph = requests.POST["paragraph"]
+            cpp.save()
+    return HttpResponseRedirect(reverse("index"))
+    
+def deletecomment(requests, comment_id):
+    cpp = commentPrivatePost.objects.get(pk=comment_id)
+    if(requests.POST["username"] == requests.user.username):
+        cpp.delete() 
+    return HttpResponseRedirect(reverse("index"))
+
 def likecomment(requests, comment_id):
     user = User.objects.get(username=requests.user) 
     cpp = commentPrivatePost.objects.get(pk=comment_id)
