@@ -72,6 +72,59 @@ body{
     } 
 }
 
+
+
+header{
+    background-color: $third_color;
+    position: fixed;
+    height: 78px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        ul{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-right: 50px;
+            margin-left: 50px;
+
+            .auth{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                border: 1px solid $secondary_color;
+                border-radius: 5px;
+                text-align: center;
+            }
+            .logo{
+                *{
+                    font-weight: 600;
+                    font-size: 20;
+                }
+            }
+            li{
+                *{
+                    color: $secondary_color;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+                img{
+                    width: 55px;
+                    height: 55px;
+                    margin-top: 5px;
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+    }
+}
+
 /* Footer */
 
 footer .container .footer{
@@ -79,7 +132,6 @@ footer .container .footer{
     width: 100%;
     height: auto;
     left: 0px;
-    top: 100%;
     background: $third_color;
     padding-right:15px;
     padding-left:15px;

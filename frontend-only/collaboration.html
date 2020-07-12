@@ -156,9 +156,19 @@
                             </button>
                         </div>
                         <div class="sort-info">
-                            <button>
+
+                            <button onclick="comment('11111');">
                                 <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>
                             </button>
+                            <div class="sort-expand hide" id="11111">
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by recent post
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -196,30 +206,117 @@
                                     <select name="" id="">
                                         <option value=""  selected disabled>Category</option>
                                         <option value="1">Competition</option>
-                                        <option value="2">a</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
+                                        <option value="2">Scholarship</option>
+                                        <option value="3">Seminar</option>
+                                        <option value="4">Event</option>
+                                        <option value="5">Others</option>
                                     </select>
                                 </div>
                                 <div class="select-inner">
                                     <select name="" id="">
                                         <option value=""  selected disabled>Location</option>
-                                        <option value="1">Jakarta</option>
-                                        <option value="2">a</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
+                                        <option value="ACEH">
+                                            ACEH
+                                        </option>
+                                        <option value="SUMATERA UTARA">
+                                            SUMATERA UTARA
+                                        </option>
+                                        <option value="SUMATERA BARAT">
+                                            SUMATERA BARAT
+                                        </option>
+                                        <option value="RIAU">
+                                            R I A U
+                                        </option>
+                                        <option value="JAMBI">
+                                            JAMBI
+                                        </option>
+                                        <option value="SUMATERA SELATAN">
+                                            SUMATERA SELATAN
+                                        </option>
+                                        <option value="BENGKULU">
+                                            BENGKULU
+                                        </option>
+                                        <option value="LAMPUNG">
+                                            LAMPUNG
+                                        </option>
+                                        <option value="K. BANGKA BELITUNG">
+                                            K. BANGKA BELITUNG
+                                        </option>
+                                        <option value="KEPULAUAN RIAU">
+                                            KEPULAUAN RIAU
+                                        </option>
+                                        <option value="DKI JAKARTA">
+                                            DKI JAKARTA
+                                        </option>
+                                        <option value="JAWA BARAT">
+                                            JAWA BARAT
+                                        </option>
+                                        <option value="JAWA TENGAH">
+                                            JAWA TENGAH
+                                        </option>
+                                        <option value="DI YOGYAKARTA">
+                                            DI YOGYAKARTA
+                                        </option>
+                                        <option value="JAWA TIMUR">
+                                            JAWA TIMUR
+                                        </option>
+                                        <option value="BANTEN">
+                                            BANTEN
+                                        </option>
+                                        <option value="BALI">
+                                            BALI
+                                        </option>
+                                        <option value="NTB">
+                                            NTB
+                                        </option>
+                                        <option value="NTT">
+                                            NTT
+                                        </option>
+                                        <option value="KALIMANTAN BARAT">
+                                            KALIMANTAN BARAT
+                                        </option>
+                                        <option value="KALIMANTAN TENGAH">
+                                            KALIMANTAN TENGAH
+                                        </option>
+                                        <option value="KALIMANTAN SELATAN">
+                                            KALIMANTAN SELATAN
+                                        </option>
+                                        <option value="KALIMANTAN TIMUR">
+                                            KALIMANTAN TIMUR
+                                        </option>
+                                        <option value="SULAWESI UTARA">
+                                            SULAWESI UTARA
+                                        </option>
+                                        <option value="SULAWESI SELATAN">
+                                            SULAWESI SELATAN
+                                        </option>
+                                        <option value="SULAWESI TENGGARA">
+                                            SULAWESI TENGGARA
+                                        </option>
+                                        <option value="GORONTALO">
+                                            GORONTALO
+                                        </option>
+                                        <option value="SULAWESI BARAT">
+                                            SULAWESI BARAT
+                                        </option>
+                                        <option value="MALUKU">
+                                            MALUKU
+                                        </option>
+                                        <option value="MALUKU UTARA">
+                                            MALUKU UTARA
+                                        </option>
+                                        <option value="PAPUA">
+                                            PAPUA
+                                        </option>
+                                        <option value="PAPUA BARAT">
+                                            PAPUA BARAT
+                                        </option>
+                                        <option value="SULAWESI TENGAH">
+                                            SULAWESI TENGAH
+                                        </option>
+                                        <option value="KALIMANTAN UTARA">
+                                            KALIMANTAN UTARA
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -256,6 +353,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="more">
+                        <span onclick="comment('123132');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                        <div class="more-expand hide" id="123132">
+                            <ul>
+                                <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="inner-wrap">
                     <div class="inner">
@@ -263,14 +372,14 @@
                         <hr>
                         <div class="icon">
                             <div class="icon-inner">
-                                <div>
+                                <div style="cursor: pointer;">
                                     <span class="iconify" data-icon="bytesize:mail" data-inline="false"></span>
                                 </div>
-                                <div>
+                                <div style="cursor: pointer;">
                                     <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
                                 </div>
-                                <div>
-                                    <span class="iconify active" data-icon="ic:twotone-bookmark" data-inline="false"></span>
+                                <div style="cursor: pointer;" onclick="pin('12312')" id="12312">
+                                    <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
                                 </div>
                             </div>
                             <div class="icon-inner">
@@ -281,107 +390,6 @@
                                     <span class="iconify" data-icon="ic:outline-people-alt" data-inline="false"></span>
                                     <span class="total">2/3</span>
                                 </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- USER POST -->
-
-            <!-- USER POST -->
-            <div class="user-post">
-                <div class="head">
-                    <div class="pict">
-                        <img src="img/image2.jpg" alt="profile picture">
-                    </div>
-                    <div class="desc">
-                        <h5>Arknights Event: Code of Brawl</h5>
-                        <div class="detail">
-                            <div class="time">
-                                <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
-                                <p>30 mins</p>
-                            </div>
-                            <div class="by">
-                                <p>Posted by: Exusiai</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="inner-wrap">
-                    <div class="inner">
-                        <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
-                        <hr>
-                        <div class="icon">
-                            <div class="icon-inner">
-                                <div>
-                                    <span class="iconify" data-icon="bytesize:mail" data-inline="false"></span>
-                                </div>
-                                <div>
-                                    <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
-                                </div>
-                                <div>
-                                    <span class="iconify" data-icon="ic:twotone-bookmark" data-inline="false"></span>
-                                </div>
-                            </div>
-                            <div class="icon-inner">
-                                <div>
-                                    <button class="req-colabs">Request Collaboration</button>
-                                </div>
-                                <div>
-                                    <span class="iconify" data-icon="ic:outline-people-alt" data-inline="false"></span>
-                                    <span class="total">2/3</span>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- USER POST -->
-            
-            <!-- USER POST -->
-            <div class="user-post">
-                <div class="head">
-                    <div class="pict">
-                        <img src="img/image2.jpg" alt="profile picture">
-                    </div>
-                    <div class="desc">
-                        <h5>Arknights Event: Code of Brawl</h5>
-                        <div class="detail">
-                            <div class="time">
-                                <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
-                                <p>30 mins</p>
-                            </div>
-                            <div class="by">
-                                <p>Posted by: Exusiai</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="inner-wrap">
-                    <div class="inner">
-                        <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
-                        <hr>
-                        <div class="icon">
-                            <div class="icon-inner">
-                                <div>
-                                    <span class="iconify" data-icon="bytesize:mail" data-inline="false"></span>
-                                </div>
-                                <div>
-                                    <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
-                                </div>
-                                <div>
-                                    <span class="iconify active" data-icon="ic:twotone-bookmark" data-inline="false"></span>
-                                </div>
-                            </div>
-                            <div class="icon-inner">
-                                <div>
-                                    <button class="req-colabs">Request Collaboration</button>
-                                </div>
-                                <div>
-                                    <span class="iconify" data-icon="ic:outline-people-alt" data-inline="false"></span>
-                                    <span class="total">2/3</span>
-                                </div>
-
                             </div>
                         </div>
                     </div>

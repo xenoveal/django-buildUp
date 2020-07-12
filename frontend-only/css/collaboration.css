@@ -1,3 +1,23 @@
+section .head .sort-expand, section .user-post .head .more .more-expand {
+  background-color: white;
+  border: 1px solid #1D2C64;
+  position: absolute;
+  right: 6px;
+  top: 30px;
+  width: 200px;
+  line-height: 20px;
+  font-size: 12px; }
+  section .head .sort-expand .iconify, section .user-post .head .more .more-expand .iconify {
+    font-size: 16px;
+    position: relative;
+    left: -12px;
+    top: 3px; }
+  section .head .sort-expand ul, section .user-post .head .more .more-expand ul {
+    margin-top: 15px; }
+    section .head .sort-expand ul li:hover, section .user-post .head .more .more-expand ul li:hover {
+      opacity: 0.8;
+      transition: 0.5s; }
+
 .hide {
   display: none; }
 
@@ -16,7 +36,7 @@ section {
     background: none;
     border: none;
     outline: none;
-    color: #0D47A1;
+    color: #1D2C64;
     font-size: 16px; }
   section .head .search-info button:hover, section .head .filter-info button:hover, section .head .sort-info button:hover {
     color: #787CA9;
@@ -28,7 +48,7 @@ section {
     section .head .search-info input {
       font-size: 12px;
       border: none;
-      border-bottom: 1px solid #0D47A1; }
+      border-bottom: 1px solid #1D2C64; }
   section .head .info-menu {
     display: flex;
     position: relative;
@@ -39,17 +59,18 @@ section {
     margin-top: 5px;
     margin-left: -35px;
     height: 1px;
-    background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%); }
+    background: #1D2C64; }
   section .head .register-new {
     width: 170px;
     height: 25px;
     font-size: 12px;
-    color: #0D47A1;
+    color: #1D2C64;
     border-radius: 5px;
     background: none;
     outline: none;
-    border: 1px solid #0D47A1;
-    margin-bottom: 50px; }
+    border: 1px solid #1D2C64;
+    margin-bottom: 50px;
+    cursor: pointer; }
   section .head .register-new:hover {
     background-color: #E0EAF8; }
   section .head .posting {
@@ -60,7 +81,7 @@ section {
       height: 102px;
       border-radius: 5px;
       margin-top: -70px;
-      background: linear-gradient(-90deg, #0D47A1 0%, #90CAF9 71.19%, #BBDEFB 100%); }
+      background: #1D2C64; }
       section .head .posting .input textarea {
         width: 39.103778677462886vw;
         height: 99.2px;
@@ -75,7 +96,7 @@ section {
       width: 95px;
       height: 95px;
       border-radius: 100px;
-      border-right: 1px solid #0D47A1;
+      border-right: 1px solid #1D2C64;
       transform: rotate(40deg);
       position: relative;
       top: -30px;
@@ -92,7 +113,7 @@ section {
       top: -85px;
       left: 60px; }
       section .head .posting .menu .name {
-        border-bottom: 1px solid #0D47A1;
+        border-bottom: 1px solid #1D2C64;
         width: 35vw;
         text-align: left; }
         section .head .posting .menu .name input {
@@ -106,11 +127,13 @@ section {
         display: flex; }
         section .head .posting .menu .selection-details .select-inner {
           background: white;
-          border: 1px solid #0D47A1;
+          border: 1px solid #1D2C64;
           width: 150px;
           height: 31px;
           margin-right: 10px; }
           section .head .posting .menu .selection-details .select-inner select {
+            font-size: 12px;
+            cursor: pointer;
             border: none;
             background: white;
             position: relative;
@@ -119,15 +142,18 @@ section {
     section .head .posting .post-now {
       text-align: left;
       margin-bottom: 50px; }
+      section .head .posting .post-now input {
+        cursor: pointer; }
     section .head .posting button {
-      background: #0D47A1;
+      background: #1D2C64;
       color: white;
       width: 100px;
       height: 24px;
       border: none;
       outline: none;
       margin-top: 10px;
-      margin-right: 40px; }
+      margin-right: 40px;
+      cursor: pointer; }
     section .head .posting button:hover {
       background: #787CA9;
       transition: 0.2s; }
@@ -157,11 +183,18 @@ section {
           margin-right: 15px; }
           section .user-post .head .desc .time p, section .user-post .head .desc .by p {
             margin-left: 5px; }
+      section .user-post .head .more {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 25px; }
     section .user-post .inner-wrap {
       width: 38vw;
       margin-left: 40px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%);
+      background: #1D2C64;
       padding: 2px;
       border-radius: 5px;
       place-items: center;
@@ -184,7 +217,7 @@ section {
           margin-bottom: 11px;
           height: 1px;
           margin-left: 2px;
-          background: linear-gradient(90deg, #787CA9 0%, #30D1FF 50%, #11171D 100%); }
+          background: #1D2C64; }
         section .user-post .inner-wrap .inner .icon {
           display: flex;
           justify-content: space-between;
@@ -206,15 +239,16 @@ section {
             section .user-post .inner-wrap .inner .icon-inner div .req-colabs {
               border: none;
               outline: none;
-              background-color: #0D47A1;
+              background-color: #1D2C64;
               color: white;
               font-size: 14px;
               width: 181px;
-              height: 24px; }
+              height: 24px;
+              cursor: pointer; }
             section .user-post .inner-wrap .inner .icon-inner div .req-colabs:hover {
               background-color: #787CA9;
               transition: 0.5s; }
         section .user-post .inner-wrap .inner .active {
-          color: #0D47A1; }
+          color: #1D2C64; }
 
 /*# sourceMappingURL=collaboration.css.map */
