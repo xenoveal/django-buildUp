@@ -1,0 +1,20 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block title %}Blog{% endblock %}
+{% block section %}
+<h2>Lasted Post</h1>
+<h3>Life</h3>
+<a href="{% url 'blog_post' %}" style="color: white;">
+
+    <h1>Collaboration makes work easier!</h1>
+
+</a>
+<p>Posted by BuildUp</p>
+<p>Thu, 2 July 2020</p>
+
+{% endblock %}

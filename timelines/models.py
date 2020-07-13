@@ -52,3 +52,20 @@ class Content(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.category.name} ======== {self.paragraph}"
+
+class CollaborationPost(models.Model):
+    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="needColabs")
+    title = models.CharField(max_length=100)
+    paragraph = models.CharField(max_length=300)
+    category = models.CharField(max_length=50)
+    members = models.IntegerField()
+    location = models.CharField(max_length=50)
+    bookmarked = models.ManyToManyField(User, related_name="colabs_bookmarked", blank=True) #who bookmark
+    colabs_join = models.ManyToManyField(User, related_name="joined_colabs", blank=True) #who join
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def count_joined(self):
+        return f"{self.colabs_join.count()}"
+
+    def __str__(self):
+        return f"{self.title} - {self.paragraph} - {self.category} - {self.members} - {self.location} ======== posted by: {self.username}"

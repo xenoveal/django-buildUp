@@ -1,0 +1,84 @@
+{% extends "timelines/layout.html" %}
+{% load static %}
+
+{% block title %}Information{% endblock %}
+                            
+{% block body %}
+     <section>
+        <div class="container">
+            <div class="head">
+                <div class="row">
+                    <h2>COMPETITION</h2>
+                    <div class="info-menu">
+                        <div class="search-info">
+                            <form action="">
+                                <input type="text" placeholder="Search an information">
+                                <button type="submit"><span class="iconify" data-icon="bx:bx-search-alt-2" data-inline="false"></span></button>
+                            </form>
+                        </div>
+                        <div class="filter-info">
+                            <button>
+                                <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
+                            </button>
+                        </div>
+                        <div class="sort-info">
+                            <button>
+                                <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <a href=""><button class="register-new">Register an Information</button></a>
+            </div>
+
+            <div class="user-post">
+                <div class="inner-wrap">
+                    <div class="inner">
+                        <div class="pict">
+                            <img src="img/image2.jpg" alt="profile picture">
+                        </div>
+                        <div class="desc">
+                            <div class="bookmark-info">
+                                <button onclick="pin('1231')" id="1231">
+                                    <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                                </button>
+                            </div>
+                            <h4>Code of Brawl Competition</h4>
+                            <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                            <a href=""><button class="see-details">Details</button></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div> <!-- USER POST -->
+
+            <div class="user-post">
+                <div class="inner-wrap">
+                    <div class="inner">
+                        <div class="pict">
+                            <img src="img/image2.jpg" alt="profile picture">
+                        </div>
+                        <div class="desc">
+                            <div class="bookmark-info">
+                                <button onclick="pin('12231')" id="12231">
+                                    <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                                </button>
+                            </div>
+                            <h4>Code of Brawl Competition</h4>
+                            <p>sometextsometextsome textsometextsomet extsom etexts omete xsometextsometextsome textsometextsomet extsom etexts omete x sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                            <a href=""><button class="see-details">Details</button></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div> <!-- USER POST -->
+        </div>
+     </section>
+
+
+{% endblock%}
+
+{% block script %}
+<script src="{% static 'timelines/js/information.js' %}"></script>
+{% endblock %}

@@ -5,6 +5,11 @@ $additional: #30D1FF;
 $minor: #E0EAF8;
 $grey: #C4C4C4;
 
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
 section{
     margin-top: 200px;
     .container{

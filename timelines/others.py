@@ -18,3 +18,8 @@ def select_time_to_show(day, hour, mins, sec):
             return str(int(mins))+' mins ago'
         return str(int(hour))+' hour ago'
     return str(int(day))+' day ago'
+
+def checker(value):
+    if(value == ""):
+        return None
+    return value
