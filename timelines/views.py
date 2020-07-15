@@ -3,8 +3,10 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpRespons
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import *
-from .others import get_time, select_time_to_show, checker
+from .others import *
+from user.models import UserExtend
 
+allowed_Category = ['Competition', 'Scholarship', 'Seminar', 'Event']
 # Create your views here.
 @login_required
 def index(requests, sort_type="desc"):
@@ -20,6 +22,7 @@ def index(requests, sort_type="desc"):
         'liked': liked,
         'comment_liked': comment_liked,
         'bookmarked': bookmarked,
+        'extended': UserExtend.objects.get(user=requests.user),
         'desc': True,
     }
     if(sort_type == "desc"):
@@ -28,73 +31,17 @@ def index(requests, sort_type="desc"):
         context["posts"] = context["posts"].order_by('timestamp')
         context["desc"] = False
     for i in context["posts"]:
+        i.extend = UserExtend.objects.get(user=i.username)
         dt = i.timestamp
         day, hour, mins, sec = get_time(dt)
         i.diff = select_time_to_show(day, hour, mins, sec)
         i.comments = i.get_comment()
         for j in i.comments:
+            j.extend = UserExtend.objects.get(user=j.username)
             dt = j.timestamp
             day, hour, mins, sec = get_time(dt)
             j.diff = select_time_to_show(day, hour, mins, sec)
     return render(requests, "timelines/index.html", context)
-
-@login_required
-def categorypost(requests, category_id):
-    try:
-        category = Category.objects.get(pk=category_id)
-        contents = category.content_inside.all() 
-    except Category.DoesNotExist:
-        raise Http404("Category doesn't Exist")
-    context = {
-        'category': category,
-        'contents': contents,
-        'login': requests.user.is_authenticated,
-    }
-    return render(requests, "timelines/category-post.html", context)
-
-@login_required
-def add(requests, category_id):
-    if requests.method != "POST":
-        return HttpResponseNotAllowed(requests, "Method not allowed!")
-    title = requests.POST["title"]
-    paragraph = requests.POST["paragraph"]
-    try:
-        category = Category.objects.get(pk=category_id)
-    except Category.DoesNotExist:
-        raise Http404("Category doesn't Exist")
-    if(title != "" and paragraph != ""):
-        category = Category.objects.get(id=category_id)
-        content = Content(title=title, username=requests.user, paragraph=paragraph, category=category)  
-        content.save()
-    return HttpResponseRedirect(reverse("categorizedpost", args=(category_id,)))
-
-@login_required  
-def detail(requests, category_id, content_id):
-    try:
-        content = Content.objects.get(pk=content_id)
-    except Content.DoesNotExist:
-        raise Http404("Content doesn't Exist")
-    context = {
-        'content': content,
-        'participants': content.join.all(),
-        'category': Category.objects.get(id=category_id),
-        'login': requests.user.is_authenticated,
-    }
-    return render(requests, "timelines/detail.html", context)
-
-@login_required
-def join(requests, category_id, content_id):
-    user = User.objects.get(username=requests.user) 
-    content = Content.objects.get(pk=content_id)
-    content.join.add(user)
-    return HttpResponseRedirect(reverse("detail", args=(category_id, content_id,)))
-
-@login_required
-def left(requests, category_id, content_id):
-    user = User.objects.get(username=requests.user) 
-    content = Content.objects.get(pk=content_id)
-    content.join.remove(user)
-    return HttpResponseRedirect(reverse("detail", args=(category_id, content_id,)))
 
 @login_required
 def post(requests):
@@ -196,6 +143,7 @@ def collaboration(requests, sort_type="desc"):
             'joined': joined,
             'bookmarked': bookmark,
             'desc': True,
+            'extended': UserExtend.objects.get(user=requests.user),
         }
 
         if(sort_type == "desc"):
@@ -204,6 +152,7 @@ def collaboration(requests, sort_type="desc"):
             context["posts"] = context["posts"].order_by('timestamp')
             context["desc"] = False
         for i in context["posts"]:
+            i.extend = UserExtend.objects.get(user=i.username)
             dt = i.timestamp
             day, hour, mins, sec = get_time(dt)
             i.diff = select_time_to_show(day, hour, mins, sec)
@@ -215,7 +164,7 @@ def collaboration(requests, sort_type="desc"):
             paragraph = checker(requests.POST["paragraph"])
             members = requests.POST["members"]
             location = requests.POST["location"]
-            category = requests.POST["category"]
+            category = requests.POST["category"].lower()
             try:
                 share = requests.POST["share_timeline"]
             except:
@@ -224,6 +173,14 @@ def collaboration(requests, sort_type="desc"):
             if(title != None):
                 if(paragraph != None):
                     new_post.save()
+            
+            try:
+                content_id = requests.POST["contentid"]
+                content = Content.objects.get(pk=content_id)
+                content.teams.add(new_post)
+                return HttpResponseRedirect(reverse("search-team", args=('competition', content_id)))
+            except:
+                pass
         except:
             pass
         return HttpResponseRedirect(reverse("collaboration"))
@@ -259,17 +216,25 @@ def edit_collaboration(requests, post_id):
     return HttpResponseRedirect(reverse("collaboration"))
 
 @login_required
-def joincolabs(requests, post_id):
+def joincolabs(requests, post_id, back_details=None):
     user = User.objects.get(username=requests.user) 
     pp = CollaborationPost.objects.get(pk=post_id)
     pp.colabs_join.add(user) 
+    if(back_details is not None):
+        content_id = pp.for_joined.first().id
+        category = pp.for_joined.first().category.name
+        return HttpResponseRedirect(reverse('search-team', args=(category, content_id)))
     return HttpResponseRedirect(reverse("collaboration"))
 
 @login_required
-def canceljoincolabs(requests, post_id):
+def canceljoincolabs(requests, post_id, back_details=None):
     user = User.objects.get(username=requests.user) 
     pp = CollaborationPost.objects.get(pk=post_id)
     pp.colabs_join.remove(user) 
+    if(back_details is not None):
+        content_id = pp.for_joined.first().id
+        category = pp.for_joined.first().category.name
+        return HttpResponseRedirect(reverse('search-team', args=(category, content_id, )))
     return HttpResponseRedirect(reverse("collaboration"))
 
 @login_required
@@ -285,3 +250,63 @@ def unbookmarkColabs(requests, post_id):
     pp = CollaborationPost.objects.get(pk=post_id)
     pp.bookmarked.remove(user) 
     return HttpResponseRedirect(reverse("collaboration"))
+
+@login_required
+def information(requests, category):
+    context = {
+        'page': 'information',
+        'category': category[0].upper()+category[1:],
+        'contents': Category.objects.get(name=category.lower()).have_content.all(),
+        'bookmarked': requests.user.info_bookmarked.all()
+    }
+    for i in context["contents"]:
+        start = i.held_on_start
+        end = i.held_on_end
+        i.start_day = to_local_time(start)
+        i.end_day = to_local_time(end)
+    if(context['category'] not in allowed_Category):
+        return HttpResponseRedirect(reverse('information', args=['competition']))
+    return render(requests, "timelines/information.html", context=context)
+
+@login_required
+def information_detail(requests, category, content_id):
+    context = {
+        'page': 'information',
+        'category': category[0].upper()+category[1:],
+        'content': Content.objects.get(pk=content_id),
+        'bookmarked': requests.user.info_bookmarked.all()
+    }
+    if(context['category'] not in allowed_Category):
+        return HttpResponseRedirect(reverse('information', args=['competition']))
+    return render(requests, "timelines/information-detail.html", context=context)
+
+@login_required
+def search_team(requests, category, content_id):
+    context = {
+        'page': 'information',
+        'category': category[0].upper()+category[1:],
+        'content': Content.objects.get(pk=content_id),
+        'joined': requests.user.joined_colabs.all()
+    }
+    if(context['category'] not in allowed_Category):
+        return HttpResponseRedirect(reverse('information', args=['competition']))
+    return render(requests, "timelines/make-party.html", context=context)
+
+@login_required
+def bookmarkInfo(requests, category, content_id, back_details=False):
+    user = User.objects.get(username=requests.user) 
+    pp = Content.objects.get(pk=content_id)
+    pp.bookmarked.add(user) 
+    if(not back_details):
+        return HttpResponseRedirect(reverse("information", args=[category.lower()]))
+    return HttpResponseRedirect(reverse("information-detail", args=[category.lower(), content_id]))
+    
+
+@login_required
+def unbookmarkInfo(requests, category, content_id, back_details=False):
+    user = User.objects.get(username=requests.user) 
+    pp = Content.objects.get(pk=content_id)
+    pp.bookmarked.remove(user) 
+    if(not back_details):
+        return HttpResponseRedirect(reverse("information", args=[category.lower()]))
+    return HttpResponseRedirect(reverse("information-detail", args=[category.lower(), content_id]))

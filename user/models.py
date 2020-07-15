@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class UserExtend(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     verified = models.BooleanField(default=False)
+    profileImg = models.ImageField(blank=True, upload_to="galery")
 
     def __str__(self):
         return f"Extended information for {self.user}'"

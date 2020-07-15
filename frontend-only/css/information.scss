@@ -1,7 +1,7 @@
 $primary_color: #787CA9;
 $secondary_color: white;
 $third_color: #1D2C64;
-$additional: #30D1FF;
+$additional: #F6FCB4;
 $minor: #E0EAF8;
 $grey: #C4C4C4;
 
@@ -17,6 +17,24 @@ section{
     }
 
     .head{
+        #filter-expand{
+            background-color: $secondary_color;
+            width: 180px;
+            position: absolute;
+            right: 0;
+            top: 25px;
+            padding: 10px;
+            border: 1px solid $third_color;
+            text-align: left;
+            font-size: 14px;
+            ul{
+                margin-left: -30px;
+            }
+            li{
+                cursor: pointer;
+                margin-top: 10px;
+            }
+        }
         h2{
             font-size: 40px;
             margin-right: 40px;
@@ -28,6 +46,7 @@ section{
                 outline: none;
                 color: $third_color;
                 font-size: 16px;
+                cursor: pointer;
             }
             button:hover{
                 color: $primary_color;
@@ -76,84 +95,79 @@ section{
     }
 
     .user-post{
-        margin-left: -25px;
-        margin-bottom: 40px;
-        .inner-wrap{
-            width: 38vw;
-            margin-left: 40px;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);    
-            background: $third_color;
-            padding: 2px;
-            border-radius: 5px;
-            
-            place-items: center;
-            position: relative;
-            top: -25px;
-            
-            .inner{
-                background: white;
-                border-radius: 4px;
-                padding: 21px;
-                font-size: 24px;
-                display: flex;
-                .pict{
-                    img{
-                        width: 155px;
-                        height: 155px;
-                    }
-                }
-                .desc{
-                    margin-left: 39px;
-                    margin-right: 10px;
-                    text-align: justify;
-                    font-size: 12px;
-                    line-height: 15px;
-                    width: 300px;
+        position: relative;
+        background-color: $third_color;
+        color: $secondary_color;
+        width: 151px;
+        height: 250px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        a{
+            color: $secondary_color;
+        }
+        a:hover{
+            opacity: 0.9;
+            transition: 0.5s;
+            color: $secondary_color;
+        }
+        .pict{
+            img{
+                width: 151px;
+                height: 140px;
+            }
+        }
+        .bookmark-info{
+            text-align: right;
+            font-size: 25px;
+            button{
+                position: absolute;
+                z-index: 5;
+                top: 5px;
+                right: 5px;
+                width: 30px;
+                height: 30px;
+                background: none;
+                outline: none;
+                border: none;
+                color: $third_color;
+                cursor: pointer;
+    
+            }
+            button:hover{
+                opacity: 0.5;
+                transition: 0.2s;
+            }
+            .active{
+                color: $third_color;
+            }
+            .active:hover{
+                color: $primary_color;
+                transition: 0.2s;
+            }
+        }
+        .desc{
+            font-size: 12px;
+            line-height: 15px;
+            margin-left: 4px;
+        
+            .time{
+                margin-top: 10px;
+            }
+            h4{
+                font-size: 14px;
+            }
+            .see-details{
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                background: none;
+                outline: none;
+                border: none;
+                width: 0;
+                height: 0;
+                border-right: 40px solid $additional;
+                
+                border-top: 40px solid transparent;
 
-                    .bookmark-info{
-                        position: relative;
-                        text-align: right;
-                        font-size: 25px;
-                        bottom: 8px;
-                        left: 28px;
-                        button{
-                            width: 30px;
-                            height: 30px;
-                            background: none;
-                            outline: none;
-                            border: none;
-                            color: $primary_color;
-
-                        }
-                        button:hover{
-                            color: $third_color;
-                            transition: 0.2s;
-                        }
-                        .active{
-                            color: $third_color;
-                        }
-                        .active:hover{
-                            color: $primary_color;
-                            transition: 0.2s;
-                        }
-                    }
-                    h4{
-                        font-size: 20px;
-                    }
-                    .see-details{
-                        background: none;
-                        border-radius: 100px;
-                        outline: none;
-                        border: 1px solid $third_color;
-                        width: 113px;
-                        height: 19px;
-                        color: $third_color;
-                    }
-                    .see-details:hover{
-                        background-color: $minor;
-                        transition: 0.5s;
-                    }
-                }
             }
         }
     }

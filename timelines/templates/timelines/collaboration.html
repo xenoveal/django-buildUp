@@ -55,8 +55,12 @@
            <div class="posting hide" id="new-colabs-form">
                <form action="{% url 'collaboration' %}" method="POST">
                    {% csrf_token %}
-                   <div class="round">
-                       <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile-photo">
+                   <div class="round">                    
+                        {% if extended.profileImg %}
+                        <img src="{{ extended.profileImg.url }}" alt="profile picture">
+                        {% else %}
+                        <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                        {% endif %}
    
                    </div>
                    <div class="menu">
@@ -372,8 +376,12 @@
        <!-- USER POST -->
        <div class="user-post">
            <div class="head">
-               <div class="pict">
-                   <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
+               <div class="pict">                        
+                    {% if post.extend.profileImg %}
+                    <img src="{{ post.extend.profileImg.url }}" alt="profile picture">
+                    {% else %}
+                    <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                    {% endif %}
                </div>
                <div class="desc">
                    <h5>{{ post.title }}</h5>
@@ -435,7 +443,7 @@
                            {% if post not in bookmarked %}
                             <form action="{% url 'bookmark_colabs' post.id %}" method="POST">
                                 {% csrf_token %}
-                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0; cursor: pointer;">
                                     <div onclick="pin('bookmark{{ post.id }}')" id="bookmark{{ post.id }}" style="margin-left: 0px;">
                                         <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
                                     </div>
@@ -444,7 +452,7 @@
                             {% else %}
                             <form action="{% url 'unbookmark_colabs' post.id %}" method="POST">
                                 {% csrf_token %}
-                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0; cursor: pointer;">
                                     <div class="active2" onclick="pin('bookmark{{ post.id }}')" id="bookmark{{ post.id }}" style="margin-left: 0px;">
                                         <span class="iconify" data-icon="bi:bookmark-fill" data-inline="false"></span>
                                     </div>

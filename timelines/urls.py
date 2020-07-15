@@ -27,9 +27,13 @@ urlpatterns = [
     path('collaboration/bookmarkcolabs/<int:post_id>', views.bookmarkColabs, name="bookmark_colabs"),
     path('collaboration/unbookmarkcolabs/<int:post_id>', views.unbookmarkColabs, name="unbookmark_colabs"),
 
-    path('category/<int:category_id>', views.categorypost, name="categorizedpost"),
-    path('category/<int:category_id>/add', views.add, name="addtocategory"),
-    path('category/<int:category_id>/<int:content_id>', views.detail, name="detail"),
-    path('category/<int:category_id>/<int:content_id>/join', views.join, name="join"),
-    path('category/<int:category_id>/<int:content_id>/left', views.left, name="left"),
+    path('information/<str:category>', views.information, name="information"),
+    path('information/<str:category>/detail/<int:content_id>', views.information_detail, name="information-detail"),
+    path('information/<str:category>/searchteam/<int:content_id>', views.search_team, name="search-team"),
+    path('information/<str:category>/bookmarkinfo/<int:content_id>', views.bookmarkInfo, name="bookmark_info"),
+    path('information/<str:category>/unbookmarkinfo/<int:content_id>', views.unbookmarkInfo, name="unbookmark_info"),
+    path('information/<str:category>/bookmarkinfo/<int:content_id>/<back_details>', views.bookmarkInfo, name="bookmark_info"),
+    path('information/<str:category>/unbookmarkinfo/<int:content_id>/<back_details>', views.unbookmarkInfo, name="unbookmark_info"),
+    path('information/join/<int:post_id>/<back_details>', views.joincolabs, name="join_colabs"),
+    path('information/canceljoin/<int:post_id>/<back_details>', views.canceljoincolabs, name="canceljoin_colabs"),
 ]

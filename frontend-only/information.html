@@ -154,10 +154,18 @@
                                 <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
                             </button>
                         </div>
-                        <div class="sort-info">
+
+                        <div class="sort-info" id="filter">
                             <button>
                                 <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>
                             </button>
+                        </div>
+                        <div id="filter-expand" class="hide">
+                            <ul>
+                                <li><span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by popularity</li>
+                                <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by recent post</li>
+                                <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by Least Members</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -166,45 +174,23 @@
             </div>
 
             <div class="user-post">
-                <div class="inner-wrap">
-                    <div class="inner">
-                        <div class="pict">
-                            <img src="img/image2.jpg" alt="profile picture">
-                        </div>
-                        <div class="desc">
-                            <div class="bookmark-info">
-                                <button onclick="pin('1231')" id="1231">
-                                    <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
-                                </button>
-                            </div>
-                            <h4>Code of Brawl Competition</h4>
-                            <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
-                            <a href=""><button class="see-details">Details</button></a>
-                        </div>
-                        
-                    </div>
+                <div class="bookmark-info">
+                    <button onclick="pin('1231')" id="1231">
+                        <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                    </button>
                 </div>
-            </div> <!-- USER POST -->
+                <a href="">
+                    <div class="pict">
+                        <img src="img/image2.jpg" alt="profile picture">
+                    </div>
+                    <div class="desc">
+                        <p class="time">Thu, 20 Feb - Tue, 3 Jun</p>
+                        <h4>Code of Brawl Competition</h4>
+                        <button class="see-details"></button>
+                        <p class="admin-name">XL Future Leader</p>
+                    </div>
 
-            <div class="user-post">
-                <div class="inner-wrap">
-                    <div class="inner">
-                        <div class="pict">
-                            <img src="img/image2.jpg" alt="profile picture">
-                        </div>
-                        <div class="desc">
-                            <div class="bookmark-info">
-                                <button onclick="pin('12231')" id="12231">
-                                    <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
-                                </button>
-                            </div>
-                            <h4>Code of Brawl Competition</h4>
-                            <p>sometextsometextsome textsometextsomet extsom etexts omete xsometextsometextsome textsometextsomet extsom etexts omete x sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
-                            <a href=""><button class="see-details">Details</button></a>
-                        </div>
-                        
-                    </div>
-                </div>
+                </a>
             </div> <!-- USER POST -->
         </div>
      </section>

@@ -23,3 +23,8 @@ def checker(value):
     if(value == ""):
         return None
     return value
+
+def to_local_time(UTC_datetime):
+    time = UTC_datetime + datetime.timedelta(hours=7)
+    day = time.strftime('%a, %d %h')
+    return day

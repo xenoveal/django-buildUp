@@ -17,20 +17,26 @@
                     <textarea name="paragraph" placeholder="how was your day? type something here.."></textarea>
                 </div>
                 <div class="round">
-                    <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile-photo">
+                    {% if extended.profileImg %}
+                    <img src="{{ extended.profileImg.url }}" alt="profile picture">
+                    {% else %}
+                    <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                    {% endif %}
                 </div>
+                <!--
                 <div class="menu">
                     <span class="iconify click" data-icon="ant-design:camera-filled" data-inline="false"></span>
                     <span class="iconify click" data-icon="ant-design:file-twotone" data-inline="false"></span>
                     <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
                     <span class="iconify click" style="margin-left: -6px;" data-icon="ic:round-arrow-drop-down" data-inline="false"></span>
                 </div>
+                -->
                 <button class="submit">Post</button>
             </form>
         </div>
         <div class="break">
             <div id="filter">
-                <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
+                <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>
             </div>
             <hr>
             <div id="filter-expand" class="hide">
@@ -62,8 +68,8 @@
                 </ul>
             </div>
         </div>
-        {% for post in posts %}
 
+        {% for post in posts %}
         <!-- Modal EDIT -->
         <div class="modal fade" id="editModal{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -97,7 +103,11 @@
         <div class="user-post">
             <div class="head">
                 <div class="pict">
-                    <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
+                    {% if post.extend.profileImg %}
+                    <img src="{{ post.extend.profileImg.url }}" alt="profile picture">
+                    {% else %}
+                    <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                    {% endif %}
                 </div>
                 <div class="desc">
                     <h5><a href="">{{ post.username.first_name }} {{ post.username.last_name }}</a></h5>
@@ -111,11 +121,13 @@
                     <div class="more-expand hide" id="more{{ post.id }}">
                         <ul>
                             {% if post.username != user %}
-                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
-                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
-                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
-                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
-                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
+                            <!--
+                                <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
+                                <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
+                            -->
                             {% else %}
                             <li>
                                 <!-- Button trigger modal -->
@@ -141,7 +153,7 @@
             </div>
             <div class="inner-wrap">
                 <div class="inner">
-                    <p>{{ post.paragraph }}</p>
+                    <p>{{ post.paragraph|linebreaks }}</p>
                     <hr>
                     <div class="icon">
                         <div>
@@ -233,8 +245,12 @@
                     <!-- USER COMMENT-->
                     <div class="user-post-small">
                         <div class="head">
-                            <div class="pict">
-                                <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
+                            <div class="pict">                        
+                                {% if comment.extend.profileImg %}
+                                <img src="{{ comment.extend.profileImg.url }}" alt="profile picture">
+                                {% else %}
+                                <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                                {% endif %}
                             </div>
                             <div class="desc">
                                 <h5><a href="">{{ comment.username.first_name }} {{ comment.username.last_name }}</a></h5>
@@ -247,11 +263,13 @@
                                 <div class="more-expand hide" id="commentmore{{ comment.id }}">
                                     <ul>
                                         {% if comment.username != user %}
-                                        <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
-                                        <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
-                                        <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
-                                        <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
-                                        <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                                        <!--
+                                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                                        -->
                                         {% else %}
                                         <li>
                                             <!-- Button trigger modal -->
@@ -269,7 +287,6 @@
                                             </form>
                                         
                                         </li>
-                                    
                                         {% endif %}
                                         
                                     </ul>
@@ -314,7 +331,11 @@
                             {% csrf_token %}
                             <textarea name="paragraph" placeholder="give your comment.."></textarea>
                             <div class="round">
-                                <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile-photo">
+                                {% if extended.profileImg %}
+                                <img src="{{ extended.profileImg.url }}" alt="profile picture">
+                                {% else %}
+                                <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                                {% endif %}
                             </div>
                             <button class="submit"><span class="iconify" data-icon="bx:bx-send" data-inline="false"></span></button>
                         </form>
