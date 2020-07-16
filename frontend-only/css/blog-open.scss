@@ -1,0 +1,49 @@
+$primary_color: #787CA9;
+$secondary_color: white;
+$third_color: #1D2C64;
+$additional: #30D1FF;
+$minor: #E0EAF8;
+$grey: #C4C4C4;
+
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
+section{
+    margin-top: 200px;
+    .container{
+        width: 60%;
+    }
+    .title{
+        h5{
+            font-weight: 400;
+        }
+    }
+    .detail-post{
+        margin-left: 15px;
+        img{
+            width: 30px;
+            height: 30px;
+        }
+        .time{
+            margin-left: 30px;
+            margin-top: -15px;
+        }
+        .link{
+            *{
+                list-style: none !important;
+            }
+            ul{
+                display: flex;
+            }
+            li{
+                margin: 5px;
+                margin-top: -10px;
+            }
+        }
+    }
+    .post{
+        margin-bottom: 200px;
+    }
+}

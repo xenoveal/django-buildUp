@@ -1,0 +1,111 @@
+@media (max-width: 1000px) {
+  main .container {
+    width: 90%;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 30px; }
+    main .container .logo {
+      display: none; } }
+@media (min-width: 1000px) {
+  main .container {
+    width: 40vw;
+    padding-right: 80px;
+    padding-left: 80px;
+    padding-bottom: 70px;
+    margin-left: 29vw;
+    border: 1.5px solid black; } }
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; }
+
+main .container h3 {
+  font-size: 24px;
+  margin-top: -40px; }
+main .container form input {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #1D2C64;
+  padding-left: 20px;
+  height: 40px;
+  font-size: 14px; }
+main .container form .pass {
+  position: relative; }
+main .container form #aPasshide, main .container form #aPass2hide {
+  display: none; }
+main .container form #aPasshide, main .container form #aPass2hide, main .container form #aPassshow, main .container form #aPass2show {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url("https://api.iconify.design/bx:bx-show.svg") no-repeat center center/contain; }
+main .container form .toggle-pass {
+  outline: none;
+  border: none;
+  background: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px; }
+main .container form .is-valid {
+  border: 1px solid #00b300; }
+main .container form .is-invalid {
+  border: 1px solid red; }
+main .container form .msg {
+  color: red;
+  font-size: 12px; }
+main .container form .msgBlue {
+  font-size: 12px;
+  color: #1D2C64; }
+main .container .logo {
+  text-align: center;
+  position: relative;
+  top: -60px; }
+  main .container .logo img {
+    background-color: white;
+    width: 120px;
+    height: 120px; }
+main .container .sign, main .container .google-login {
+  width: 100%;
+  height: 40px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  outline: none;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer; }
+main .container .sign {
+  background: #1D2C64;
+  color: white; }
+main .container .sign:hover {
+  transition: 0.5s;
+  background: #787CA9; }
+main .container .google-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #1D2C64;
+  margin-bottom: 30px; }
+  main .container .google-login span {
+    margin: 10px; }
+main .container .google-login:hover {
+  transition: 0.5s;
+  background-color: #E0EAF8; }
+main .container .forgot, main .container .register, main .container .timer {
+  margin: 5px;
+  text-align: center; }
+main .container .verif-resend {
+  background-color: #1D2C64;
+  width: 169px;
+  height: 27px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  border: none; }
+main .container .verif-resend:hover {
+  background-color: #787CA9;
+  transition: 0.5s; }
+
+/*# sourceMappingURL=user-style.css.map */

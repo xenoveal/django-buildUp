@@ -1,0 +1,29 @@
+* {
+  text-decoration: none;
+  list-style: none; }
+
+section {
+  margin-top: 200px; }
+  section .container {
+    width: 60%; }
+  section .title h5 {
+    font-weight: 400; }
+  section .detail-post {
+    margin-left: 15px; }
+    section .detail-post img {
+      width: 30px;
+      height: 30px; }
+    section .detail-post .time {
+      margin-left: 30px;
+      margin-top: -15px; }
+    section .detail-post .link * {
+      list-style: none !important; }
+    section .detail-post .link ul {
+      display: flex; }
+    section .detail-post .link li {
+      margin: 5px;
+      margin-top: -10px; }
+  section .post {
+    margin-bottom: 200px; }
+
+/*# sourceMappingURL=blog-open.css.map */

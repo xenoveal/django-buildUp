@@ -1,0 +1,495 @@
+{% extends "timelines/layout.html" %}
+{% load static %}
+
+{% block title %}Collaboration{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'timelines/css/collaboration.css' %}">
+{% endblock %}
+                            
+{% block body %}
+<section>
+   <div class="container">
+       <div class="head">
+           <div class="row">
+               <h2>COLLABORATION</h2>
+               <div class="info-menu">
+                   <div class="search-info">
+                       <form action="">
+                           <input type="text" placeholder="Search an collaboration">
+                           <button type="submit"><span class="iconify" data-icon="bx:bx-search-alt-2" data-inline="false"></span></button>
+                       </form>
+                   </div>
+                   <div class="filter-info">
+                       <button>
+                           <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
+                       </button>
+                   </div>
+                   <div class="sort-info">
+
+                       <button onclick="comment('11111');">
+                           <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>
+                       </button>
+                       <div class="sort-expand hide" id="11111">
+                           <ul>
+                                <li>
+                                    {% if desc %}
+                                    <a href="{% url 'collaboration' 'asc' %}">
+                                        <span class="iconify" data-icon="bx:bx-sort-up" data-inline="false"></span>&ensp;Sort by oldest post
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'collaboration' %}">
+                                        <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by recent post
+                                    </a>
+                                    {% endif %}
+                                </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <hr>
+           <button class="register-new" onclick="show()" id="new">Make New Collaboration</button>
+           <button class="register-new hide" onclick="hide()" id="hide">Hide</button>
+
+           <div class="posting hide" id="new-colabs-form">
+               <form action="{% url 'collaboration' %}" method="POST">
+                   {% csrf_token %}
+                   <div class="round">                    
+                        {% if extended.profileImg %}
+                        <img src="{% static extended.profileImg.url %}" alt="profile picture">
+                        {% else %}
+                        <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                        {% endif %}
+   
+                   </div>
+                   <div class="menu">
+                       <div class="name">
+                           <input type="text" placeholder="Title" name="title">
+                       </div>
+                       <div class="selection-details">
+                           <div class="select-inner">
+                               <select name="members" id="">
+                                   <option value=""  selected disabled>Team members</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                               </select>
+                           </div>
+                           <div class="select-inner">
+                               <select name="category" id="">
+                                   <option value=""  selected disabled>Category</option>
+                                   <option value="1">Competition</option>
+                                   <option value="2">Scholarship</option>
+                                   <option value="3">Seminar</option>
+                                   <option value="4">Event</option>
+                                   <option value="5">Others</option>
+                               </select>
+                           </div>
+                           <div class="select-inner">
+                               <select name="location">
+                                   <option value=""  selected disabled>Location</option>
+                                   <option value="ACEH">
+                                       ACEH
+                                   </option>
+                                   <option value="SUMATERA UTARA">
+                                       SUMATERA UTARA
+                                   </option>
+                                   <option value="SUMATERA BARAT">
+                                       SUMATERA BARAT
+                                   </option>
+                                   <option value="RIAU">
+                                       R I A U
+                                   </option>
+                                   <option value="JAMBI">
+                                       JAMBI
+                                   </option>
+                                   <option value="SUMATERA SELATAN">
+                                       SUMATERA SELATAN
+                                   </option>
+                                   <option value="BENGKULU">
+                                       BENGKULU
+                                   </option>
+                                   <option value="LAMPUNG">
+                                       LAMPUNG
+                                   </option>
+                                   <option value="K. BANGKA BELITUNG">
+                                       K. BANGKA BELITUNG
+                                   </option>
+                                   <option value="KEPULAUAN RIAU">
+                                       KEPULAUAN RIAU
+                                   </option>
+                                   <option value="DKI JAKARTA">
+                                       DKI JAKARTA
+                                   </option>
+                                   <option value="JAWA BARAT">
+                                       JAWA BARAT
+                                   </option>
+                                   <option value="JAWA TENGAH">
+                                       JAWA TENGAH
+                                   </option>
+                                   <option value="DI YOGYAKARTA">
+                                       DI YOGYAKARTA
+                                   </option>
+                                   <option value="JAWA TIMUR">
+                                       JAWA TIMUR
+                                   </option>
+                                   <option value="BANTEN">
+                                       BANTEN
+                                   </option>
+                                   <option value="BALI">
+                                       BALI
+                                   </option>
+                                   <option value="NTB">
+                                       NTB
+                                   </option>
+                                   <option value="NTT">
+                                       NTT
+                                   </option>
+                                   <option value="KALIMANTAN BARAT">
+                                       KALIMANTAN BARAT
+                                   </option>
+                                   <option value="KALIMANTAN TENGAH">
+                                       KALIMANTAN TENGAH
+                                   </option>
+                                   <option value="KALIMANTAN SELATAN">
+                                       KALIMANTAN SELATAN
+                                   </option>
+                                   <option value="KALIMANTAN TIMUR">
+                                       KALIMANTAN TIMUR
+                                   </option>
+                                   <option value="SULAWESI UTARA">
+                                       SULAWESI UTARA
+                                   </option>
+                                   <option value="SULAWESI SELATAN">
+                                       SULAWESI SELATAN
+                                   </option>
+                                   <option value="SULAWESI TENGGARA">
+                                       SULAWESI TENGGARA
+                                   </option>
+                                   <option value="GORONTALO">
+                                       GORONTALO
+                                   </option>
+                                   <option value="SULAWESI BARAT">
+                                       SULAWESI BARAT
+                                   </option>
+                                   <option value="MALUKU">
+                                       MALUKU
+                                   </option>
+                                   <option value="MALUKU UTARA">
+                                       MALUKU UTARA
+                                   </option>
+                                   <option value="PAPUA">
+                                       PAPUA
+                                   </option>
+                                   <option value="PAPUA BARAT">
+                                       PAPUA BARAT
+                                   </option>
+                                   <option value="SULAWESI TENGAH">
+                                       SULAWESI TENGAH
+                                   </option>
+                                   <option value="KALIMANTAN UTARA">
+                                       KALIMANTAN UTARA
+                                   </option>
+                               </select>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="input">
+                       <textarea name="paragraph" placeholder="how was your day? type something here.."></textarea>
+                   </div>
+                   <div class="post-now">
+                       <button class="submit">Post</button>
+                       <input type="checkbox" name="share_timeline" value="1">
+                       <label>Share to timeline</label>
+                   </div>
+               </form>
+           </div>
+       </div>
+
+
+       {% for post in posts %}
+       <!-- Modal EDIT -->
+        <div class="modal fade" id="editModal{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit your post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{% url 'editcollaboration' post.id %}" method="POST">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            <input type="text" value="{{ post.username }}" name="username" hidden>
+                            <input type="text" placeholder="Title" name="title">
+                            <textarea type="text" name="paragraph"></textarea>
+                            <select name="members" id="">
+                                <option value=""  selected disabled>Team members</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <select name="category" id="">
+                                <option value=""  selected disabled>Category</option>
+                                <option value="1">Competition</option>
+                                <option value="2">Scholarship</option>
+                                <option value="3">Seminar</option>
+                                <option value="4">Event</option>
+                                <option value="5">Others</option>
+                            </select>
+                            <select name="location">
+                                <option value=""  selected disabled>Location</option>
+                                <option value="ACEH">
+                                    ACEH
+                                </option>
+                                <option value="SUMATERA UTARA">
+                                    SUMATERA UTARA
+                                </option>
+                                <option value="SUMATERA BARAT">
+                                    SUMATERA BARAT
+                                </option>
+                                <option value="RIAU">
+                                    R I A U
+                                </option>
+                                <option value="JAMBI">
+                                    JAMBI
+                                </option>
+                                <option value="SUMATERA SELATAN">
+                                    SUMATERA SELATAN
+                                </option>
+                                <option value="BENGKULU">
+                                    BENGKULU
+                                </option>
+                                <option value="LAMPUNG">
+                                    LAMPUNG
+                                </option>
+                                <option value="K. BANGKA BELITUNG">
+                                    K. BANGKA BELITUNG
+                                </option>
+                                <option value="KEPULAUAN RIAU">
+                                    KEPULAUAN RIAU
+                                </option>
+                                <option value="DKI JAKARTA">
+                                    DKI JAKARTA
+                                </option>
+                                <option value="JAWA BARAT">
+                                    JAWA BARAT
+                                </option>
+                                <option value="JAWA TENGAH">
+                                    JAWA TENGAH
+                                </option>
+                                <option value="DI YOGYAKARTA">
+                                    DI YOGYAKARTA
+                                </option>
+                                <option value="JAWA TIMUR">
+                                    JAWA TIMUR
+                                </option>
+                                <option value="BANTEN">
+                                    BANTEN
+                                </option>
+                                <option value="BALI">
+                                    BALI
+                                </option>
+                                <option value="NTB">
+                                    NTB
+                                </option>
+                                <option value="NTT">
+                                    NTT
+                                </option>
+                                <option value="KALIMANTAN BARAT">
+                                    KALIMANTAN BARAT
+                                </option>
+                                <option value="KALIMANTAN TENGAH">
+                                    KALIMANTAN TENGAH
+                                </option>
+                                <option value="KALIMANTAN SELATAN">
+                                    KALIMANTAN SELATAN
+                                </option>
+                                <option value="KALIMANTAN TIMUR">
+                                    KALIMANTAN TIMUR
+                                </option>
+                                <option value="SULAWESI UTARA">
+                                    SULAWESI UTARA
+                                </option>
+                                <option value="SULAWESI SELATAN">
+                                    SULAWESI SELATAN
+                                </option>
+                                <option value="SULAWESI TENGGARA">
+                                    SULAWESI TENGGARA
+                                </option>
+                                <option value="GORONTALO">
+                                    GORONTALO
+                                </option>
+                                <option value="SULAWESI BARAT">
+                                    SULAWESI BARAT
+                                </option>
+                                <option value="MALUKU">
+                                    MALUKU
+                                </option>
+                                <option value="MALUKU UTARA">
+                                    MALUKU UTARA
+                                </option>
+                                <option value="PAPUA">
+                                    PAPUA
+                                </option>
+                                <option value="PAPUA BARAT">
+                                    PAPUA BARAT
+                                </option>
+                                <option value="SULAWESI TENGAH">
+                                    SULAWESI TENGAH
+                                </option>
+                                <option value="KALIMANTAN UTARA">
+                                    KALIMANTAN UTARA
+                                </option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" style="cursor:pointer; border: none; background: none; outline: none;">
+                                <span class="iconify" data-icon="bx:bx-edit" data-inline="false"></span>Edit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL EDIT END -->
+
+
+       <!-- USER POST -->
+       <div class="user-post">
+           <div class="head">
+               <div class="pict">                        
+                    {% if post.extend.profileImg %}
+                    <img src="{{ post.extend.profileImg.url }}" alt="profile picture">
+                    {% else %}
+                    <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                    {% endif %}
+               </div>
+               <div class="desc">
+                   <h5>{{ post.title }}</h5>
+                   <div class="detail">
+                       <div class="time">
+                           <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                           <p>{{ post.diff }}</p>
+                       </div>
+                       <div class="by">
+                           <p>Posted by: {{ post.username.first_name }} {{ post.username.last_name }}</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="more">
+                   <span onclick="comment('moreoptions{{ post.id }}');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                   <div class="more-expand hide" id="moreoptions{{ post.id }}">
+                       <ul>
+                            {% if post.username != user %}
+                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
+                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
+                            {% else %}
+                            <li>
+                                <!-- Button trigger modal -->
+                                <button type="button" style="cursor:pointer; border: none; background: none; outline: none;" data-toggle="modal" data-target="#editModal{{ post.id }}">
+                                    <span class="iconify" data-icon="bx:bx-edit" data-inline="false"></span>Edit
+                                </button>
+                            </li>
+                            <li>
+                                <form action="{% url 'deletecollaboration' post.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="text" value="{{ post.username }}" name="username" hidden>
+                                    <button type="submit" style="cursor:pointer; border: none; background: none; outline: none;">
+                                        <span class="iconify" data-icon="ic:baseline-delete-outline" data-inline="false"></span>Delete
+                                    </button>
+                                </form>
+                            
+                            </li>
+                        
+                            {% endif %}
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <div class="inner-wrap">
+               <div class="inner">
+                   <p>{{ post.paragraph }}</p>
+                   <hr>
+                   <div class="icon">
+                       <div class="icon-inner">
+                           <div style="cursor: pointer;">
+                               <span class="iconify" data-icon="bytesize:mail" data-inline="false"></span>
+                           </div>
+                           <div style="cursor: pointer;">
+                               <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
+                           </div>
+                           {% if post not in bookmarked %}
+                            <form action="{% url 'bookmark_colabs' post.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0; cursor: pointer;">
+                                    <div onclick="pin('bookmark{{ post.id }}')" id="bookmark{{ post.id }}" style="margin-left: 0px;">
+                                        <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                                    </div>
+                                </button>
+                            </form>
+                            {% else %}
+                            <form action="{% url 'unbookmark_colabs' post.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0; cursor: pointer;">
+                                    <div class="active2" onclick="pin('bookmark{{ post.id }}')" id="bookmark{{ post.id }}" style="margin-left: 0px;">
+                                        <span class="iconify" data-icon="bi:bookmark-fill" data-inline="false"></span>
+                                    </div>
+                                </button>
+                            </form>
+                            {% endif %}
+                       </div>
+                       <div class="icon-inner">
+                           <div>
+                                {% if post not in joined %}
+                                <form action="{% url 'join_colabs' post.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button class="req-colabs">Request Collaboration</button>
+                                </form>
+                                {% else %}
+                                <form action="{% url 'canceljoin_colabs' post.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button style="background-color: white; color: #1D2C64; border: 1px solid #1D2C64;" class="req-colabs">Cancel Request</button>
+                                </form>
+                                {% endif %}
+                           </div>
+                           <div>
+                               <span class="iconify" data-icon="ic:outline-people-alt" data-inline="false"></span>
+                               <span class="total">{{ post.count_joined }}/{{ post.members }}</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div> <!-- USER POST -->
+       {% endfor %}
+       
+   </div>
+</section>
+
+{% endblock%}
+        
+{% block script %}
+<script src="{% static 'timelines/js/collaboration.js' %}"></script>
+{% endblock %}

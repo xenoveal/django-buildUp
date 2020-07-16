@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Timeline</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/timeline.css">
+     <link rel="stylesheet" href="css/style.css">
+
+     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+     <header>
+          <div class="container">
+               <nav class="top">
+                   <div class="row">
+                       <li class="logo col-lg-4 col-md-3 col-sm-2"><img src="img/logo_bg_transparent.png" alt="logo"></li>
+                       <ul class="main-nav col-lg-4 col-md-6 col-sm-8">
+                           <li class="active">
+                            <span class="iconify" data-inline="false" data-icon="ant-design:home-filled"></span>
+                            </li>
+                           <li><span style="margin-bottom: 5px; font-size: 35px;" class="iconify" data-icon="fa-solid:level-up-alt" data-inline="false"></span></li>
+                           <li><span class="iconify" data-icon="ic:round-people-alt" data-inline="false"></span></li>
+                       </ul>
+                       <li class="profile col-lg-4 col-md-3 col-sm-2"><img src="img/images.jpeg" alt="profile-photo"></li>
+                   </div>
+                   <div class="profile-expand hide">
+                       <div class="user">
+                            <ul class="description">
+                                <li><img src="img/images.jpeg" alt="profile-photo"></li>
+                                <li class="profile">
+                                    <h6>Arknights</h6>
+                                    <p>Artificial Intelligence Enthusiasm</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="setting">
+                            <ul>
+                                <li><a href="">View Profile</a></li>
+                                <li><a href="">Sign Out</a></li>
+                            </ul>
+                        </div>
+                   </div>
+               </nav>
+               <nav class="left">
+                   <div class="user">
+                       <ul class="description">
+                           <li class="profile"><img src="img/images.jpeg" alt="profile-photo"></li>
+                           <li>
+                               <a href="">
+                                   <h6>Arknights</h6>
+                               </a>
+                               <hr>
+                               <p>Artificial Intelligence Enthusiasm</p>
+                           </li>
+                       </ul>
+                       <ul class="menu">
+                           <li><img src="img/notif.png" alt="notif">Notifications</li>
+                           <hr>
+                           <li><img src="img/Friendlist.png" alt="Friendlist">Friendlist</li>
+                           <hr>
+                           <li><img src="img/community.png" alt="community">Community</li>
+                           <hr>
+                           <li><img src="img/bookmark.png" alt="bookmark">Bookmark</li>
+                           <hr>
+                           <li><img src="img/More.png" alt="more">More</li>
+                       </ul>
+                   </div>
+                   <!--
+                       <div class="community">
+                           <h6>Top Community</h6>
+                           <hr>
+                           <ul>
+                                <li>Chess</li>
+                                <li>Sport</li>
+                                <li>Sneakers</li>
+                                <li>Game</li>
+                                <li>Music</li>
+                           </ul>
+                           <button>Search More</button>
+                       </div>
+                   -->
+                   <div class="foot">
+                       <hr>
+                       <a href="">Privacy&ensp;&ensp;</a>
+                       <a href="">About&ensp;&ensp;</a>
+                       <a href="">Help Center</a>
+                       <br>
+                       <a href="">More</a>
+                   </div>
+               </nav>
+               <nav class="right">
+                   <div class="search">
+                       <form action="">
+                           <input type="text" placeholder="Search BuildUp">
+                           <button type="submit"><span class="iconify" data-icon="bx:bx-search-alt-2" data-inline="false"></span></button>
+                       </form>
+                   </div>
+                   <div class="information">
+                       <li>Competition<span style="font-size: 30px;" class="iconify logo" data-icon="fa-solid:trophy" data-inline="false"></span></li>
+                       <li>Scholarship<span style="font-size: 38px;" class="iconify logo" data-icon="ic:baseline-school" data-inline="false"></span></li>
+                       <li>Seminar<img src="img/seminar.png" alt=""></li>
+                       <li>Event<span style="margin-left: 16px;" class="iconify logo" data-icon="whh:ticket" data-inline="false"></span></li>
+                   </div>
+                   <div class="connection">
+                       <h5>Extend Connection</h6>
+                       <hr>
+                       <div class="person">
+                           <div>
+                               <img src="img/images.jpeg" alt="profile">
+                           </div>
+                           <div class="detail">
+                               <h6>Mostima</h6>
+                               <p>Artificial Intelligence Enthusiasm</p>
+                               <hr>
+                            </div>
+                            <div class="add">
+                                <span class="iconify" data-icon="eva:person-add-fill" data-inline="false"></span>
+                            </div>
+                       </div>
+
+                       <div class="person">
+                           <div>
+                               <img src="img/images.jpeg" alt="profile">
+                           </div>
+                           <div class="detail">
+                               <h6>Mostima</h6>
+                               <p>Artificial Intelligence Enthusiasm</p>
+                               <hr>
+                            </div>
+                            <div class="add">
+                                <span class="iconify" data-icon="eva:person-add-fill" data-inline="false"></span>
+                            </div>
+                       </div>
+                       <div class="person">
+                           <div>
+                               <img src="img/images.jpeg" alt="profile">
+                           </div>
+                           <div class="detail">
+                               <h6>Mostima</h6>
+                               <p>Artificial Intelligence Enthusiasm</p>
+                               <hr>
+                            </div>
+                            <div class="add">
+                                <span class="iconify" data-icon="eva:person-add-fill" data-inline="false"></span>
+                            </div>
+                       </div>
+                       <button class="more">Search More</button>
+                   </div>
+               </nav>
+               <div class="msg"><span class="iconify" data-icon="ant-design:message-outlined" data-inline="false"></span></div>
+          </div>
+     </header>
+     <section>
+        <div class="container">
+            <div class="posting">
+                <form action="">
+                    <div class="input">
+                        <textarea name="paragraph_text" placeholder="how was your day? type something here.."></textarea>
+                    </div>
+                    <div class="round">
+                        <img src="img/images.jpeg" alt="profile-photo">
+                    </div>
+                    <div class="menu">
+                        <span class="iconify click" data-icon="ant-design:camera-filled" data-inline="false"></span>
+                        <span class="iconify click" data-icon="ant-design:file-twotone" data-inline="false"></span>
+                        <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                        <span class="iconify click" style="margin-left: -6px;" data-icon="ic:round-arrow-drop-down" data-inline="false"></span>
+                    </div>
+                    <button class="submit">Post</button>
+                </form>
+            </div>
+            <div class="break">
+                <div id="filter">
+                    <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
+                </div>
+                <hr>
+                <div id="filter-expand" class="hide">
+                    <ul>
+                        <li><span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by popularity</li>
+                        <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by recent post</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- USER POST -->
+            <div class="user-post">
+                <div class="head">
+                    <div class="pict">
+                        <img src="img/image2.jpg" alt="profile picture">
+                    </div>
+                    <div class="desc">
+                        <h5><a href="">Exusiai</a></h5>
+                        <div class="time">
+                            <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                            <p>30 mins</p>
+                        </div>
+                    </div>
+                    <div class="more">
+                        <span onclick="comment('12312');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                        <div class="more-expand hide" id="12312">
+                            <ul>
+                                <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
+                                <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-wrap">
+                    <div class="inner">
+                        <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                        <hr>
+                        <div class="icon">
+                            <div>
+                                <div onclick="like('1235')" id="1235" style="margin-left: 0px;">
+                                    <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                </div>
+                                <span class="total">126</span>
+                            </div>
+                            <div>
+                                <span onclick="comment('1275')" class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
+                                <span class="total">720</span>
+                            </div>
+                            <div>
+                                <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
+                                <span class="total">671</span>
+                            </div>
+                            <div onclick="pin('1234')" id="1234">
+                                <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner hide" id="1275">
+                        <hr style="height: 1px; color: #1D2C64; width: 100%;">
+                        <!-- USER COMMENT-->
+                        <div class="user-post-small">
+                            <div class="head">
+                                <div class="pict">
+                                    <img src="img/image2.jpg" alt="profile picture">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="">Exusiai</a></h5>
+                                    <div class="time">
+                                        <p>30 mins</p>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <span onclick="comment('123142');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                    <div class="more-expand hide" id="123142">
+                                        <ul>
+                                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inner-wrap">
+                                <div class="inner">
+                                    <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                    <hr>
+                                    <div class="icon">
+                                        <div>
+                                            <span class="total">126</span>
+                                            <div onclick="like('6666')" id="6666" style="margin-left: 0px;">
+                                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- USER COMMENT -->
+                        <!-- USER COMMENT-->
+                        <div class="user-post-small">
+                            <div class="head">
+                                <div class="pict">
+                                    <img src="img/image2.jpg" alt="profile picture">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="">Exusiai</a></h5>
+                                    <div class="time">
+                                        <p>30 mins</p>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <span onclick="comment('123132');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                    <div class="more-expand hide" id="123132">
+                                        <ul>
+                                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inner-wrap">
+                                <div class="inner">
+                                    <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                    <hr>
+                                    <div class="icon">
+                                        <div>
+                                            <span class="total">126</span>
+                                            <div onclick="like('5555')" id="5555" style="margin-left: 0px;">
+                                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- USER COMMENT -->
+                        <div class="user-comment">
+                            <form action="">
+                                <textarea name="paragraph_text" placeholder="give your comment.."></textarea>
+                                <div class="round">
+                                    <img src="img/images.jpeg" alt="profile-photo">
+                                </div>
+                                <button class="submit"><span class="iconify" data-icon="bx:bx-send" data-inline="false"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- USER POST -->
+
+            <!-- USER POST -->
+            <div class="user-post">
+                <div class="head">
+                    <div class="pict">
+                        <img src="img/image2.jpg" alt="profile picture">
+                    </div>
+                    <div class="desc">
+                        <h5><a href="">Exusiai</a></h5>
+                        <div class="time">
+                            <span class="iconify" data-icon="bx:bx-world" data-inline="false"></span>
+                            <p>30 mins</p>
+                        </div>
+                    </div>
+                    <div class="more">
+                        <span onclick="comment('123122');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                        <div class="more-expand hide" id="123122">
+                            <ul>
+                                <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this post</li>
+                                <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this post</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-wrap">
+                    <div class="inner">
+                        <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                        <hr>
+                        <div class="icon">
+                            <div>
+                                <div onclick="like('2234')" id="2234" style="margin-left: 0px;">
+                                    <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                </div>
+                                <span class="total">126</span>
+                            </div>
+                            <div>
+                                <span onclick="comment('1111')" class="iconify" data-icon="fa-regular:comment" data-inline="false"></span>
+                                <span class="total">720</span>
+                            </div>
+                            <div>
+                                <span class="iconify" data-icon="cil:share-alt" data-inline="false"></span>
+                                <span class="total">671</span>
+                            </div>
+                            <div onclick="pin('2235')" id="2235">
+                                <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner hide" id="1111">
+                        <hr style="height: 1px; color: #1D2C64; width: 100%;">
+
+                        <!-- USER COMMENT-->
+                        <div class="user-post-small">
+                            <div class="head">
+                                <div class="pict">
+                                    <img src="img/image2.jpg" alt="profile picture">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="">Exusiai</a></h5>
+                                    <div class="time">
+                                        <p>30 mins</p>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <span onclick="comment('123121');" class="iconify" data-icon="eva:more-vertical-fill" data-inline="false"></span>
+                                    <div class="more-expand hide" id="123121">
+                                        <ul>
+                                            <li><span class="iconify" data-icon="typcn:delete-outline" data-inline="false"></span>Hide this comment</li>
+                                            <li><span class="iconify" data-icon="feather:bell-off" data-inline="false"></span>Turn off notifications</li>
+                                            <li><span class="iconify" data-icon="ion:person-remove-outline" data-inline="false"></span></span>Remove connection</li>
+                                            <li><span class="iconify" data-icon="bx:bx-block" data-inline="false"></span>Block this user</li>
+                                            <li><span class="iconify" data-icon="clarity:flag-line" data-inline="false"></span>Report this comment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inner-wrap">
+                                <div class="inner">
+                                    <p>sometextsometextsome textsometextsomet extsom etexts omete xtsom etextsometex tsome textso metextsometext ometext somete xtsome extsom etextso metext</p>
+                                    <hr>
+                                    <div class="icon">
+                                        <div>
+                                            <span class="total">126</span>
+                                            <div onclick="like('3212')" id="3212" style="margin-left: 0px;">
+                                                <span class="iconify" data-icon="clarity:heart-line" data-inline="false"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- USER COMMENT -->
+                        <div class="user-comment">
+                            <form action="">
+                                <textarea name="paragraph_text" placeholder="give your comment.."></textarea>
+                                <div class="round">
+                                    <img src="img/images.jpeg" alt="profile-photo">
+                                </div>
+                                <button class="submit"><span class="iconify" data-icon="bx:bx-send" data-inline="false"></span></button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div> <!-- USER POST -->
+        </div>
+     </section>
+
+     <script src="js/timeline.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>{% block title %}{% endblock %}</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="icon" href="{% static 'user/img/favicon.png' %}" type="image/gif" sizes="16x16"> 
+     {% block css %}{% endblock %}
+     <link rel="stylesheet" href="{% static 'timelines/css/style.css' %}">
+
+     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+     <header>
+          <div class="container">
+               <nav class="top">
+                   <div class="row">
+                       <li class="logo col-lg-4 col-md-3 col-sm-2"><a href="{% url 'index' %}"><img src="{% static 'timelines/img/logo_bg_transparent.png' %}" alt="logo"></a></li>
+                       <ul class="main-nav col-lg-4 col-md-6 col-sm-8">
+                           <a href="{% url 'index' %}">
+                               <li class="{% if page == 'timeline' %}active{% endif %}">
+                                   <span class="iconify" data-inline="false" data-icon="ant-design:home-filled"></span>
+                               </li>
+                           </a>
+                           <a href="{% url 'information' 'competition' %}">
+                               <li class="{% if page == 'information' %}active{% endif %}">
+                                <span style="margin-bottom: 5px; font-size: 35px;" class="iconify" data-icon="fa-solid:level-up-alt" data-inline="false"></span>
+                               </li>
+                           </a>
+                            <a href="{% url 'collaboration' %}"><li class="{% if page == 'collaboration' %}active{% endif %}"><span class="iconify" data-icon="ic:round-people-alt" data-inline="false"></span></li></a>
+                       </ul>
+                       <li class="profile col-lg-4 col-md-3 col-sm-2">
+                            {% if extended.profileImg %}
+                            <img src="{% static extended.profileImg.url %}" alt="profile picture">
+                            {% else %}
+                            <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                            {% endif %}
+                        </li>
+                   </div>
+                   <div class="profile-expand hide">
+                       <div class="user">
+                            <ul class="description">
+                                <li>
+                                    {% if extended.profileImg %}
+                                    <img src="{% static extended.profileImg.url %}" alt="profile picture">
+                                    {% else %}
+                                    <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                                    {% endif %}
+                                </li>
+                                <li class="profile">
+                                    <h6>{{ user.first_name }}</h6>
+                                    <p>Artificial Intelligence Enthusiasm</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="setting">
+                            <ul>
+                                <li><a href="{% url 'user' %}">View Profile</a></li>
+                                <li><a href="{% url 'logout' %}">Sign Out</a></li>
+                            </ul>
+                        </div>
+                   </div>
+               </nav>
+               <nav class="left">
+                   <div class="user">
+                       <ul class="description">
+                           <li class="profile">
+                                {% if extended.profileImg %}
+                                <img src="{% static extended.profileImg.url %}" alt="profile picture">
+                                {% else %}
+                                <img src="{% static 'user/img/profile_default.png' %}" alt="profile-photo">
+                                {% endif %}
+                            </li>
+                            <li>
+                               <a href="">
+                                   <h6>{{ user.first_name }}</h6>
+                               </a>
+                               <hr>
+                               <p>Artificial Intelligence Enthusiasm</p>
+                           </li>
+                       </ul>
+                       <ul class="menu">
+                           <li><img src="{% static 'timelines/img/notif.png' %}" alt="notif">Notifications</li>
+                           <hr>
+                           <li><img src="{% static 'timelines/img/Friendlist.png' %}" alt="Friendlist">Friendlist</li>
+                           <hr>
+                           <!--
+                               <li><img src="{% static 'timelines/img/community.png' %}" alt="community">Community</li>
+                               <hr>
+                           -->
+                           <li><img src="{% static 'timelines/img/bookmark.png' %}" alt="bookmark">Bookmark</li>
+                           <hr>
+                           <li><img src="{% static 'timelines/img/More.png' %}" alt="more">More</li>
+                       </ul>
+                   </div>
+                   <!--
+                       <div class="community">
+                           <h6>Top Community</h6>
+                           <hr>
+                           <ul>
+                                <li>Chess</li>
+                                <li>Sport</li>
+                                <li>Sneakers</li>
+                                <li>Game</li>
+                                <li>Music</li>
+                           </ul>
+                           <button>Search More</button>
+                       </div>
+                   -->
+                   <div class="foot">
+                       <hr>
+                       <a href="">Privacy&ensp;&ensp;</a>
+                       <a href="">About&ensp;&ensp;</a>
+                       <a href="">Help Center</a>
+                       <br>
+                       <a href="">More</a>
+                   </div>
+               </nav>
+               <nav class="right">
+                   <!--
+                       <div class="search">
+                           <form action="">
+                               <input type="text" placeholder="Search BuildUp">
+                               <button type="submit"><span class="iconify" data-icon="bx:bx-search-alt-2" data-inline="false"></span></button>
+                           </form>
+                       </div>
+                   -->
+                   <div class="information">
+                       <a href="{% url 'information' 'competition' %}">
+                           <li>Competition<span style="font-size: 30px;" class="iconify logo" data-icon="fa-solid:trophy" data-inline="false"></span></li>
+                       </a>
+                       <a href="{% url 'information' 'scholarship' %}">
+                           <li>Scholarship<span style="font-size: 38px;" class="iconify logo" data-icon="ic:baseline-school" data-inline="false"></span></li>
+                       </a>
+                       <a href="{% url 'information' 'seminar' %}">
+                           <li>Seminar<img src="{% static 'timelines/img/seminar.png' %}" alt=""></li>
+                       </a>
+                       <a href="{% url 'information' 'event' %}">
+                           <li>Event<span style="margin-left: 16px;" class="iconify logo" data-icon="whh:ticket" data-inline="false"></span></li>
+                       </a>
+                   </div>
+                   <!--
+
+                       <div class="connection">
+                           <h5>Extend Connection</h6>
+                           <hr>
+                           <div class="person">
+                               <div>
+                                   <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile">
+                               </div>
+                               <div class="detail">
+                                   <h6>Mostima</h6>
+                                   <p>Artificial Intelligence Enthusiasm</p>
+                                   <hr>
+                                </div>
+                                <div class="add">
+                                    <span class="iconify" data-icon="eva:person-add-fill" data-inline="false"></span>
+                                </div>
+                           </div>
+    
+                           <div class="person">
+                               <div>
+                                   <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile">
+                               </div>
+                               <div class="detail">
+                                   <h6>Mostima</h6>
+                                   <p>Artificial Intelligence Enthusiasm</p>
+                                   <hr>
+                                </div>
+                                <div class="add">
+                                    <span class="iconify" data-icon="eva:person-add-fill" data-inline="false"></span>
+                                </div>
+                           </div>
+                           <div class="person">
+                               <div>
+                                   <img src="{% static 'timelines/img/images.jpeg' %}" alt="profile">
+                               </div>
+                               <div class="detail">
+                                   <h6>Mostima</h6>
+                                   <p>Artificial Intelligence Enthusiasm</p>
+                                   <hr>
+                                </div>
+                                <div class="add">
+                                    <span class="iconify" data-icon="eva:person-add-fill" data-inline="false"></span>
+                                </div>
+                           </div>
+                           <button class="more">Search More</button>
+                       </div>
+                   -->
+               </nav>
+               <!--
+                   <div class="msg"><span class="iconify" data-icon="ant-design:message-outlined" data-inline="false"></span></div>
+               -->
+          </div>
+     </header>
+     {% block body %}{% endblock %}
+     {% block script %}{% endblock %}
+     <script src="{% static 'timelines/js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+$primary_color: #787CA9;
+$secondary_color: white;
+$third_color: #1D2C64;
+$additional: #F6FCB4;
+$minor: #E0EAF8;
+$grey: #C4C4C4;
+
+section{
+    width: 100%;
+    margin-top: 140px;
+    width: 41vw;
+    margin-left: 30vw;
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .head{
+        #filter-expand{
+            background-color: $secondary_color;
+            width: 180px;
+            position: absolute;
+            right: 0;
+            top: 25px;
+            padding: 10px;
+            border: 1px solid $third_color;
+            text-align: left;
+            font-size: 14px;
+            ul{
+                margin-left: -30px;
+            }
+            li{
+                cursor: pointer;
+                margin-top: 10px;
+            }
+        }
+        h2{
+            font-size: 40px;
+            margin-right: 40px;
+        }
+        .search-info, .filter-info, .sort-info{
+            button{
+                background: none;
+                border: none;
+                outline: none;
+                color: $third_color;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover{
+                color: $primary_color;
+                transition: 0.2s;
+            }
+        }
+
+        .search-info{
+            width: 213px;
+            height: 27px;
+            margin-right: -20px;
+            input{
+                font-size: 12px;
+                border: none;
+                border-bottom: 1px solid $third_color;
+            }
+        }
+
+        .info-menu{
+            display: flex;
+            position: relative;
+            left: 30px;
+            top: 20px;
+        }
+        hr{
+            width: 42.8vw;
+            margin-top: 5px;
+            margin-left: -35px;
+            height: 1px;
+            background: $third_color;
+        }
+        .register-new{
+            width: 170px;
+            height: 25px;
+            font-size: 12px;
+            color: $third_color;
+            border-radius: 5px;
+            background: none;
+            outline: none;
+            border: 1px solid $third_color;
+            margin-bottom: 50px;
+        }
+        .register-new:hover{
+            background-color: $minor;
+        }
+    }
+
+    .user-post{
+        position: relative;
+        background-color: $third_color;
+        color: $secondary_color;
+        width: 151px;
+        height: 250px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        a{
+            color: $secondary_color;
+        }
+        a:hover{
+            opacity: 0.9;
+            transition: 0.5s;
+            color: $secondary_color;
+        }
+        .pict{
+            img{
+                width: 151px;
+                height: 140px;
+            }
+        }
+        .bookmark-info{
+            text-align: right;
+            font-size: 25px;
+            button{
+                position: absolute;
+                z-index: 5;
+                top: 5px;
+                right: 5px;
+                width: 30px;
+                height: 30px;
+                background: none;
+                outline: none;
+                border: none;
+                color: $third_color;
+                cursor: pointer;
+    
+            }
+            button:hover{
+                opacity: 0.5;
+                transition: 0.2s;
+            }
+            .active{
+                color: $third_color;
+            }
+            .active:hover{
+                color: $primary_color;
+                transition: 0.2s;
+            }
+        }
+        .desc{
+            font-size: 12px;
+            line-height: 15px;
+            margin-left: 4px;
+        
+            .time{
+                margin-top: 10px;
+            }
+            h4{
+                font-size: 14px;
+            }
+            .see-details{
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                background: none;
+                outline: none;
+                border: none;
+                width: 0;
+                height: 0;
+                border-right: 40px solid $additional;
+                
+                border-top: 40px solid transparent;
+
+            }
+        }
+    }
+}

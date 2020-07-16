@@ -1,0 +1,18 @@
+{% extends "user/layout-new.html" %}
+{% load static %}
+
+{% block title %}Verification{% endblock %}
+{% block body %}
+<main>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'user/img/logo_bg_transparent.png' %}" alt="logo">
+        </div>
+        <div class="signin timer">
+            <h3>Verification Success <br>Please sign in to access your account</h3>
+            <br>
+            <a href="{% url 'loginform' %}"><button class="sign">Login</button></a>
+        </div>
+    </div>
+</main>
+{% endblock %}

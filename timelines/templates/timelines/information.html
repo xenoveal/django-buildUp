@@ -1,0 +1,104 @@
+{% extends "timelines/layout.html" %}
+{% load static %}
+
+{% block title %}{{ category }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'timelines/css/information.css' %}">
+{% endblock %}
+                            
+{% block body %}
+<section>
+   <div class="container">
+       <div class="head">
+           <div class="row" style="display: flex; justify-content: space-between;">
+               <h2>{{ category }}</h2>
+               <div class="info-menu" style="margin-right: 40px;">
+                <!--
+                    <div class="search-info">
+                        <form action="">
+                            <input type="text" placeholder="Search an information">
+                            <button type="submit"><span class="iconify" data-icon="bx:bx-search-alt-2" data-inline="false"></span></button>
+                        </form>
+                    </div>
+                    <div class="filter-info">
+                        <button>
+                            <span class="iconify" data-icon="feather:filter" data-inline="false"></span>
+                        </button>
+                    </div>
+ 
+                    <div class="sort-info" id="filter">
+                        <button>
+                            <span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>
+                        </button>
+                    </div>
+                    <div id="filter-expand" class="hide" style="z-index: 99;">
+                        <ul>
+                            <li><span class="iconify" data-icon="bx:bx-sort-down" data-inline="false"></span>&ensp;Sort by popularity</li>
+                            <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by recent post</li>
+                            <li><span class="iconify" data-icon="fa-solid:sort-alpha-up-alt" data-inline="false"></span>&ensp;Sort by Least Members</li>
+                        </ul>
+                    </div>
+                -->
+               </div>
+           </div>
+           <hr>
+           <a href=""><button class="register-new">Register an {{ category }}</button></a>
+       </div>
+
+       <div class="posts" style="display: flex; flex-wrap: wrap;">
+           {% for content in contents %}
+           <!--USER POST-->
+           <div class="user-post" style="margin: 15px;">
+               <div class="bookmark-info">
+                    {% if content not in bookmarked %}
+                    <form action="{% url 'bookmark_info' category content.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                            <div onclick="pin('bookmarkcontent{{ content.id }}')" id="bookmarkcontent{{ content.id }}" style="margin-left: 0px;">
+                                <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                            </div>
+                        </button>
+                    </form>
+                    {% else %}
+                    <form action="{% url 'unbookmark_info' category content.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                            <div class="active2" onclick="pin('bookmarkcontent{{ content.id }}')" id="bookmarkcontent{{ content.id }}" style="margin-left: 0px;">
+                                <span class="iconify" data-icon="bi:bookmark-fill" data-inline="false"></span>
+                            </div>
+                        </button>
+                    </form>
+                    {% endif %}
+               </div>
+               <a href="{% url 'information-detail' category content.id %}">
+                   <div class="pict">
+                       {% if content.contentImage %}
+                       <img src="{% static content.contentImage.url %}" alt="profile picture">
+                       {% else %}
+                       <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
+                       {% endif %}
+                   </div>
+                   <div class="desc">
+                       <p class="time">
+                           {{ content.start_day }}
+                           {% if content.start_day != content.end_day %}
+                            - 
+                           {{ content.end_day }}
+                           {% endif %}
+                       </p>
+                       <h4>{{ content.title }}</h4>
+                       <button class="see-details"></button>
+                       <p class="admin-name">{{ content.username.first_name }} {{ content.username.last_name }}</p>
+                   </div>
+               </a>
+           </div> <!-- USER POST -->
+           {% endfor %}
+       </div>
+   </div>
+</section>    
+{% endblock%}
+        
+{% block script %}
+<script src="{% static 'timelines/js/information.js' %}"></script>
+{% endblock %}    

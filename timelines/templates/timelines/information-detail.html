@@ -1,0 +1,115 @@
+{% extends "timelines/layout.html" %}
+{% load static %}
+
+{% block title %}{{ category }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'timelines/css/information-detail.css' %}">
+{% endblock %}
+                            
+{% block body %}
+<section>
+   <div class="container">
+
+       <div class="head">
+           <div class="row">
+               <h2>{{ content.title }}</h2>
+           </div>
+           <hr>
+       </div>
+       <div class="info-wrap">
+           <div class="info-detail">
+               <div class="topmenu">
+                   <a href="{% url 'information' category %}">
+                       <button class="return" style="cursor: pointer;">Return</button>
+                   </a>
+
+                   <div class="menu">
+                       <div>
+                           <span class="iconify" data-icon="ant-design:share-alt-outlined" data-inline="false"></span>
+                       </div>
+                       <div>
+                        {% if content not in bookmarked %}
+                            <form action="{% url 'bookmark_info' category content.id True %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                    <div onclick="pin('bookmarkcontent{{ content.id }}')" id="bookmarkcontent{{ content.id }}" style="margin-left: 0px;">
+                                        <span class="iconify" data-icon="bi:bookmark" data-inline="false"></span>
+                                    </div>
+                                </button>
+                            </form>
+                        {% else %}
+                            <form action="{% url 'unbookmark_info' category content.id True %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none; background: none; outline: none; padding: 0;">
+                                    <div class="active2" onclick="pin('bookmarkcontent{{ content.id }}')" id="bookmarkcontent{{ content.id }}" style="margin-left: 0px;">
+                                        <span class="iconify" data-icon="bi:bookmark-fill" data-inline="false"></span>
+                                    </div>
+                                </button>
+                            </form>
+                        {% endif %}
+                        </div>
+                   </div>
+
+               </div>
+               <div class="post-image">
+                    {% if content.contentImage %}
+                    <img src="{% static content.contentImage.url %}" alt="profile picture">
+                    {% else %}
+                    <img src="{% static 'timelines/img/image2.jpg' %}" alt="profile picture">
+                    {% endif %}
+                   <div class="indicator">
+                       <button class="indicator active2"><span class="iconify" data-icon="bi:dot" data-inline="false"></span></button>
+                       <button class="indicator"><span class="iconify" data-icon="bi:dot" data-inline="false"></span></button>
+                       <button class="indicator"><span class="iconify" data-icon="bi:dot" data-inline="false"></span></button>
+                   </div>
+               </div>
+               <div style="padding-left: 30px; padding-right: 30px;">
+               
+                   <div class="description">
+                       <h5>Description</h5>
+                       <p>{{ content.paragraph|linebreaks }}</p>
+                   </div>
+                   <div class="term">
+                       <h5>Term & Condition</h5>
+                       <p>
+                           {{ content.terms|linebreaks }}
+                       </p>
+                   </div>
+               </div>
+               <hr>
+               <div class="row" style="padding-left: 30px; padding-right: 30px;">
+                   <div class="col-lg-6 register">
+                        {% if category == 'Competition' %}
+                       <div class="guidebook row">
+                           <a href=""><span class="iconify" data-icon="ant-design:download-outlined" data-inline="false"></span></a>
+                           <span class="text"> Guidebook Download</span>
+                       </div>
+                       {% endif %}
+   
+                       <div style="margin-top: 10px;">
+                           <button class="return active" style="cursor: pointer;">Register</button>
+                       </div>
+                       <div>
+                           <button class="return" style="cursor: pointer;">Contact Comitee</button>
+                       </div>
+                   </div>
+                   {% if category == 'Competition' %}
+                   <div class="col-lg-6 search-team">
+                       <p>Do not have a team?</p>
+                       <a href="{% url 'search-team' category content.id %}">
+                           <button class="return" style="cursor: pointer;">Search for team</button>
+                       </a>
+                   </div>
+                   {% endif %}
+               </div>
+           </div>
+       </div>
+       
+   </div>
+</section>   
+{% endblock%}
+        
+{% block script %}
+<script src="{% static 'timelines/js/information.js' %}"></script>
+{% endblock %}    

@@ -1,0 +1,40 @@
+$primary_color: #787CA9;
+$secondary_color: white;
+$third_color: #1D2C64;
+$additional: #30D1FF;
+$minor: #E0EAF8;
+$grey: #C4C4C4;
+
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
+section{
+    background: url('../img/bgBlog.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    color: $secondary_color;
+    z-index: -1;
+    margin-top: 23px;
+    h2, h3, h1, p{
+        position: relative;
+        left: 100px;
+    }
+    h2{
+        top: 100px;
+    }
+    h1{
+        top: 250px;
+    }
+    h3{
+        top: 250px;
+        font-size: 20;
+    }
+    p{
+        top: 260px;
+    }
+}

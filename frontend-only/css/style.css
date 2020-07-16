@@ -1,0 +1,356 @@
+body {
+  font-family: Roboto; }
+  body * {
+    list-style: none; }
+  body a {
+    text-decoration: none;
+    color: black; }
+  body a:hover {
+    text-decoration: none;
+    color: black;
+    opacity: 0.7;
+    transition: 0.5s; }
+
+.hide {
+  display: none !important; }
+
+@media (min-width: 580px) {
+  .top .logo, .top .profile {
+    display: block; }
+
+  .left, .right {
+    display: block; } }
+@media (max-width: 580px) {
+  .top .logo, .top .profile {
+    display: none; }
+
+  .left, .right {
+    display: none; } }
+.top {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+  background: #1D2C64;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25); }
+  .top .row {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative; }
+  .top .logo img {
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    margin-top: 5px;
+    margin-left: 9.827260458839406vw;
+    filter: brightness(0) invert(1); }
+  .top .logo img:hover {
+    opacity: 0.9;
+    transition: 0.5s; }
+  .top .main-nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 13px; }
+    .top .main-nav li {
+      font-size: 37px;
+      width: 100px;
+      height: 90%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .top .main-nav li:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transition: 0.5s;
+      border-radius: 8px;
+      cursor: pointer; }
+    .top .main-nav .active {
+      margin-left: 0px;
+      border-bottom: 3px solid white; }
+    .top .main-nav .active:hover {
+      border-radius: 0px;
+      background-color: transparent;
+      color: white;
+      border-bottom: 3px solid white;
+      cursor: unset; }
+  .top .profile {
+    margin-top: 20px;
+    text-align: right; }
+    .top .profile img {
+      cursor: pointer;
+      margin-right: 9.827260458839406vw;
+      width: 60px;
+      height: 60px;
+      border: 2px solid white;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+      border-radius: 100px; }
+    .top .profile img:hover {
+      opacity: 0.9;
+      transition: 0.5s; }
+  .top .profile-expand {
+    position: absolute;
+    right: 9vw;
+    top: 90px;
+    z-index: -1;
+    width: 200px;
+    background-color: white;
+    border: 1px solid #1D2C64;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; }
+    .top .profile-expand .user .description {
+      border-radius: 100px;
+      display: flex;
+      justify-content: space-between; }
+      .top .profile-expand .user .description .profile {
+        margin-left: 10px;
+        text-align: left;
+        width: 150px; }
+      .top .profile-expand .user .description img {
+        margin-top: 20px;
+        border: 2px solid white;
+        width: 50px;
+        height: 50px;
+        box-shadow: none; }
+    .top .profile-expand .setting {
+      position: relative;
+      left: -20px;
+      margin-top: -25px; }
+      .top .profile-expand .setting li {
+        margin: 10px;
+        width: 170px;
+        height: 20px;
+        text-align: center;
+        border: 1px solid #1D2C64; }
+
+.left {
+  position: fixed;
+  left: 0px;
+  top: 100px; }
+  .left .user {
+    margin-left: 5.5vw;
+    display: flex;
+    flex-direction: column; }
+    .left .user .description {
+      display: flex;
+      justify-content: left; }
+      .left .user .description h6 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-left: 7px;
+        margin-top: 10px; }
+      .left .user .description p {
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: -0.015em;
+        margin-left: 7px;
+        width: 147px; }
+      .left .user .description hr {
+        height: 1.5px;
+        width: 147px;
+        margin-left: 7px;
+        margin-top: 7px;
+        margin-bottom: 5px;
+        background-color: #787CA9; }
+      .left .user .description .profile img {
+        width: 55px;
+        height: 55px;
+        border: 2px solid white;
+        border-radius: 100px; }
+    .left .user .menu {
+      margin-left: 7px;
+      line-height: 21px;
+      font-size: 16px; }
+      .left .user .menu li {
+        cursor: pointer;
+        margin-left: 3px; }
+        .left .user .menu li img {
+          margin-right: 25px; }
+      .left .user .menu li:hover {
+        opacity: 0.7;
+        transition: 0.5s; }
+      .left .user .menu hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: #C4C4C4;
+        margin-left: 50px;
+        width: 120px;
+        height: 1px; }
+      .left .user .menu .active {
+        color: #1D2C64; }
+  .left .community {
+    margin-left: 9.827260458839406vw;
+    margin-top: 20px; }
+    .left .community h6 {
+      line-height: 15px;
+      font-size: 20px;
+      letter-spacing: -0.015em; }
+    .left .community hr {
+      width: 220px;
+      height: 2px;
+      background-color: #787CA9;
+      margin-top: 13px;
+      margin-bottom: 27px;
+      margin-left: 0px; }
+  .left .foot {
+    margin-left: 9.827260458839406vw;
+    text-align: center;
+    font-size: 12px; }
+    .left .foot hr {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      background-color: #C4C4C4;
+      margin-left: 0px;
+      width: 220px;
+      height: 1.5px; }
+    .left .foot a {
+      color: #1D2C64; }
+    .left .foot a:hover {
+      color: #30D1FF;
+      transition: 0.5s; }
+
+.right {
+  position: fixed;
+  right: 0px;
+  top: 100px;
+  bottom: 0px;
+  overflow-y: scroll; }
+  .right .search {
+    color: #1D2C64;
+    margin-right: 6.005398110661268vw;
+    width: 250px;
+    height: 33px;
+    border: 1px solid #1D2C64; }
+    .right .search input {
+      font-size: 15px;
+      margin-left: 20px;
+      position: relative;
+      top: -4px;
+      width: 180px;
+      height: 33px; }
+    .right .search button {
+      cursor: pointer;
+      width: 35px;
+      margin-top: 3px;
+      font-size: 20px;
+      margin-left: 5px; }
+    .right .search input, .right .search button {
+      border: 0px;
+      background-color: transparent;
+      border-radius: 25px;
+      outline: none; }
+    .right .search button:hover {
+      color: #787CA9; }
+  .right .information {
+    margin-top: 30px;
+    margin-right: 7vw;
+    border-right: 1.5px solid #1D2C64;
+    padding-bottom: 2px; }
+    .right .information li {
+      margin-right: 1vw;
+      text-align: right;
+      font-size: 16px;
+      margin-top: 15px;
+      margin-bottom: 20px;
+      cursor: pointer; }
+      .right .information li img {
+        width: 40px;
+        margin-left: 10px; }
+      .right .information li .logo {
+        color: #1D2C64;
+        margin-left: 10px;
+        font-size: 24px;
+        position: relative;
+        top: 8px; }
+    .right .information li:hover {
+      opacity: 0.7;
+      transition: 0.5s; }
+  .right .connection {
+    margin-top: 40px;
+    margin-bottom: 150px;
+    margin-right: 4vw; }
+    .right .connection h5 {
+      text-align: center;
+      font-size: 20px; }
+    .right .connection h6 {
+      cursor: pointer;
+      font-size: 16px; }
+    .right .connection h6:hover {
+      opacity: 0.7;
+      transition: 0.5s; }
+    .right .connection p {
+      font-size: 12px; }
+    .right .connection hr {
+      height: 1.5px;
+      width: 200px;
+      margin-top: 7px;
+      margin-bottom: 9px;
+      background-color: #787CA9; }
+    .right .connection img {
+      border-radius: 100px;
+      border: 5px solid #E0EAF8;
+      width: 54px;
+      height: 54px; }
+    .right .connection .person {
+      display: flex;
+      justify-content: center; }
+      .right .connection .person .detail {
+        width: 130px;
+        margin-left: 10px; }
+        .right .connection .person .detail hr {
+          height: 0.5px;
+          width: 140px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          background-color: #C4C4C4; }
+      .right .connection .person .add {
+        margin-top: 5px;
+        height: 25px;
+        cursor: pointer;
+        color: #787CA9; }
+      .right .connection .person .add:hover {
+        transition: 0.3s;
+        opacity: 0.6; }
+    .right .connection .more {
+      cursor: pointer;
+      background-color: white;
+      color: #1D2C64;
+      border: 1px solid #1D2C64;
+      width: 113px;
+      height: 19px;
+      font-size: 12px;
+      position: absolute;
+      right: 6.5vw;
+      margin-top: 5px;
+      outline: none; }
+    .right .connection .more:hover {
+      border: 1px solid #30D1FF;
+      color: #30D1FF;
+      transition: 0.3s; }
+
+.msg {
+  position: fixed;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  right: 5vw;
+  bottom: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 100px;
+  font-size: 40px;
+  line-height: 67px;
+  text-align: center;
+  color: #1D2C64; }
+
+.msg:hover {
+  background-color: white;
+  transition: 1s;
+  color: black; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,127 @@
+section {
+  width: 100%;
+  margin-top: 140px;
+  width: 41vw;
+  margin-left: 30vw; }
+  section .container {
+    display: flex;
+    flex-direction: column; }
+  section .head #filter-expand {
+    background-color: white;
+    width: 180px;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    padding: 10px;
+    border: 1px solid #1D2C64;
+    text-align: left;
+    font-size: 14px; }
+    section .head #filter-expand ul {
+      margin-left: -30px; }
+    section .head #filter-expand li {
+      cursor: pointer;
+      margin-top: 10px; }
+  section .head h2 {
+    font-size: 40px;
+    margin-right: 40px; }
+  section .head .search-info button, section .head .filter-info button, section .head .sort-info button {
+    background: none;
+    border: none;
+    outline: none;
+    color: #1D2C64;
+    font-size: 16px;
+    cursor: pointer; }
+  section .head .search-info button:hover, section .head .filter-info button:hover, section .head .sort-info button:hover {
+    color: #787CA9;
+    transition: 0.2s; }
+  section .head .search-info {
+    width: 213px;
+    height: 27px;
+    margin-right: -20px; }
+    section .head .search-info input {
+      font-size: 12px;
+      border: none;
+      border-bottom: 1px solid #1D2C64; }
+  section .head .info-menu {
+    display: flex;
+    position: relative;
+    left: 30px;
+    top: 20px; }
+  section .head hr {
+    width: 42.8vw;
+    margin-top: 5px;
+    margin-left: -35px;
+    height: 1px;
+    background: #1D2C64; }
+  section .head .register-new {
+    width: 170px;
+    height: 25px;
+    font-size: 12px;
+    color: #1D2C64;
+    border-radius: 5px;
+    background: none;
+    outline: none;
+    border: 1px solid #1D2C64;
+    margin-bottom: 50px; }
+  section .head .register-new:hover {
+    background-color: #E0EAF8; }
+  section .user-post {
+    position: relative;
+    background-color: #1D2C64;
+    color: white;
+    width: 151px;
+    height: 250px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25); }
+    section .user-post a {
+      color: white; }
+    section .user-post a:hover {
+      opacity: 0.9;
+      transition: 0.5s;
+      color: white; }
+    section .user-post .pict img {
+      width: 151px;
+      height: 140px; }
+    section .user-post .bookmark-info {
+      text-align: right;
+      font-size: 25px; }
+      section .user-post .bookmark-info button {
+        position: absolute;
+        z-index: 5;
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        height: 30px;
+        background: none;
+        outline: none;
+        border: none;
+        color: #1D2C64;
+        cursor: pointer; }
+      section .user-post .bookmark-info button:hover {
+        opacity: 0.5;
+        transition: 0.2s; }
+      section .user-post .bookmark-info .active {
+        color: #1D2C64; }
+      section .user-post .bookmark-info .active:hover {
+        color: #787CA9;
+        transition: 0.2s; }
+    section .user-post .desc {
+      font-size: 12px;
+      line-height: 15px;
+      margin-left: 4px; }
+      section .user-post .desc .time {
+        margin-top: 10px; }
+      section .user-post .desc h4 {
+        font-size: 14px; }
+      section .user-post .desc .see-details {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        background: none;
+        outline: none;
+        border: none;
+        width: 0;
+        height: 0;
+        border-right: 40px solid #F6FCB4;
+        border-top: 40px solid transparent; }
+
+/*# sourceMappingURL=information.css.map */

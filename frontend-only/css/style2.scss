@@ -1,0 +1,208 @@
+$primary_color: #787CA9;
+$secondary_color: white;
+$third_color: #1D2C64;
+$additional: #30D1FF;
+$minor: #E0EAF8;
+$grey: #C4C4C4;
+
+body{
+    width: 100%;
+    font-family: Roboto;
+    a{
+        text-decoration: none;
+        color: $third_color;
+    }
+    a:hover{
+        text-decoration: none;
+        color: $primary_color;
+        transition: 0.2s;
+    }
+}
+
+@media(max-width:1000px){
+    footer .container .footer{
+        .left{
+            flex-direction: column;
+            text-align: center;
+            .company{
+                margin-top: 20px;
+            }
+        }
+        .right{
+            text-align: center;
+        }
+        .lead{
+            text-align: center;
+            font-size: 16px;
+        }
+        .left2{
+            justify-content: center;
+        }
+    } 
+}
+
+@media(min-width:1000px){
+    footer .container .footer{
+        .left{
+            flex-direction: row;
+            margin-left: 7vw;
+            text-align: left;
+            .company{
+                margin-left: 7vw;
+            }
+            .list{
+                margin-left: 20px;
+            }
+        }
+        .right, .right2{
+            text-align: right;
+        }
+        .left2{
+            text-align: left;
+        }
+        .lead{
+            font-size: 14px;
+        }
+        .right2{
+            margin-right: 7vw;
+        }
+        .left2{
+            margin-left: 7vw;
+        }
+    } 
+}
+
+
+
+header{
+    background-color: $third_color;
+    position: fixed;
+    height: 78px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        ul{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-right: 50px;
+            margin-left: 50px;
+
+            .auth{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                border: 1px solid $secondary_color;
+                border-radius: 5px;
+                text-align: center;
+            }
+            .logo{
+                *{
+                    font-weight: 600;
+                    font-size: 20;
+                }
+            }
+            li{
+                *{
+                    color: $secondary_color;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+                img{
+                    width: 55px;
+                    height: 55px;
+                    margin-top: 5px;
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+    }
+}
+
+/* Footer */
+
+footer .container .footer{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0px;
+    background: $third_color;
+    padding-right:15px;
+    padding-left:15px;
+}
+ 
+footer .container .footer .row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer .container .footer .left{
+    display: flex;
+    margin-top: 30px;
+}
+
+footer .container .footer .left h4{
+    font-size: 18px;
+    color: $secondary_color;
+    font-weight: 600;
+}
+
+footer .container .footer .lead{
+    color: $secondary_color;
+    font-weight: 350;
+    height: 13px;
+}
+
+footer .container .footer .logo{
+    margin-right: 7vw;
+    margin-top: 40px;
+    font-size: 30px;
+    color: $secondary_color;
+    font-weight: 600;
+}
+
+footer .container .footer .logo img{
+    width: 100px;
+    height: 100px;
+    filter: brightness(0) invert(1); }
+
+footer .footer hr{
+    background: $secondary_color;
+    width: 100%;
+}
+
+footer .container .footer .left2{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+footer .container .footer .right2{
+    margin-top: 10px;
+}
+
+footer .container a{
+    text-decoration: none;
+    color: $secondary_color;
+    margin-left: 10px;
+}
+
+footer .container a:hover{
+    text-decoration: none;
+    color: transparent;
+}
+
+footer .container a:active{
+    text-decoration: none;
+}
+
+footer .container a:visited{
+    text-decoration: none;
+}

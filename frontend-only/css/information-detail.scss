@@ -1,0 +1,139 @@
+$primary_color: #787CA9;
+$secondary_color: white;
+$third_color: #0D47A1;
+$additional: #30D1FF;
+$minor: #E0EAF8;
+$grey: #C4C4C4;
+
+
+section{
+    width: 100%;
+    margin-top: 100px;
+    width: 41vw;
+    margin-left: 30vw;
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        padding: 0px;
+    }
+    .info-wrap{
+        background: $third_color;
+        padding: 2px;
+    }
+    .info-detail{
+        background-color: $secondary_color;
+        margin-left: 0.5px;
+        padding-top: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+        position: relative;
+        
+        .topmenu{
+            display: flex;
+            justify-content: space-between;
+            .menu{
+                font-size: 22px;
+                color: $third_color;
+                display: flex;
+                div{
+                    margin-left: 10px;
+                }
+                div:hover{
+                    opacity: 0.8;
+                    transition: 0.5s;
+                }
+                .iconify{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .register{
+            text-align: left;
+        }
+        .search-team{
+            margin-top: 40px;
+            text-align: right;
+        }
+        .active2{
+            background-color: $third_color !important;
+            color: $secondary_color !important;
+        }
+        .return{
+            border: 1px solid $third_color;
+            color: $third_color;
+            background: none;
+            outline: none;
+            width: 140px;
+            height: 22px;
+            font-size: 12px;
+            position: relative;
+            margin: 5px;
+            top: -20px;
+            z-index: 1;
+        }
+        .return:hover{
+            opacity: 0.5;
+        }
+        .post-image{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            img{
+                width: 318px;
+                height: 274px;
+                object-fit: cover;
+            }
+            .active{
+                color: $third_color;
+            }
+            button{
+                font-size: 30px;
+                margin-top: 10px;
+                margin-right: -10px;
+                margin-left: -10px;
+                line-height: 0px;
+                border: none;
+                background: $secondary_color;
+                color: $primary_color;
+                outline: none;
+            }
+        }
+        .description, .term, .guidebook{
+            font-size: 14px;
+            margin-left: 10px;
+            h5{
+                font-size: 18px;
+            }
+        }
+        .guidebook{
+            margin-top: 20px;
+            margin-bottom:30px;
+            .iconify{
+                font-size: 30px;
+            }
+            .text{
+                margin-top: 5px;
+                margin-left: 5px;
+            }
+        }
+
+    }
+
+    .head{
+        margin-left: 30px;
+        h2{
+            font-size: 24px;
+            margin-right: 40px;
+        }
+        hr{
+            width: 42.8vw;
+            margin-top: 5px;
+            margin-left: -35px;
+            margin-bottom: 30px;
+            height: 1px;
+            background: $third_color;
+        }
+    }
+}

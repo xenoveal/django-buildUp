@@ -1,0 +1,25 @@
+{% extends "user/layout-new.html" %}
+{% load static %}
+
+{% block title %}Forgot Password{% endblock %}
+
+{% block body %}
+<main>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'user/img/logo_bg_transparent.png' %}" alt="logo">
+        </div>
+        <div class="signin">
+            <h3>Change Password</h3>
+            <form action="{% url 'forgotchange' token=token %}" method="POST">
+                {% csrf_token %}
+                <input type="password" placeholder="New Password" id="registerPass" name="registerPass">
+                <input type="password" placeholder="Repeat New Password" id="registerPass2" name="registerPass2">
+                <span id="msg2" class="msg"></span>
+                <span id="capsWarning" class="msgBlue">{% if message %}{{ message }}{% endif %}</span>
+                <button type="submit" class="sign" id="change">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

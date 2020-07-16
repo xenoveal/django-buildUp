@@ -1,0 +1,103 @@
+section {
+  width: 100%;
+  margin-top: 100px;
+  width: 41vw;
+  margin-left: 30vw; }
+  section .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    padding: 0px; }
+  section .info-wrap {
+    background: #0D47A1;
+    padding: 2px; }
+  section .info-detail {
+    background-color: white;
+    margin-left: 0.5px;
+    padding-top: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    position: relative; }
+    section .info-detail .topmenu {
+      display: flex;
+      justify-content: space-between; }
+      section .info-detail .topmenu .menu {
+        font-size: 22px;
+        color: #0D47A1;
+        display: flex; }
+        section .info-detail .topmenu .menu div {
+          margin-left: 10px; }
+        section .info-detail .topmenu .menu div:hover {
+          opacity: 0.8;
+          transition: 0.5s; }
+        section .info-detail .topmenu .menu .iconify {
+          cursor: pointer; }
+    section .info-detail .register {
+      text-align: left; }
+    section .info-detail .search-team {
+      margin-top: 40px;
+      text-align: right; }
+    section .info-detail .active2 {
+      background-color: #0D47A1 !important;
+      color: white !important; }
+    section .info-detail .return {
+      border: 1px solid #0D47A1;
+      color: #0D47A1;
+      background: none;
+      outline: none;
+      width: 140px;
+      height: 22px;
+      font-size: 12px;
+      position: relative;
+      margin: 5px;
+      top: -20px;
+      z-index: 1; }
+    section .info-detail .return:hover {
+      opacity: 0.5; }
+    section .info-detail .post-image {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 10px; }
+      section .info-detail .post-image img {
+        width: 318px;
+        height: 274px;
+        object-fit: cover; }
+      section .info-detail .post-image .active {
+        color: #0D47A1; }
+      section .info-detail .post-image button {
+        font-size: 30px;
+        margin-top: 10px;
+        margin-right: -10px;
+        margin-left: -10px;
+        line-height: 0px;
+        border: none;
+        background: white;
+        color: #787CA9;
+        outline: none; }
+    section .info-detail .description, section .info-detail .term, section .info-detail .guidebook {
+      font-size: 14px;
+      margin-left: 10px; }
+      section .info-detail .description h5, section .info-detail .term h5, section .info-detail .guidebook h5 {
+        font-size: 18px; }
+    section .info-detail .guidebook {
+      margin-top: 20px;
+      margin-bottom: 30px; }
+      section .info-detail .guidebook .iconify {
+        font-size: 30px; }
+      section .info-detail .guidebook .text {
+        margin-top: 5px;
+        margin-left: 5px; }
+  section .head {
+    margin-left: 30px; }
+    section .head h2 {
+      font-size: 24px;
+      margin-right: 40px; }
+    section .head hr {
+      width: 42.8vw;
+      margin-top: 5px;
+      margin-left: -35px;
+      margin-bottom: 30px;
+      height: 1px;
+      background: #0D47A1; }
+
+/*# sourceMappingURL=information-detail.css.map */

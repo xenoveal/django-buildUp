@@ -1,0 +1,254 @@
+section .head .sort-expand, section .user-post .head .more .more-expand {
+  background-color: white;
+  border: 1px solid #1D2C64;
+  position: absolute;
+  right: 6px;
+  top: 30px;
+  width: 200px;
+  line-height: 20px;
+  font-size: 12px; }
+  section .head .sort-expand .iconify, section .user-post .head .more .more-expand .iconify {
+    font-size: 16px;
+    position: relative;
+    left: -12px;
+    top: 3px; }
+  section .head .sort-expand ul, section .user-post .head .more .more-expand ul {
+    margin-top: 15px; }
+    section .head .sort-expand ul li:hover, section .user-post .head .more .more-expand ul li:hover {
+      opacity: 0.8;
+      transition: 0.5s; }
+
+.hide {
+  display: none; }
+
+section {
+  width: 100%;
+  margin-top: 140px;
+  width: 41vw;
+  margin-left: 30vw; }
+  section .container {
+    display: flex;
+    flex-direction: column; }
+  section .head h2 {
+    font-size: 38px;
+    margin-right: 40px; }
+  section .head .search-info button, section .head .filter-info button, section .head .sort-info button {
+    background: none;
+    border: none;
+    outline: none;
+    color: #1D2C64;
+    font-size: 16px; }
+  section .head .search-info button:hover, section .head .filter-info button:hover, section .head .sort-info button:hover {
+    color: #787CA9;
+    transition: 0.2s; }
+  section .head .search-info {
+    width: 213px;
+    height: 27px;
+    margin-right: -20px; }
+    section .head .search-info input {
+      font-size: 12px;
+      border: none;
+      border-bottom: 1px solid #1D2C64; }
+  section .head .info-menu {
+    display: flex;
+    position: relative;
+    left: 30px;
+    top: 20px; }
+  section .head hr {
+    width: 42.8vw;
+    margin-top: 5px;
+    margin-left: -35px;
+    height: 1px;
+    background: #1D2C64; }
+  section .head .register-new {
+    width: 170px;
+    height: 25px;
+    font-size: 12px;
+    color: #1D2C64;
+    border-radius: 5px;
+    background: none;
+    outline: none;
+    border: 1px solid #1D2C64;
+    margin-bottom: 50px;
+    cursor: pointer; }
+  section .head .register-new:hover {
+    background-color: #E0EAF8; }
+  section .head .posting {
+    justify-content: center;
+    text-align: center; }
+    section .head .posting .input {
+      width: 39.338731443994604vw;
+      height: 102px;
+      border-radius: 5px;
+      margin-top: -70px;
+      background: #1D2C64; }
+      section .head .posting .input textarea {
+        width: 39.103778677462886vw;
+        height: 99.2px;
+        outline: none;
+        border: none;
+        margin-top: 1.6px;
+        border-radius: 5px;
+        margin-left: 1px;
+        resize: none;
+        padding: 30px; }
+    section .head .posting .round {
+      width: 95px;
+      height: 95px;
+      border-radius: 100px;
+      border-right: 1px solid #1D2C64;
+      transform: rotate(40deg);
+      position: relative;
+      top: -30px;
+      left: -30px; }
+      section .head .posting .round img {
+        width: 75px;
+        height: 75px;
+        margin-top: 10px;
+        border: 5px solid #E0EAF8;
+        border-radius: 100px;
+        transform: rotate(-40deg); }
+    section .head .posting .menu {
+      position: relative;
+      top: -85px;
+      left: 60px; }
+      section .head .posting .menu .name {
+        border-bottom: 1px solid #1D2C64;
+        width: 35vw;
+        text-align: left; }
+        section .head .posting .menu .name input {
+          margin-left: 10px;
+          border: none;
+          font-size: 14px; }
+      section .head .posting .menu .selection-details {
+        font-size: 14px;
+        margin-left: 10px;
+        margin-top: 20px;
+        display: flex; }
+        section .head .posting .menu .selection-details .select-inner {
+          background: white;
+          border: 1px solid #1D2C64;
+          width: 150px;
+          height: 31px;
+          margin-right: 10px; }
+          section .head .posting .menu .selection-details .select-inner select {
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            background: white;
+            position: relative;
+            top: 4px;
+            outline: none; }
+    section .head .posting .post-now {
+      text-align: left;
+      margin-bottom: 50px; }
+      section .head .posting .post-now input {
+        cursor: pointer; }
+    section .head .posting button {
+      background: #1D2C64;
+      color: white;
+      width: 100px;
+      height: 24px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+      margin-right: 40px;
+      cursor: pointer; }
+    section .head .posting button:hover {
+      background: #787CA9;
+      transition: 0.2s; }
+  section .user-post {
+    margin-left: -25px; }
+    section .user-post .head {
+      display: flex;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1; }
+      section .user-post .head .pict img {
+        width: 75px;
+        height: 75px;
+        border: 5px solid #E0EAF8;
+        border-radius: 100px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+      section .user-post .head .desc {
+        margin-left: 10px;
+        font-size: 18px; }
+        section .user-post .head .desc p {
+          font-size: 12px; }
+        section .user-post .head .desc .detail {
+          display: flex;
+          margin-top: -5px; }
+        section .user-post .head .desc .time, section .user-post .head .desc .by {
+          display: flex;
+          margin-right: 15px; }
+          section .user-post .head .desc .time p, section .user-post .head .desc .by p {
+            margin-left: 5px; }
+      section .user-post .head .more {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 25px; }
+    section .user-post .inner-wrap {
+      width: 38vw;
+      margin-left: 40px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background: #1D2C64;
+      padding: 2px;
+      border-radius: 5px;
+      place-items: center;
+      position: relative;
+      top: -25px; }
+      section .user-post .inner-wrap .inner {
+        background: white;
+        border-radius: 4px;
+        padding: 21px;
+        font-size: 24px; }
+        section .user-post .inner-wrap .inner p {
+          margin-left: 39px;
+          margin-right: 10px;
+          text-align: justify;
+          font-size: 14px;
+          line-height: 15px; }
+        section .user-post .inner-wrap .inner hr {
+          width: 154px;
+          margin-top: 5px;
+          margin-bottom: 11px;
+          height: 1px;
+          margin-left: 2px;
+          background: #1D2C64; }
+        section .user-post .inner-wrap .inner .icon {
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+        section .user-post .inner-wrap .inner .icon-inner {
+          display: flex;
+          color: #787CA9;
+          margin-left: 20px;
+          margin-right: 20px; }
+          section .user-post .inner-wrap .inner .icon-inner div {
+            display: flex;
+            margin-right: 5px;
+            margin-left: 5px; }
+            section .user-post .inner-wrap .inner .icon-inner div .total {
+              font-size: 16px;
+              margin-top: 3px;
+              margin-left: 5px;
+              color: black; }
+            section .user-post .inner-wrap .inner .icon-inner div .req-colabs {
+              border: none;
+              outline: none;
+              background-color: #1D2C64;
+              color: white;
+              font-size: 14px;
+              width: 181px;
+              height: 24px;
+              cursor: pointer; }
+            section .user-post .inner-wrap .inner .icon-inner div .req-colabs:hover {
+              background-color: #787CA9;
+              transition: 0.5s; }
+        section .user-post .inner-wrap .inner .active {
+          color: #1D2C64; }
+
+/*# sourceMappingURL=collaboration.css.map */

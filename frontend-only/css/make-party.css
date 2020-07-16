@@ -1,0 +1,162 @@
+section {
+  width: 100%;
+  margin-top: 100px;
+  width: 41vw;
+  margin-left: 30vw; }
+  section .modal .modal-body .to-fill {
+    display: flex;
+    margin-top: 10px; }
+  section .modal .modal-body .select-inner {
+    background: white;
+    border: 1px solid #0D47A1;
+    width: 150px;
+    height: 31px; }
+    section .modal .modal-body .select-inner select {
+      font-size: 12px;
+      cursor: pointer;
+      border: none;
+      background: white;
+      position: relative;
+      top: 4px;
+      outline: none; }
+  section button {
+    cursor: pointer; }
+  section .active {
+    background: #0D47A1 !important;
+    color: white !important; }
+  section .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    padding: 0px; }
+  section .head {
+    margin-left: 30px; }
+    section .head h2 {
+      font-size: 24px;
+      margin-right: 40px; }
+    section .head hr {
+      width: 42.8vw;
+      margin-top: 5px;
+      margin-left: -35px;
+      margin-bottom: 30px;
+      height: 1px;
+      background: #0D47A1; }
+  section .info-wrap {
+    background: #0D47A1;
+    padding: 2px; }
+  section .info-detail {
+    background-color: white;
+    margin-left: 0.5px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    position: relative; }
+    section .info-detail .return {
+      border: 1px solid #0D47A1;
+      color: #0D47A1;
+      background: none;
+      outline: none;
+      width: 140px;
+      height: 22px;
+      font-size: 12px;
+      position: relative;
+      margin: 5px;
+      top: -20px;
+      left: 40px;
+      z-index: 1; }
+    section .info-detail .return:hover {
+      opacity: 0.5; }
+    section .info-detail .post-image {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 10px; }
+      section .info-detail .post-image img {
+        width: 318px;
+        height: 274px;
+        object-fit: cover; }
+      section .info-detail .post-image .active {
+        color: #0D47A1; }
+      section .info-detail .post-image button {
+        font-size: 30px;
+        margin-top: 10px;
+        margin-right: -10px;
+        margin-left: -10px;
+        line-height: 0px;
+        border: none;
+        background: white;
+        color: #787CA9;
+        outline: none; }
+    section .info-detail .description, section .info-detail .term {
+      font-size: 14px; }
+      section .info-detail .description h5, section .info-detail .term h5 {
+        font-size: 18px; }
+    section .info-detail .menu {
+      display: flex;
+      position: absolute;
+      right: 15px;
+      top: 30px; }
+    section .info-detail #filter-expand {
+      background-color: white;
+      width: 180px;
+      position: absolute;
+      right: 0;
+      top: 25px;
+      padding: 10px;
+      border: 1px solid #0D47A1;
+      text-align: left;
+      font-size: 14px; }
+      section .info-detail #filter-expand ul {
+        margin-left: -30px; }
+      section .info-detail #filter-expand li {
+        cursor: pointer;
+        margin-top: 10px; }
+    section .info-detail .filter-info button, section .info-detail .sort-info button {
+      background: none;
+      border: none;
+      outline: none;
+      color: #0D47A1;
+      font-size: 16px; }
+    section .info-detail .filter-info button:hover, section .info-detail .sort-info button:hover {
+      color: #787CA9;
+      transition: 0.2s; }
+    section .info-detail .party-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
+    section .info-detail .party-available {
+      border: 1px solid #0D47A1;
+      width: 175px;
+      height: 200px;
+      padding: 12px;
+      text-align: center;
+      margin: 5px; }
+      section .info-detail .party-available .row {
+        place-content: center; }
+      section .info-detail .party-available img {
+        width: 72px;
+        height: 72px;
+        border-radius: 100px;
+        border: 0.5px solid #0D47A1; }
+      section .info-detail .party-available h4 {
+        font-size: 16px; }
+      section .info-detail .party-available .join {
+        height: 18px;
+        width: 100px;
+        font-size: 10px;
+        outline: none;
+        border: 1px solid #0D47A1;
+        background: none;
+        margin: 2px; }
+      section .info-detail .party-available .join:hover {
+        opacity: 0.5;
+        transition: 0.5s; }
+      section .info-detail .party-available .active:hover {
+        background-color: #787CA9; }
+      section .info-detail .party-available .member {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        font-size: 18px; }
+        section .info-detail .party-available .member .total {
+          font-size: 10px; }
+
+/*# sourceMappingURL=make-party.css.map */

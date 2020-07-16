@@ -1,0 +1,42 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+{% block title %}Blog{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/css/blog-open.css' %}">
+{% endblock %}
+
+{% block section %}
+<div class="container">
+    <div class="title">
+        <h5>Life</h5>
+        <h1>Collaboration makes work easier!</h1>
+    </div>
+    <div class="detail-post">
+        <div class="row">
+            <img src="{% static 'blog/img/logo_bg_transparent.png' %}" alt="profile">
+            <p>Posted by BuildUp Team</p>
+        </div>
+        <div class="row">
+            <p class="time">Thu, 2 July 2020</p>
+            <div class="link">
+                <ul>
+                    <li><a href=""><span class="iconify" data-icon="feather:facebook" data-inline="false"></span></a></li>
+                    <li><a href=""><span class="iconify" data-icon="carbon:logo-instagram" data-inline="false"></span></a></li>
+                    <li><a href=""><span class="iconify" data-icon="feather:twitter" data-inline="false"></span></a></li>
+                    <li><a href=""><span class="iconify" data-icon="uil:linkedin-alt" data-inline="false"></span></a></li>
+                    <li><a href=""><span class="iconify" data-icon="clarity:link-line" data-inline="false"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="post">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam. Ultrices mi tempus imperdiet nulla malesuada. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Egestas sed sed risus pretium. Lorem dolor sed viverra ipsum. Gravida rutrum quisque non tellus. Rutrum tellus pellentesque eu tincidunt tortor. Sed blandit libero volutpat sed cras ornare. Et netus et malesuada fames ac. Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Lacus sed viverra tellus in. Sollicitudin ac orci phasellus egestas. Purus in mollis nunc sed. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Interdum consectetur libero id faucibus nisl tincidunt eget.
+            <br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam. Ultrices mi tempus imperdiet nulla malesuada. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Egestas sed sed risus pretium. Lorem dolor sed viverra ipsum. Gravida rutrum quisque non tellus. Rutrum tellus pellentesque eu tincidunt tortor. Sed blandit libero volutpat sed cras ornare. Et netus et malesuada fames ac. Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Lacus sed viverra tellus in. Sollicitudin ac orci phasellus egestas. Purus in mollis nunc sed. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Interdum consectetur libero id faucibus nisl tincidunt eget.
+            <br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam. Ultrices mi tempus imperdiet nulla malesuada. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Egestas sed sed risus pretium. Lorem dolor sed viverra ipsum. Gravida rutrum quisque non tellus. Rutrum tellus pellentesque eu tincidunt tortor. Sed blandit libero volutpat sed cras ornare. Et netus et malesuada fames ac. Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Lacus sed viverra tellus in. Sollicitudin ac orci phasellus egestas. Purus in mollis nunc sed. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Interdum consectetur libero id faucibus nisl tincidunt eget.
+        </p>
+        <hr>            
+    </div>
+</div>
+{% endblock %}
